@@ -28,6 +28,7 @@ public class Tile {
 		TileEffects = a;
 		Template = tt;
 		TileOrient = Orientation.UP;
+        CurrentStates = new List<TileState>();
 		CurrentStates.Add (TileState.DEFAULT);
 		
 	}

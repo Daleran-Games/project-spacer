@@ -18,4 +18,4 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300004, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   AbsMin: 0
-  AbsMax: 1e+10
+  AbsMax: 10000

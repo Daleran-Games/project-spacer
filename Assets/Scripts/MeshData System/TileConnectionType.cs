@@ -7,6 +7,7 @@ public enum TileConnectionType{
 	CLOSED,
 	LOCKED_DIR,
 	INTERIOR,
-	BLANK
+	BLANK,
+    SHARED
 
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public abstract class GridSystem : MonoBehaviour {
+public interface IGridSystem  {
 
 
 }

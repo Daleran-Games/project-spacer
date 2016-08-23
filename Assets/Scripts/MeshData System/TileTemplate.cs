@@ -23,6 +23,7 @@ public class TileTemplate : ScriptableObject {
 		TileConnectionType[,] con = BuildConnectionArray ();
 		Tile newTile = new Tile (TileInfo, con, IsCollidable, TileDataLayer, TileEffects, this);
 
+        /*
 		foreach (StatInput s in Stats) {
 			newTile.Stats.Add (s.BuildStat ());
 		}
@@ -30,7 +31,7 @@ public class TileTemplate : ScriptableObject {
 		foreach (Modifier m in Modifiers) {
 			newTile.Modifers.Add (m);
 		}
-
+        */
 		return newTile;
 	}
 

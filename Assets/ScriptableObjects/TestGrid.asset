@@ -11,4 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea978878040f7641bfee82afd232a9f, type: 3}
   m_Name: TestGrid
   m_EditorClassIdentifier: 
-  TileRows: []
+  GridInfo:
+    name: The Test Ship
+    description: The first ship to be built
+    flavorText: From here we slippled the surley bonds of gravity and were let loose
+      upon the stars
+    textColor: {r: 0.88235295, g: 0.09083043, b: 0.09083043, a: 0}
+    icon: {fileID: 0}
+  TileRows:
+  - Tiles:
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+  - Tiles:
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+  - Tiles:
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
+    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
