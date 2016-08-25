@@ -6,14 +6,16 @@ using System.Collections.Generic;
 public class Grid : MonoBehaviour {
 
 	Rigidbody2D GridRigidbody;
-	List<GridSystem> GridSystems;
+	List<IGridSystem> GridSystems;
 
 	public SavedGrid Saved;
+    public Info GridInfo;
 
 	// Use this for initialization
 	void Start () {
 
-		GridSystems = new List<GridSystem> ();
+		GridSystems = new List<IGridSystem> ();
+
 	
 	}
 	
@@ -22,9 +24,11 @@ public class Grid : MonoBehaviour {
 	
 	}
 
-	void InitializeGrid (SavedGrid savedGrid) {
+	public void InitializeGrid (SavedGrid savedGrid) {
 
 		Saved = savedGrid;
+
+        GridInfo = Saved.GridInfo;
 
 		if (this.GetComponent<Rigidbody2D> () != null)
 			GridRigidbody = this.GetComponent<Rigidbody2D> ();
@@ -38,9 +42,12 @@ public class Grid : MonoBehaviour {
 		}
 
 		gameObject.AddComponent<DataSystem> ();
-		GridSystems.Add (this.GetComponent<DataSystem> ());
+        gameObject.GetRequiredComponent<DataSystem>().BuildDataLayers(Saved);
+        //GridSystems.Add (this.GetComponent<DataSystem> () as IGridSystem);
+
 		gameObject.AddComponent<MeshSystem> ();
-		GridSystems.Add (this.GetComponent<MeshSystem> ());
+        gameObject.GetRequiredComponent<MeshSystem>().BuildMeshLayerObjects();
+		//GridSystems.Add (this.GetComponent<MeshSystem> ());
 			
 	}
 		

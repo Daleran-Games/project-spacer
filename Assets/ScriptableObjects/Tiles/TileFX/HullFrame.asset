@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5443f8c600a8a24f86c9c887ee12384, type: 3}
+  m_Name: HullFrame
+  m_EditorClassIdentifier: 
+  Layer: 5
+  State: 0
+  Shape: {fileID: 11400000, guid: 46daca221548f1448af2242facb097b1, type: 2}
+  Sprites:
+  - SpriteType: 0
+    SpriteTexture: {fileID: 2800000, guid: e038ba97a1139214d921a5379ac0232c, type: 3}
+    Tint: {r: 1, g: 1, b: 1, a: 0}
+    TextureUV_LL:
+      x: 0
+      y: 320
+    TextureUV_UR:
+      x: 31
+      y: 351
+  ParticleFX: {fileID: 0}
+  TileSound: {fileID: 0}

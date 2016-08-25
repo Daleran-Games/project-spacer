@@ -7,7 +7,6 @@ public class TileFX : ScriptableObject {
 	public MeshLayerType Layer;
 	public TileState State;
 	public TileShape Shape;
-	public Color Tint;
 	public TileSprite[] Sprites;
 	public ParticleSystem ParticleFX;
 	public AudioSource TileSound;

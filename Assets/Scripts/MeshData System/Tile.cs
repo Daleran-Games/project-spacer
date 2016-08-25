@@ -36,5 +36,24 @@ public class Tile {
 	public void RotateTile (Orientation o) {
 		
 	}
+    
+    public TileSprite getTileSprite(MeshLayerType mlt, TileSpriteType tst)
+    {
+        foreach (TileFX tfx in TileEffects)
+        {
+            if (tfx.Layer == mlt)
+            {
+                foreach (TileSprite ts in tfx.Sprites)
+                {
+                    if (ts.SpriteType == tst)
+                        return ts;
+                }
+            }
+        }
+        Debug.LogError("PS ERROR: TileSprite Not Found for MeshLayer: " + mlt + " Type: " + tst);
+        return null;
+        
+
+    }
 
 }
