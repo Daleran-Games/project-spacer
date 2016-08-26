@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThrustModule : Module, IThrust{
+public class ThrustModule : Module {
 
 	public float thrust;
 

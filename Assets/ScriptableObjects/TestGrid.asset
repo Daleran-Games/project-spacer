@@ -19,19 +19,24 @@ MonoBehaviour:
     textColor: {r: 0.88235295, g: 0.09083043, b: 0.09083043, a: 0}
     icon: {fileID: 0}
   TileRows:
-  - Tiles:
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-    - {fileID: 11400000, guid: f6e075abc1aa2c44a87362979b416aa3, type: 2}
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-  - Tiles:
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-    - {fileID: 11400000, guid: f6e075abc1aa2c44a87362979b416aa3, type: 2}
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-  - Tiles:
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-    - {fileID: 11400000, guid: f6e075abc1aa2c44a87362979b416aa3, type: 2}
-    - {fileID: 11400000, guid: aae23b6f2a42c074194055d6c9b74a4e, type: 2}
-  - Tiles:
-    - {fileID: 11400000, guid: e92817750185c524a8d11d0da4f0ae80, type: 2}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: e92817750185c524a8d11d0da4f0ae80, type: 2}
+  - SavedElements:
+    - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
+      Rotation: 7
+    - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
+      Rotation: 0
+    - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
+      Rotation: 1
+  - SavedElements:
+    - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
+      Rotation: 0
+    - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
+      Rotation: 0
+    - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
+      Rotation: 0
+  - SavedElements:
+    - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
+      Rotation: 0
+    - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
+      Rotation: 0
+    - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
+      Rotation: 6

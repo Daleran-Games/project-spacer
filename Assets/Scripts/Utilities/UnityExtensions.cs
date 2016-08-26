@@ -3,13 +3,26 @@ using System.Collections;
 
 public static class UnityExtensions {
 
+    public static T GetOrAddComponent<T> (this GameObject obj) where T : Component
+    {
+        T component = obj.GetComponent<T>();
+
+        if (component == null)
+        {
+            obj.AddComponent<T>();
+            component = obj.GetComponent<T>();
+        }
+
+        return component;
+    }
+    
     /// <summary>
     /// Only return the component if it is a non-null type
     /// </summary>
     /// <typeparam name="T">The type of component to retrieve</typeparam>
     /// <param name="obj">Game object beign searched</param>
     /// <returns>A game component</returns>
-    public static T GetRequiredComponent<T>(this GameObject obj) where T : MonoBehaviour
+    public static T GetRequiredComponent<T>(this GameObject obj) where T : Component
     {
         T component = obj.GetComponent<T>();
 
