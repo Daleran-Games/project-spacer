@@ -22,6 +22,10 @@ public static class GlobalVariables {
 	public static Color defaultInfoColor;
 	public static Sprite defaultInfoIcon;
 
+    public static float tileSize = 1.0f;
+    public static float halfTileSize = tileSize * 0.5f;
+    public static int pixelResolution = 32;
+
 	public static bool SameSign (float a, float b) {
 
 		if (a * b > 0)

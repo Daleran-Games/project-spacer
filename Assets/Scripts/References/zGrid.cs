@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class zGrid : MonoBehaviour, IInitialize {
+public class zGrid : MonoBehaviour {
 
 	public string GridName;
 	Rigidbody2D rb;
@@ -22,14 +22,14 @@ public class zGrid : MonoBehaviour, IInitialize {
 		parts = GetComponentsInChildren<Part> ();
 
 
-		controlSystem = GetComponent<ControlSystem> ();
-		controlSystem.Initialize ();
+		//controlSystem = GetComponent<ControlSystem> ();
+		//controlSystem.Initialize ();
 
 
-		InitializeParts ();
-		rb.mass = CalculateMass ();
+		//InitializeParts ();
+		//rb.mass = CalculateMass ();
 
-		controlSystem.Initialize ();
+		//controlSystem.Initialize ();
 
 	}
 

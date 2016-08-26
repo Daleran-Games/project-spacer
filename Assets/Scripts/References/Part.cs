@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Part : MonoBehaviour, IInitialize {
+public class Part : MonoBehaviour {
 
 	public string partName;
 	public float mass = 0.0f;

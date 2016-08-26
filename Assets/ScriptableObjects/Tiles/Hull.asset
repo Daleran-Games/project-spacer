@@ -12,23 +12,12 @@ MonoBehaviour:
   m_Name: Hull
   m_EditorClassIdentifier: 
   TileInfo:
-    name: Flat Hull
-    description: A simple piece of aluminim and steel that keeps space out.
-    flavorText: Only thing between me and the void.
-    textColor: {r: 0.14922144, g: 0.4421757, b: 0.8455882, a: 0}
+    name: Hull
+    description: A basic hull for any ship
+    flavorText: The only thing between  us and the void is a thin piece of metal
+    textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+  TileUV:
+    x: 0
+    y: 8
   IsCollidable: 1
-  TileEffects:
-  - {fileID: 11400000, guid: a88348dca4f32634fb923a5bc1ff59bf, type: 2}
-  TileDataLayer: 1
-  Connections:
-  - ConnectionRow: 040000000000000004000000
-  - ConnectionRow: 000000000300000000000000
-  - ConnectionRow: 040000000000000004000000
-  Stats:
-  - Template: {fileID: 11400000, guid: f40ee5418f3860b4b97b136c788d6640, type: 2}
-    MinValue: 0
-    MaxValue: 0
-    BaseValue: 900
-  Modifiers:
-  - {fileID: 11400000, guid: bc5fe5b6a6393b04c96b10bd410ce193, type: 2}
