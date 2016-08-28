@@ -4,14 +4,14 @@ using System.Collections;
 public class WeaponMountModule : Part {
 
 	Weapon[] weapons;
-	int weaponGroup;
+	//int weaponGroup;
 	Controller controller;
 
 	public override void Initialize () {
 		partCollider = GetComponent<Collider2D> ();
 		weapons = GetComponentsInChildren<Weapon> ();
 		controller = transform.root.GetComponent<Controller> ();
-		weaponGroup = 1;
+		//weaponGroup = 1;
 		modules = GetComponents<Module> ();
 		InitializeModules ();
 
@@ -36,7 +36,7 @@ public class WeaponMountModule : Part {
 	}
 
 	public virtual void SetWeaponGroup (int wpnGroup) {
-		weaponGroup = wpnGroup;
+		//weaponGroup = wpnGroup;
 	}
 
 

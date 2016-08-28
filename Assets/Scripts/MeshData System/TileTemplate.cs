@@ -10,10 +10,13 @@ public class TileTemplate : ScriptableObject {
     public Vector2Int TileUV;
     public bool IsCollidable;
 
+    public float Thrust;
+    public float Mass;
+
 
 	public Tile BuildTile (Orientation or) {
 
-		return new Tile(TileInfo, TileUV, or, IsCollidable); 
+		return new Tile(TileInfo, TileUV, or, IsCollidable, Thrust, Mass); 
     }
 
 

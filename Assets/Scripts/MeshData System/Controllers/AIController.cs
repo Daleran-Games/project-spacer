@@ -5,12 +5,6 @@ public class AIController : Controller {
 
 	public GameObject Target; //Temporarty value that will have the AI chase an editor selected target
 
-	// Use this for initialization
-	void Start () {
-
-		Initialize ();
-			
-	}
 
 	// Update is called once per frame
 	void FixedUpdate () {

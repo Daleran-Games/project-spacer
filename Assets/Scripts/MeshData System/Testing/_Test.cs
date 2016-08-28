@@ -7,6 +7,7 @@ public class _Test : MonoBehaviour {
 
     public SavedGrid SavedTestGrid;
     public Material TextureAtlas;
+    public Controller GridController;
     Grid TestGrid;
 
 
@@ -14,7 +15,7 @@ public class _Test : MonoBehaviour {
         gameObject.name = SavedTestGrid.GridInfo.name;
         gameObject.AddComponent<Grid>();
         TestGrid = gameObject.GetRequiredComponent<Grid>();
-        TestGrid.InitializeGrid(SavedTestGrid, TextureAtlas);
+        TestGrid.InitializeGrid(SavedTestGrid, TextureAtlas, GridController);
 
 
 	}

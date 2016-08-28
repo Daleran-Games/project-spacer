@@ -22,3 +22,5 @@ MonoBehaviour:
     x: 1
     y: 5
   IsCollidable: 1
+  Thrust: 14000
+  Mass: 175

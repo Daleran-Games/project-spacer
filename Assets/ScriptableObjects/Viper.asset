@@ -32,11 +32,11 @@ MonoBehaviour:
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
-    - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
+    - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 8c54356f10fe6514bb09c780f2131fc2, type: 2}
       Rotation: 0
-    - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
+    - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
@@ -54,11 +54,11 @@ MonoBehaviour:
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
-    - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
+    - Tile: {fileID: 11400000, guid: df59ad45ac9cf6c4c80cc4f8eda97755, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 8c54356f10fe6514bb09c780f2131fc2, type: 2}
       Rotation: 0
-    - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
+    - Tile: {fileID: 11400000, guid: df59ad45ac9cf6c4c80cc4f8eda97755, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
@@ -66,11 +66,11 @@ MonoBehaviour:
     - Tile: {fileID: 11400000, guid: a54c644f531423343bd8b4c2b4c223ce, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 2f120218ba6f27e49b892ada0b708551, type: 2}
-      Rotation: 0
+      Rotation: 6
     - Tile: {fileID: 11400000, guid: 8c54356f10fe6514bb09c780f2131fc2, type: 2}
       Rotation: 0
     - Tile: {fileID: 11400000, guid: 2f120218ba6f27e49b892ada0b708551, type: 2}
-      Rotation: 6
+      Rotation: 0
     - Tile: {fileID: 11400000, guid: a54c644f531423343bd8b4c2b4c223ce, type: 2}
       Rotation: 6
   - SavedElements:

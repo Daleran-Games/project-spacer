@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ControlSystem :  MonoBehaviour {
 
 	public float maxSpeed;
     public Vector2 thrustVector;
     public float torqueScalar;
-    public ThrustBlock thrustBlock = new ThrustBlock (0f, 0f, 0f, 0f, 0f, 0f);
+    public ThrustBlock thrustBlock = new ThrustBlock ();
     public float translateThrottle;
 
     VectorPID gridSteeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
@@ -34,7 +35,7 @@ public class ControlSystem :  MonoBehaviour {
         GridRigidbody.angularDrag = 0f;
         GridRigidbody.drag = 0f;
 
-        controller = parent.GetOrAddComponent<Controller>();
+        UpdateSystem();
 
 		maxSpeed = (thrustBlock.getTotalThrust() / GridRigidbody.mass) * GlobalVariables.maxVelocityTuner;
 	}
@@ -44,9 +45,33 @@ public class ControlSystem :  MonoBehaviour {
         Move(controller.GetMovementVector(), controller.GetDriectionVector());
     }
 
+    public void AssignController(Controller cont)
+    {
+        controller = cont;
+
+        if (controller is PlayerController)
+        {
+            parent.tag = "Player";
+        }
+    }
+
     public ThrustBlock GetThrustBlock () {
 		return thrustBlock;
 	}
+
+    public void UpdateSystem ()
+    {
+        float newMass = 0f;
+        thrustBlock.Clear();
+
+        foreach (KeyValuePair<Vector2Int,Tile> kvp in grid.TileData)
+        {
+            newMass += kvp.Value.Mass;
+            ModifyThrust(kvp.Value.TileOrient, kvp.Key,kvp.Value.Thrust, true);
+        }
+
+        GridRigidbody.mass = newMass;
+    }
 
 	public virtual float GetMaxSpeed (){
 		return maxSpeed;
@@ -73,28 +98,83 @@ public class ControlSystem :  MonoBehaviour {
 			return 0f;
 	}
 
-	public virtual void ModifyThrust (Vector3 orientation, float amount, bool add) {
+	public virtual void ModifyThrust (Orientation orient, Vector2Int pos, float amount, bool add) {
 
-		if (add == false)
+        Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GlobalVariables.halfTileSize, pos.y - grid.GridCenter.y + GlobalVariables.halfTileSize);
+
+        if (add == false)
 			amount = amount * -1f;
 
-		//Add thrust in the y direction
-		if (orientation.y > 0)
-			thrustBlock.up += amount;
-		else if (orientation.y < 0)
-			thrustBlock.down -= amount;
+        switch (orient)
+        {
+            case Orientation.NORTH:
 
-		//Add thrust in the x direction
-		if (orientation.x > 0)
-			thrustBlock.right += amount;
-		else if (orientation.x < 0)
-			thrustBlock.left -= amount;
+                thrustBlock.down -= amount;
+                
 
-		//Add thrust in the z direction
-		if (orientation.z > 0)
-			thrustBlock.ccw += amount;
-		else if (orientation.z < 0)
-			thrustBlock.cw -= amount;
+                if (localPos.x > 0)
+                    thrustBlock.cw -= amount;
+                else if (localPos.x < 0)
+                    thrustBlock.ccw += amount;
+
+                break;
+            case Orientation.SOUTH:
+
+                thrustBlock.up += amount;
+
+                if (localPos.x > 0)
+                    thrustBlock.ccw += amount;
+                else if (localPos.x < 0)
+                    thrustBlock.cw -= amount;
+
+                break;
+            case Orientation.EAST:
+
+                thrustBlock.left -= amount;
+
+                if (localPos.y > 0)
+                    thrustBlock.ccw += amount;
+                else if (localPos.y < 0)
+                    thrustBlock.cw -= amount;
+
+                break;
+            case Orientation.WEST:
+
+                thrustBlock.right += amount;
+                
+                if (localPos.y > 0)
+                    thrustBlock.cw -= amount;
+                else if (localPos.y < 0)
+                    thrustBlock.ccw += amount;
+
+                break;
+            case Orientation.FLIPPED_V:
+
+                thrustBlock.up += amount;
+
+                if (localPos.x > 0)
+                    thrustBlock.ccw += amount;
+                else if (localPos.x < 0)
+                    thrustBlock.cw -= amount;
+
+                break;
+            case Orientation.FLIPPED_H:
+                
+                thrustBlock.down -= amount;
+
+                if (localPos.x > 0)
+                    thrustBlock.cw -= amount;
+                else if (localPos.x < 0)
+                    thrustBlock.ccw += amount;
+
+                break;
+            default:
+                Debug.LogError("PS ERROR: " + orient.ToString() + " not a valid orientation for thrust direction");
+                break;
+        }
+
+
+		
 	}
 
     public virtual void Move(Vector2 movmentVector, Vector2 direction)

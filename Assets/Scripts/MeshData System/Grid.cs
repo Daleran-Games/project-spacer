@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public class Grid : MonoBehaviour {
 
     GameObject parent;
+    public Controller GridController;
 
     MeshSystem GridMeshSystem;
     public CollisionSystem GridCollisionSystem;
+    public ControlSystem GridControlSystem;
 
 	public SavedGrid Saved;
     public Info GridInfo;
@@ -26,7 +28,7 @@ public class Grid : MonoBehaviour {
 	
 	}
 
-	public void InitializeGrid (SavedGrid savedGrid, Material texAtlas) {
+	public void InitializeGrid (SavedGrid savedGrid, Material texAtlas, Controller cont) {
         TileData = new Dictionary<Vector2Int, Tile>();
         GridCenter = new Vector2(0f, 0f);
 
@@ -36,13 +38,25 @@ public class Grid : MonoBehaviour {
         BuildSavedGrid();
         Debug.Log(GridCenter);
 
-        GridMeshSystem = parent.gameObject.GetOrAddComponent<MeshSystem> ();
+        GridMeshSystem = parent.GetOrAddComponent<MeshSystem> ();
         GridMeshSystem.AddTextureAtlas(texAtlas);
         GridMeshSystem.InitializeSystem();
         GridMeshSystem.BuildMesh(GridCenter);
 
-        GridCollisionSystem = parent.gameObject.GetOrAddComponent<CollisionSystem>();
+        GridControlSystem = parent.GetOrAddComponent<ControlSystem>();
+        GridControlSystem.InitializeSystem();
+
+        GridCollisionSystem = parent.GetOrAddComponent<CollisionSystem>();
         GridCollisionSystem.InitializeSystem();
+
+        GridController = cont;
+        GridController.InitializeController();
+
+        GridControlSystem.AssignController(GridController);
+
+
+
+
 			
 	}
 
@@ -125,6 +139,7 @@ public class Grid : MonoBehaviour {
         }
         return y;
     }
+
 
 
 }

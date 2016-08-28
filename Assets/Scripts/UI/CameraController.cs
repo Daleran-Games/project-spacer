@@ -17,13 +17,25 @@ public class CameraController : MonoBehaviour {
 
 	void Start () 
 	{
-		if (target != null)
-			offset = transform.position - target.transform.position;
 
-		cam = GetComponent<Camera> ();
+        offset = new Vector3(0f, 0f, -16f);
+        cam = gameObject.GetRequiredComponent<Camera> ();
 		cam.orthographicSize = startZoom;
 
 	}
+
+    void Update ()
+    {
+        if (target == null)
+        {
+            GameObject t = GameObject.FindGameObjectWithTag("Player");
+            if (t != null)
+            {
+                target = t;
+            }
+        }
+    }
+
 		
 
 	void LateUpdate () 

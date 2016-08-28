@@ -363,9 +363,39 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 1d51877b01d42d64f995ec3906ca3b00,
         type: 2}
+    - target: {fileID: 114000012366672036, guid: 7638c7b485e3c0b4bafd77a2bd901f92,
+        type: 2}
+      propertyPath: GridController
+      value: 
+      objectReference: {fileID: 1991777323}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7638c7b485e3c0b4bafd77a2bd901f92, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1991777320 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011151410594, guid: 7638c7b485e3c0b4bafd77a2bd901f92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1403971616}
+--- !u!114 &1991777323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991777320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6022d4b2c38b348a71d7d2ac2eeff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimPoint: {x: 0, y: 0}
+  movementVector: {x: 0, y: 0}
+  directionVector: {x: 0, y: 0}
+  rb: {fileID: 0}
+  isFiring: 0
+  localVelocity: {x: 0, y: 0}
+  drift: 0
+  mouseLook: 0
+  isAxisInUse: 0
 --- !u!1 &2017863758
 GameObject:
   m_ObjectHideFlags: 0

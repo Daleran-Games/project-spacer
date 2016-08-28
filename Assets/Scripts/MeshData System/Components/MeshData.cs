@@ -44,84 +44,85 @@ public class MeshData  {
     void addUVs (Vector2Int tileUV, Orientation orient, Material atlas)
     {
         float uvTileSize = (float)GlobalVariables.pixelResolution / atlas.mainTexture.height;
+        float uvError = uvTileSize / (2* (float)GlobalVariables.pixelResolution);
         
 
         switch (orient)
         {
             case Orientation.NORTH:
-                addUVNorth(tileUV, uvTileSize);
+                addUVNorth(tileUV, uvTileSize, uvError);
                 break;
             case Orientation.SOUTH:
-                addUVSouth(tileUV, uvTileSize);
+                addUVSouth(tileUV, uvTileSize, uvError);
                 break;
             case Orientation.EAST:
-                addUVEast(tileUV, uvTileSize);
+                addUVEast(tileUV, uvTileSize, uvError);
                 break;
             case Orientation.WEST:
-                addUVWest(tileUV, uvTileSize);
+                addUVWest(tileUV, uvTileSize, uvError);
                 break;
             case Orientation.FLIPPED_V:
-                addUVFlipV(tileUV, uvTileSize);
+                addUVFlipV(tileUV, uvTileSize, uvError);
                 break;
             case Orientation.FLIPPED_H:
-                addUVFlipH(tileUV, uvTileSize);
+                addUVFlipH(tileUV, uvTileSize, uvError);
                 break;
             default:
-                Debug.LogError("PS ERROR: " + orient.ToString() + " not a valid orientation for tile rotation");
-                addUVNorth(tileUV, uvTileSize);
+                Debug.LogError("PS ERROR: " + orient.ToString() + " not a valid orientation for tile rotation. Setting to default NORTH.");
+                addUVNorth(tileUV, uvTileSize, uvError);
                 break;
         }
 
 
     }
 
-    void addUVNorth (Vector2Int tileUV, float uvTileSize)
+    void addUVNorth (Vector2Int tileUV, float uvTileSize, float uvError)
     {
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
     }
 
-    void addUVSouth(Vector2Int tileUV, float uvTileSize)
+    void addUVSouth(Vector2Int tileUV, float uvTileSize, float uvError)
     {
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
     }
 
-    void addUVEast(Vector2Int tileUV, float uvTileSize)
+    void addUVEast(Vector2Int tileUV, float uvTileSize, float uvError)
     {
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
     }
 
-    void addUVWest(Vector2Int tileUV, float uvTileSize)
+    void addUVWest(Vector2Int tileUV, float uvTileSize, float uvError)
     {
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
     }
 
-    void addUVFlipH(Vector2Int tileUV, float uvTileSize)
+    void addUVFlipH(Vector2Int tileUV, float uvTileSize, float uvError)
     {
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
     }
 
-    void addUVFlipV(Vector2Int tileUV, float uvTileSize)
+    void addUVFlipV(Vector2Int tileUV, float uvTileSize, float uvError)
     {
 
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize + uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize));
-        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize, tileUV.y * uvTileSize + uvTileSize));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvError));
+        uv.Add(new Vector2(tileUV.x * uvTileSize + uvTileSize - uvError, tileUV.y * uvTileSize + uvTileSize - uvError));
 
     }
 

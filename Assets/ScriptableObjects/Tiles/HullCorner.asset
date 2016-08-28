@@ -21,3 +21,5 @@ MonoBehaviour:
     x: 0
     y: 9
   IsCollidable: 1
+  Thrust: 0
+  Mass: 50

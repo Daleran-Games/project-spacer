@@ -5,7 +5,7 @@ public static class GlobalVariables {
 
 	public static float collisionDamageModifer = 0.01f;
 	public static float collisionRate = 1f;
-	public static float torqueFactor = 1f;
+	public static float torqueFactor = 1.5f;
 	public static float headingDeadZone = 0.01f;
 	public static float PIDTorqueTuner = 45f;
 	public static float velocityDeadZone = 0.3f;

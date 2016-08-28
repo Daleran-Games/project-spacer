@@ -4,21 +4,16 @@ using System.Collections;
 
 
 public class PlayerController : Controller {
-	
 
-	bool drift;
-	bool mouseLook;
-	bool isAxisInUse = false;
 
-	void Start () {
+    public bool drift;
+	public bool mouseLook;
+	public bool isAxisInUse = false;
 
-		Initialize ();
-
-	}
 
 	void Update () {
 		
-		float fire = Input.GetAxis ("Fire1");
+		float fire = Input.GetAxis ("Fire");
 
 		if (fire > 0) {
 			isFiring = true;
@@ -88,7 +83,7 @@ public class PlayerController : Controller {
 	}
 
 	void setDriftState () {
-		float d = Input.GetAxis ("LShift");
+		float d = Input.GetAxis ("Drift");
 
 		if (d > 0)
 			drift = true;
@@ -98,7 +93,7 @@ public class PlayerController : Controller {
 
 	void setMouseLookState () {
 
-		if (Input.GetAxisRaw ("Space") != 0) {
+		if (Input.GetAxisRaw ("Toggle Mouse") != 0) {
 			if (isAxisInUse == false) {
 
 				if (mouseLook == false)
@@ -111,7 +106,7 @@ public class PlayerController : Controller {
 				isAxisInUse = true;
 			}
 		}
-		if (Input.GetAxisRaw ("Space") == 0) {
+		if (Input.GetAxisRaw ("Toggle Mouse") == 0) {
 			isAxisInUse = false;
 		}
 	}

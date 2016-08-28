@@ -20,3 +20,6 @@ MonoBehaviour:
   TileUV:
     x: 0
     y: 3
+  IsCollidable: 0
+  Thrust: 0
+  Mass: 25

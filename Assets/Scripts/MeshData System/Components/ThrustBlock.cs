@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class ThrustBlock {
 
-	public float up, down, right, left, cw, ccw;
+	[SerializeField] public float up, down, right, left, cw, ccw;
 
 	public ThrustBlock () {
 		up = 0f;
@@ -27,6 +28,16 @@ public class ThrustBlock {
 
 		return up - down -left + right;
 	}
+
+    public void Clear()
+    {
+        up = 0f;
+        down = 0f;
+        right = 0f;
+        left = 0f;
+        cw = 0f;
+        ccw = 0f;
+    }
 
 
 }

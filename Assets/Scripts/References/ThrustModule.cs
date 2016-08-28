@@ -19,7 +19,7 @@ public class ThrustModule : Module {
 		controlSystem = transform.root.GetComponent<ControlSystem> ();
 		Orientation = Vector3.zero;
 		setOrientation ();
-		controlSystem.ModifyThrust (Orientation, thrust, true);
+		//controlSystem.ModifyThrust (Orientation, thrust, true);
 
 	}
 
@@ -31,7 +31,7 @@ public class ThrustModule : Module {
 	}
 		
 	void OnDestroy() {
-		controlSystem.ModifyThrust (Orientation, thrust, false);
+		//controlSystem.ModifyThrust (Orientation, thrust, false);
 	}
 
 	public float getThrottle () {

@@ -9,17 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
-  m_Name: Hull
+  m_Name: FuelTank
   m_EditorClassIdentifier: 
   TileInfo:
-    name: Hull
-    description: A basic hull for any ship
-    flavorText: The only thing between  us and the void is a thin piece of metal
+    name: Small Fuel Tank
+    description: Small tank capable of hauling liquid O2 and H2
+    flavorText: Never should run out of fuel
     textColor: {r: 1, g: 1, b: 1, a: 0}
-    icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+    icon: {fileID: 21300016, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   TileUV:
-    x: 0
-    y: 8
+    x: 1
+    y: 6
   IsCollidable: 1
   Thrust: 0
-  Mass: 100
+  Mass: 150
