@@ -88,7 +88,7 @@ public static class GV {
                 z = -0.1f;
                 break;
             case MeshLayer.GRID_MODULE:
-                z = -0.9f;
+                z = -0.8f;
                 break;
             case MeshLayer.GRID_WALL:
                 z = -1f;

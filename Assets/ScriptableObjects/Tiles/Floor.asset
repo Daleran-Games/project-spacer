@@ -24,3 +24,4 @@ MonoBehaviour:
   TileQuads:
   - {fileID: 11400000, guid: 86c5edb774903b6459530353057c97d3, type: 2}
   - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}
+  - {fileID: 11400000, guid: 9fbcfad6d65e0b14d8bb04ae2baf2e89, type: 2}
