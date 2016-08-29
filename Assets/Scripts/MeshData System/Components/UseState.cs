@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum TileState {
+public enum UseState {
 	ACTIVE,
     ENABLED,
     DISABLED

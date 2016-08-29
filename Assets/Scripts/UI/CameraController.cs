@@ -6,13 +6,6 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
 
-    public enum CameraModes
-    {
-        UTILITY = 0,
-        INTERIOR = 1,
-        EXTERIOR = 2,
-        EXTERIOR_HANGER = 3
-    }
 
     public float ROTStep;
 	public float min;
@@ -22,19 +15,17 @@ public class CameraController : MonoBehaviour {
 	public GameObject target;
     public PlayerController player;
 
-    public CameraModes currentMode;
 
 	private Vector3 offset;
 	private Camera cam;
 
-    public float[] cameraLayerPresets = new float[4] {0.001f, -0.5f, -2.5f, -4f};
-    private int currentLayerPreset;
+    public float[] layerPresets = new float[3] {0.001f, -0.5f, -2.5f};
+    private int currentLayer = 2;
 
 
 	void Start () 
 	{
-
-        offset = new Vector3(0f, 0f, -5f);
+        offset = new Vector3(0f, 0f, layerPresets[currentLayer]);
         cam = gameObject.GetRequiredComponent<Camera> ();
 		cam.orthographicSize = startZoom;
 
@@ -53,35 +44,57 @@ public class CameraController : MonoBehaviour {
         }
     }
 
-		
-
 	void LateUpdate () 
 	{
 
+        if (GameManager.inputManger.layerUp.IsPressedOnce())
+            MoveLayerUp();
+        else if (GameManager.inputManger.layerDown.IsPressedOnce())
+            MoveLayerDown();
 
-        if (player.removeFloor == true)
-            offset.z = 0.001f;
-        else if (player.removeRoof == true)
-            offset.z = -0.5f;
-        else
-            offset.z = -5f;
+        TrackTarget();
 
-
-        if (target != null)
-            transform.position = target.transform.position + offset;
-
-        if (Input.GetAxis ("Mouse ScrollWheel") > 0)
-			cam.orthographicSize -= ROTStep;
-		else if (Input.GetAxis ("Mouse ScrollWheel") < 0)
-			cam.orthographicSize += ROTStep;
-
-		cam.orthographicSize = Mathf.Clamp (cam.orthographicSize, min, max);
+        if (GameManager.inputManger.mouseWheel.GetAxisValue() > 0)
+            ZoomCameraIn();
+        else if (GameManager.inputManger.mouseWheel.GetAxisValue() < 0)
+            ZoomCameraOut();
 
 	}
 
-    public void ChangeCameraLayer (bool upORdown)
+    public void TrackTarget ()
     {
+        if (target != null)
+            transform.position = target.transform.position + offset;
+    }
 
+    public void MoveLayerUp()
+    {
+        if (currentLayer < layerPresets.Length - 1)
+        {
+            currentLayer++;
+        }
+        offset.z = layerPresets[currentLayer];
+    }
+
+    public void MoveLayerDown()
+    {
+        if (currentLayer > 0)
+        {
+            currentLayer--;
+        }
+        offset.z = layerPresets[currentLayer];
+    }
+
+    public void ZoomCameraIn ()
+    {
+        cam.orthographicSize -= ROTStep;
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, min, max);
+    }
+
+    public void ZoomCameraOut()
+    {
+        cam.orthographicSize += ROTStep;
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, min, max);
     }
 
 
