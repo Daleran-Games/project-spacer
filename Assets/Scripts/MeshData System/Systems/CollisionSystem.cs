@@ -27,11 +27,11 @@ public class CollisionSystem : MonoBehaviour {
     {
         foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
         {
-            if(kvp.Value.IsCollidable == true)
+            if(kvp.Value.collisionLayer == CollisionLayer.WALL)
             {
                 BoxCollider2D newCollider = colliderObject.AddComponent<BoxCollider2D>();
-                newCollider.size = new Vector2(GlobalVariables.tileSize, GlobalVariables.tileSize);
-                newCollider.offset = new Vector2(kvp.Key.x - grid.GridCenter.x + GlobalVariables.halfTileSize, kvp.Key.y - grid.GridCenter.y + GlobalVariables.halfTileSize);
+                newCollider.size = new Vector2(GV.tileSize, GV.tileSize);
+                newCollider.offset = new Vector2(kvp.Key.x - grid.GridCenter.x + GV.halfTileSize, kvp.Key.y - grid.GridCenter.y + GV.halfTileSize);
             }
         }
     }

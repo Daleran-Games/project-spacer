@@ -8,18 +8,36 @@ public class PlayerController : Controller {
 
     public bool drift;
 	public bool mouseLook;
-	public bool isAxisInUse = false;
+	public bool isMouseWheelAxisInUse = false;
+
+    public bool removeRoof;
+    public bool removeFloor;
 
 
-	void Update () {
-		
-		float fire = Input.GetAxis ("Fire");
+    void Update() {
 
-		if (fire > 0) {
-			isFiring = true;
-		} else
-			isFiring = false;
+        float fire = Input.GetAxis("Fire");
+        float layerChange = Input.GetAxis("Change Layer");
 
+        if (fire > 0) {
+            isFiring = true;
+        } else
+            isFiring = false;
+
+
+        if (layerChange > 0)
+        {
+            removeRoof = true;
+            removeFloor = false;
+        } else if (layerChange < 0)
+        {
+            removeRoof = false;
+            removeFloor = true;
+        } else
+        {
+            removeRoof = false;
+            removeFloor = false;
+        }
 
 	}
 
@@ -41,7 +59,7 @@ public class PlayerController : Controller {
 			movementVector = inputVector.normalized;
 		} else {
 			localVelocity = transform.InverseTransformDirection (rb.velocity).normalized;
-			if (inputVector == Vector2.zero && rb.velocity.magnitude > GlobalVariables.velocityDeadZone) {
+			if (inputVector == Vector2.zero && rb.velocity.magnitude > GV.velocityDeadZone) {
 				movementVector = -localVelocity;
 			} else {
 				if (inputVector.x != 0 & inputVector.y == 0) {
@@ -73,9 +91,9 @@ public class PlayerController : Controller {
 
 		float angle;
 		if (rotate > 0)
-			angle = -GlobalVariables.playerRotateRadian;
+			angle = -GV.playerRotateRadian;
 		else if (rotate < 0)
-			angle = GlobalVariables.playerRotateRadian;
+			angle = GV.playerRotateRadian;
 		else
 			angle = 0f;
 
@@ -94,7 +112,7 @@ public class PlayerController : Controller {
 	void setMouseLookState () {
 
 		if (Input.GetAxisRaw ("Toggle Mouse") != 0) {
-			if (isAxisInUse == false) {
+			if (isMouseWheelAxisInUse == false) {
 
 				if (mouseLook == false)
 					mouseLook = true;
@@ -103,11 +121,11 @@ public class PlayerController : Controller {
 					directionVector = aimPoint.normalized;
 				}
 
-				isAxisInUse = true;
+                isMouseWheelAxisInUse = true;
 			}
 		}
 		if (Input.GetAxisRaw ("Toggle Mouse") == 0) {
-			isAxisInUse = false;
+            isMouseWheelAxisInUse = false;
 		}
 	}
 

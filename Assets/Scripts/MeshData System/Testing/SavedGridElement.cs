@@ -5,6 +5,7 @@ using System.Collections;
 public class SavedGridElement{
 
     [SerializeField] public TileTemplate Tile;
-    [SerializeField] public Orientation Rotation;
+    [SerializeField] public Direction Rotation;
+    [SerializeField] public bool Flipped;
 
 }

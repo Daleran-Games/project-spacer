@@ -18,17 +18,8 @@ public class Grid : MonoBehaviour {
     public Dictionary<Vector2Int, Tile> TileData;
     public Vector2 GridCenter;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public void InitializeGrid (SavedGrid savedGrid, Controller cont) {
 
-	public void InitializeGrid (SavedGrid savedGrid, Material texAtlas, Controller cont) {
         TileData = new Dictionary<Vector2Int, Tile>();
         GridCenter = new Vector2(0f, 0f);
 
@@ -36,10 +27,8 @@ public class Grid : MonoBehaviour {
 		Saved = savedGrid;
         GridInfo = Saved.GridInfo;
         BuildSavedGrid();
-        Debug.Log(GridCenter);
 
         GridMeshSystem = parent.GetOrAddComponent<MeshSystem> ();
-        GridMeshSystem.AddTextureAtlas(texAtlas);
         GridMeshSystem.InitializeSystem();
         GridMeshSystem.BuildMesh(GridCenter);
 
@@ -53,10 +42,6 @@ public class Grid : MonoBehaviour {
         GridController.InitializeController();
 
         GridControlSystem.AssignController(GridController);
-
-
-
-
 			
 	}
 
@@ -78,7 +63,7 @@ public class Grid : MonoBehaviour {
             for (int x = 0; x < sizeX; x++)
             {
                 if (Saved.TileRows[y].SavedElements[x].Tile != null)
-                    TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation));
+                    TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, Saved.TileRows[y].SavedElements[x].Flipped));
             }
         }
 
@@ -92,7 +77,7 @@ public class Grid : MonoBehaviour {
         float maxX = GetMaxX();
         float maxY = GetMaxY();
 
-        GridCenter = new Vector2(((maxX - minX)/2f)+(GlobalVariables.tileSize * 0.5f),((maxY - minY)/2f)+(GlobalVariables.tileSize * 0.5f));
+        GridCenter = new Vector2(((maxX - minX)/2f)+(GV.tileSize * 0.5f),((maxY - minY)/2f)+(GV.tileSize * 0.5f));
 
     }
 

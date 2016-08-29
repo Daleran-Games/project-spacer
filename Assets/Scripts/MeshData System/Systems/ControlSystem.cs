@@ -37,7 +37,7 @@ public class ControlSystem :  MonoBehaviour {
 
         UpdateSystem();
 
-		maxSpeed = (thrustBlock.getTotalThrust() / GridRigidbody.mass) * GlobalVariables.maxVelocityTuner;
+		maxSpeed = (thrustBlock.getTotalThrust() / GridRigidbody.mass) * GV.maxVelocityTuner;
 	}
 
     void FixedUpdate()
@@ -66,8 +66,13 @@ public class ControlSystem :  MonoBehaviour {
 
         foreach (KeyValuePair<Vector2Int,Tile> kvp in grid.TileData)
         {
-            newMass += kvp.Value.Mass;
-            ModifyThrust(kvp.Value.TileOrient, kvp.Key,kvp.Value.Thrust, true);
+            float addMass = 0f;
+            if (kvp.Value.statCollection.TryGetValue(StatType.Mass, out addMass))
+                newMass += addMass;
+
+            float addThrust = 0f;
+            if (kvp.Value.statCollection.TryGetValue(StatType.Thrust, out addThrust))
+                ModifyThrust(kvp.Value.direction, kvp.Key, addThrust, true);
         }
 
         GridRigidbody.mass = newMass;
@@ -98,16 +103,16 @@ public class ControlSystem :  MonoBehaviour {
 			return 0f;
 	}
 
-	public virtual void ModifyThrust (Orientation orient, Vector2Int pos, float amount, bool add) {
+	public virtual void ModifyThrust (Direction dir, Vector2Int pos, float amount, bool add) {
 
-        Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GlobalVariables.halfTileSize, pos.y - grid.GridCenter.y + GlobalVariables.halfTileSize);
+        Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GV.halfTileSize, pos.y - grid.GridCenter.y + GV.halfTileSize);
 
         if (add == false)
 			amount = amount * -1f;
 
-        switch (orient)
+        switch (dir)
         {
-            case Orientation.NORTH:
+            case Direction.UP:
 
                 thrustBlock.down -= amount;
                 
@@ -118,7 +123,7 @@ public class ControlSystem :  MonoBehaviour {
                     thrustBlock.ccw += amount;
 
                 break;
-            case Orientation.SOUTH:
+            case Direction.DOWN:
 
                 thrustBlock.up += amount;
 
@@ -128,7 +133,7 @@ public class ControlSystem :  MonoBehaviour {
                     thrustBlock.cw -= amount;
 
                 break;
-            case Orientation.EAST:
+            case Direction.RIGHT:
 
                 thrustBlock.left -= amount;
 
@@ -138,7 +143,7 @@ public class ControlSystem :  MonoBehaviour {
                     thrustBlock.cw -= amount;
 
                 break;
-            case Orientation.WEST:
+            case Direction.LEFT:
 
                 thrustBlock.right += amount;
                 
@@ -148,28 +153,9 @@ public class ControlSystem :  MonoBehaviour {
                     thrustBlock.ccw += amount;
 
                 break;
-            case Orientation.FLIPPED_V:
 
-                thrustBlock.up += amount;
-
-                if (localPos.x > 0)
-                    thrustBlock.ccw += amount;
-                else if (localPos.x < 0)
-                    thrustBlock.cw -= amount;
-
-                break;
-            case Orientation.FLIPPED_H:
-                
-                thrustBlock.down -= amount;
-
-                if (localPos.x > 0)
-                    thrustBlock.cw -= amount;
-                else if (localPos.x < 0)
-                    thrustBlock.ccw += amount;
-
-                break;
             default:
-                Debug.LogError("PS ERROR: " + orient.ToString() + " not a valid orientation for thrust direction");
+                Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust direction");
                 break;
         }
 
@@ -202,11 +188,11 @@ public class ControlSystem :  MonoBehaviour {
             else if (aimAngle < 0)
                 steering = -thrustBlock.cw;
 
-            if (PID < GlobalVariables.headingDeadZone && PID > -GlobalVariables.headingDeadZone)
+            if (PID < GV.headingDeadZone && PID > -GV.headingDeadZone)
                 steering = 0f;
 
 
-            torqueScalar = PID * steering * GlobalVariables.torqueFactor;
+            torqueScalar = PID * steering * GV.torqueFactor;
             GridRigidbody.AddTorque(-torqueScalar);
         }
 

@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
 public class MeshSystem : MonoBehaviour {
 
 	public GameObject parent;
@@ -11,8 +9,8 @@ public class MeshSystem : MonoBehaviour {
 
     public MeshFilter meshFilter;
     public MeshRenderer meshRenderer;
-    public Mesh mesh;
-    public Material textureAtlas;
+
+
     public MeshData meshData;
 
 
@@ -21,34 +19,36 @@ public class MeshSystem : MonoBehaviour {
         grid = parent.GetRequiredComponent<Grid>();
         meshFilter = parent.GetOrAddComponent<MeshFilter>();
         meshRenderer = parent.GetOrAddComponent<MeshRenderer>();
-        meshRenderer.material = textureAtlas;
+
         meshData = new MeshData();
 
     }
 
-    public void AddTextureAtlas (Material texAt)
-    {
-        textureAtlas = texAt;
-  
-    }
-
-    public void BuildMesh (Vector2 center)
+     public void BuildMesh (Vector2 center)
     {
         meshData.Clear();
 
         foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
         {
-            meshData.AddQuad(new Vector2 (kvp.Key.x - (center.x - GlobalVariables.halfTileSize),kvp.Key.y - (center.y - GlobalVariables.halfTileSize)),kvp.Value.TileUV, kvp.Value.TileOrient, textureAtlas);
+            //Debug.Log("Building Tile: " + kvp.Value.TileInfo.name + " at " + kvp.Key.ToString());
+            Vector3 offset = new Vector3(kvp.Key.x-center.x + GV.halfTileSize, kvp.Key.y - center.y + GV.halfTileSize, 0f);
+            foreach (QuadData qd in kvp.Value.tileQuads)
+            {
+                //Debug.Log("Building Quad: " + qd.atlasCoord.ToString()+ " Directions: " + qd.direction + " Flipped: " + qd.flipped);
+                meshData.AddQuad(qd, offset);
+            }
         }
 
-        mesh = new Mesh();
-        mesh.vertices = meshData.vertices.ToArray();
-        mesh.triangles = meshData.triangles.ToArray();
-        mesh.uv = meshData.uv.ToArray();
-        mesh.RecalculateNormals();
-        meshFilter.mesh = mesh;
+        meshFilter.mesh.Clear();
+        meshFilter.mesh.vertices = meshData.vertices.ToArray();
+        meshFilter.mesh.triangles = meshData.triangles.ToArray();
+        meshFilter.mesh.uv = meshData.uv.ToArray();
+        meshFilter.mesh.RecalculateNormals();
+        meshFilter.mesh.Optimize();
+        meshRenderer.material = GV.atlas;
 
     }
+
 
 
 

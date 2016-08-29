@@ -9,17 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
-  m_Name: FloorCorner
+  m_Name: HullInverse
   m_EditorClassIdentifier: 
   TileInfo:
-    name: Steel Grate Floor
-    description: A simple steel grate floor
-    flavorText: Keeps me from having to walk over those ducts and wire
+    name: Hull
+    description: A basic hull for any ship
+    flavorText: The only thing between  us and the void is a thin piece of metal
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  TileUV:
-    x: 0
-    y: 3
-  IsCollidable: 0
-  Thrust: 0
-  Mass: 25
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value: 100
+  TileQuads:
+  - {fileID: 11400000, guid: 2d0693de541a66a498fecb6f0110c3d0, type: 2}
+  - {fileID: 11400000, guid: 69e37da65f7963744a5aece8dd7da3e0, type: 2}
+  - {fileID: 11400000, guid: aa1f28059d7299c409dbcac352748626, type: 2}

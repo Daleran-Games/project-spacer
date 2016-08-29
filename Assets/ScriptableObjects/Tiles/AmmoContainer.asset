@@ -18,9 +18,12 @@ MonoBehaviour:
     flavorText: You never have enough ammo
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300020, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  TileUV:
-    x: 1
-    y: 7
-  IsCollidable: 1
-  Thrust: 0
-  Mass: 100
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value: 200
+  TileQuads:
+  - {fileID: 11400000, guid: 86c5edb774903b6459530353057c97d3, type: 2}
+  - {fileID: 11400000, guid: 61f2f0ffc8faec8468ec00cc9c71221a, type: 2}
+  - {fileID: 11400000, guid: 3c4ff1cca18504b4d9e767f98d2f5047, type: 2}
+  - {fileID: 11400000, guid: 9fbcfad6d65e0b14d8bb04ae2baf2e89, type: 2}

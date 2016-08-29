@@ -17,9 +17,12 @@ MonoBehaviour:
     flavorText: Nice seat
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300042, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  TileUV:
-    x: 1
-    y: 2
-  IsCollidable: 1
-  Thrust: 0
-  Mass: 150
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value: 175
+  TileQuads:
+  - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
+  - {fileID: 11400000, guid: 61f2f0ffc8faec8468ec00cc9c71221a, type: 2}
+  - {fileID: 11400000, guid: d02a310252bd2794fa47da24c1eb93a4, type: 2}
+  - {fileID: 11400000, guid: c3da95a376aa26e49b48278fe982aa64, type: 2}

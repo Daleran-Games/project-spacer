@@ -5,24 +5,41 @@ using System.Linq;
 
 public class Tile {
 
-	public Info TileInfo;
-    public Vector2Int TileUV;
-    public Orientation TileOrient;
-    public bool IsCollidable;
+	public Info TileInfo = GV.defaultInfo;
 
-    public float Thrust;
-    public float Mass;
+    public Direction direction = Direction.UP;
+    public bool flipped = false;
 
-    public Tile (Info i, Vector2Int tUV, Orientation or, bool collidable, float th, float ms) {
+    public CollisionLayer collisionLayer = CollisionLayer.ENTITY;
+
+    public Dictionary<StatType, float> statCollection = new Dictionary<StatType, float>();
+    public List<QuadData> tileQuads = new List<QuadData>();
+
+    public Tile()
+    {
+
+    }
+
+    public Tile (Info i, Direction dir, bool fl, CollisionLayer cl, Dictionary<StatType, float> sc, List<QuadData> tq ) {
 
         TileInfo = i;
-        TileUV = tUV;
-        TileOrient = or;
-        IsCollidable = collidable;
-
-        Thrust = th;
-        Mass = ms;
+        direction = dir;
+        flipped = fl;
+        collisionLayer = cl;
+        statCollection = sc;
+        tileQuads.AddRange(tq);
 		
 	}
+
+
+    public void RotateTile (Direction dir)
+    {
+
+    }
+
+    public void FlipTile ()
+    {
+
+    }
 
 }

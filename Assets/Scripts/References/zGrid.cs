@@ -57,9 +57,9 @@ public class zGrid : MonoBehaviour {
 		if (partHit.GetComponent<DamageModule> () != null) {
 			if (incomingObject.transform.root.GetComponent<zGrid> () != null) {
 				if (Time.time > nextCollision) {
-					nextCollision = Time.time + GlobalVariables.collisionRate;
+					nextCollision = Time.time + GV.collisionRate;
 					Vector2 vDiff = rb.velocity * rb.mass - incomingObject.transform.root.GetComponent<Rigidbody2D> ().velocity * incomingObject.transform.root.GetComponent<Rigidbody2D> ().mass;
-					int dmg = (int)((Mathf.Abs (vDiff.x) + Mathf.Abs (vDiff.y)) * GlobalVariables.collisionDamageModifer);
+					int dmg = (int)((Mathf.Abs (vDiff.x) + Mathf.Abs (vDiff.y)) * GV.collisionDamageModifer);
 					Debug.Log ("Collision between " + collision.gameObject.name + " and " + gameObject.name + " for " + dmg + " dmg.");
 					partHit.GetComponent<DamageModule> ().Damage (dmg);
 				}

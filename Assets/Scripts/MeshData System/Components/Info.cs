@@ -4,11 +4,11 @@ using System.Collections;
 [System.Serializable]
 public class Info {
 
-	public string name;
-	public string description;
-	public string flavorText;
-	public Color textColor  = GlobalVariables.defaultInfoColor;
-	public Sprite icon = GlobalVariables.defaultInfoIcon;
+    public string name = GV.defaultName;
+	public string description = GV.defaultDesc;
+	public string flavorText = GV.defaultFlav;
+	public Color textColor  = GV.defaultInfoColor;
+	public Sprite icon = GV.defaultInfoIcon;
 
 	public Info (string n, string d, string f, Color c, Sprite i) {
 
@@ -32,5 +32,11 @@ public class Info {
 		name = n;
 
 	}
+
+    public Info()
+    {
+
+    }
+
 
 }

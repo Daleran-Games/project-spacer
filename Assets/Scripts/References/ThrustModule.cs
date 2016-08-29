@@ -39,7 +39,7 @@ public class ThrustModule : Module {
 	}
 
 	private bool confirmDirection (float angle) {
-		if (transform.localEulerAngles.z > (angle - GlobalVariables.directionError) && transform.localEulerAngles.z < (angle + GlobalVariables.directionError)) {
+		if (transform.localEulerAngles.z > (angle - GV.directionError) && transform.localEulerAngles.z < (angle + GV.directionError)) {
 			return true;
 		} else {
 			return false;
@@ -58,31 +58,31 @@ public class ThrustModule : Module {
 		if (confirmDirection (270))
 			Orientation = new Vector3 (1f, 0f, 0f);
 
-		if (confirmDirection (180) && transform.localPosition.x < (0 - GlobalVariables.directionError) && transform.localPosition.y > (0 + GlobalVariables.directionError))
+		if (confirmDirection (180) && transform.localPosition.x < (0 - GV.directionError) && transform.localPosition.y > (0 + GV.directionError))
 			Orientation.z = -1f;
-		if (confirmDirection (270) && transform.localPosition.x < (0 - GlobalVariables.directionError) && transform.localPosition.y > (0 + GlobalVariables.directionError))
+		if (confirmDirection (270) && transform.localPosition.x < (0 - GV.directionError) && transform.localPosition.y > (0 + GV.directionError))
 					Orientation.z = 1f;
-		if (confirmDirection (180) && transform.localPosition.x > (0 + GlobalVariables.directionError) && transform.localPosition.y > (0 + GlobalVariables.directionError))
+		if (confirmDirection (180) && transform.localPosition.x > (0 + GV.directionError) && transform.localPosition.y > (0 + GV.directionError))
 					Orientation.z = 1f;
-		if (confirmDirection (90) && transform.localPosition.x > (0 + GlobalVariables.directionError) && transform.localPosition.y > (0 + GlobalVariables.directionError))
+		if (confirmDirection (90) && transform.localPosition.x > (0 + GV.directionError) && transform.localPosition.y > (0 + GV.directionError))
 					Orientation.z = -1f;
-		if (confirmDirection (90) && transform.localPosition.x > (0 + GlobalVariables.directionError) && transform.localPosition.y < (0 - GlobalVariables.directionError))
+		if (confirmDirection (90) && transform.localPosition.x > (0 + GV.directionError) && transform.localPosition.y < (0 - GV.directionError))
 					Orientation.z = 1f;
-		if (confirmDirection (270) && transform.localPosition.x < (0 - GlobalVariables.directionError) && transform.localPosition.y < (0 - GlobalVariables.directionError))
+		if (confirmDirection (270) && transform.localPosition.x < (0 - GV.directionError) && transform.localPosition.y < (0 - GV.directionError))
 					Orientation.z = -1f;
-		if (confirmDirection (0) && transform.localPosition.x > (0 + GlobalVariables.directionError) && transform.localPosition.y < (0 - GlobalVariables.directionError))
+		if (confirmDirection (0) && transform.localPosition.x > (0 + GV.directionError) && transform.localPosition.y < (0 - GV.directionError))
 					Orientation.z = -1f;
-		if (confirmDirection (0) && transform.localPosition.x < (0 - GlobalVariables.directionError) && transform.localPosition.y < (0 - GlobalVariables.directionError))
+		if (confirmDirection (0) && transform.localPosition.x < (0 - GV.directionError) && transform.localPosition.y < (0 - GV.directionError))
 					Orientation.z = 1f;
 	}
 
 	bool shouldThrusterFire (Vector2 tV, float tS) {
 
-		if (GlobalVariables.SameSign (tV.x, Orientation.x))
+		if (GV.IsSameSign (tV.x, Orientation.x))
 			return true;
-		else if (GlobalVariables.SameSign (tV.y, Orientation.y))
+		else if (GV.IsSameSign (tV.y, Orientation.y))
 			return true;
-		else if (GlobalVariables.SameSign (tS, Orientation.z))
+		else if (GV.IsSameSign (tS, Orientation.z))
 			return true;
 		else
 			return false;

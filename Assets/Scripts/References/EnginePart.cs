@@ -19,7 +19,7 @@ public class EnginePart :Part {
 	}
 
 	void Update () {
-		if (thruster.getThrottle () > GlobalVariables.throttleCutOff) {
+		if (thruster.getThrottle () > GV.throttleCutOff) {
 			engineExhaust.SetEmissionRate (thruster.getThrottle () * startingEmission*0.25f);
 			thrusterSound.volume = Mathf.Clamp01(thruster.getThrottle ());
 			if (thrusterSound.isPlaying == false)
