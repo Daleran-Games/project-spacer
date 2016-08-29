@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7125391648f3054488f0b826fc499f0b, type: 3}
   m_Name: Cockpit
   m_EditorClassIdentifier: 
-  layer: 10
+  layer: 12
   shape: 1
   atlasCoord:
     x: 0

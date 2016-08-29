@@ -44,6 +44,7 @@ public class MeshSystem : MonoBehaviour {
         meshFilter.mesh.triangles = meshData.triangles.ToArray();
         meshFilter.mesh.uv = meshData.uv.ToArray();
         meshFilter.mesh.RecalculateNormals();
+        meshFilter.mesh.Optimize();
         meshRenderer.material = GV.atlas;
 
     }

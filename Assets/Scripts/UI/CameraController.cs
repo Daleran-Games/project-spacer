@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour {
 	private Vector3 offset;
 	private Camera cam;
 
+    public float[] cameraLayerPresets;
+
 
 	void Start () 
 	{
@@ -46,9 +48,9 @@ public class CameraController : MonoBehaviour {
 
 
         if (player.removeFloor == true)
-            offset.z = 0.00001f;
+            offset.z = 0.001f;
         else if (player.removeRoof == true)
-            offset.z = -0.99999f;
+            offset.z = -0.5f;
         else
             offset.z = -5f;
 

@@ -85,9 +85,12 @@ public static class GV {
                 z = 0f;
                 break;
             case MeshLayer.ENTITY:
-                z = -0.1f;
+                z = -0.5f;
                 break;
-            case MeshLayer.GRID_MODULE:
+            case MeshLayer.GRID_MODULE_LOW:
+                z = -0.2f;
+                break;
+            case MeshLayer.GRID_MODULE_HIGH:
                 z = -0.8f;
                 break;
             case MeshLayer.GRID_WALL:
@@ -97,7 +100,7 @@ public static class GV {
                 z = -1f;
                 break;
             case MeshLayer.GRID_TOP:
-                z = -1.1f;
+                z = -1.01f;
                 break;
             case MeshLayer.HANGER_CEILING:
                 z = -2f;
