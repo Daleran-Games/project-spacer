@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,18 +6,37 @@ using System.Collections.Generic;
 public class TileTemplate : ScriptableObject {
 
 	public Info TileInfo;
-    public Vector2Int TileUV;
-    public bool IsCollidable;
+    public CollisionLayer CollisionType;
 
-    public float Thrust;
-    public float Mass;
+    public List<StatEntry> TileStats;
+    public List<QuadTemplate> TileQuads;
 
+    public Tile BuildTile (Direction dir, bool flipped) {
 
-	public Tile BuildTile (Orientation or) {
+		return new Tile(TileInfo, dir, flipped, CollisionType, BuildStatCollection(), BuildQuadData(dir, flipped)); 
 
-		return new Tile(TileInfo, TileUV, or, IsCollidable, Thrust, Mass); 
     }
 
+    Dictionary<StatType, float> BuildStatCollection ()
+    {
+        Dictionary<StatType, float> stats = new Dictionary<StatType, float>();
+        foreach (StatEntry se in TileStats)
+        {
+            stats.Add(se.Stat,se.Value);
+        }
+        return stats;
+    }
 
+    List<QuadData> BuildQuadData (Direction dir, bool fl)
+    {
+        List<QuadData> quads = new List<QuadData>();
+        
+        foreach (QuadTemplate qt in TileQuads)
+        {
+            quads.Add(qt.BuildQuad(dir, fl));
+        }
+
+        return quads;
+    }
 
 }

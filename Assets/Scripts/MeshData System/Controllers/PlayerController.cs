@@ -41,7 +41,7 @@ public class PlayerController : Controller {
 			movementVector = inputVector.normalized;
 		} else {
 			localVelocity = transform.InverseTransformDirection (rb.velocity).normalized;
-			if (inputVector == Vector2.zero && rb.velocity.magnitude > GlobalVariables.velocityDeadZone) {
+			if (inputVector == Vector2.zero && rb.velocity.magnitude > GV.velocityDeadZone) {
 				movementVector = -localVelocity;
 			} else {
 				if (inputVector.x != 0 & inputVector.y == 0) {
@@ -73,9 +73,9 @@ public class PlayerController : Controller {
 
 		float angle;
 		if (rotate > 0)
-			angle = -GlobalVariables.playerRotateRadian;
+			angle = -GV.playerRotateRadian;
 		else if (rotate < 0)
-			angle = GlobalVariables.playerRotateRadian;
+			angle = GV.playerRotateRadian;
 		else
 			angle = 0f;
 

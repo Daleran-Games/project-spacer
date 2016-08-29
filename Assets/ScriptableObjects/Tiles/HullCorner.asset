@@ -17,9 +17,11 @@ MonoBehaviour:
     flavorText: The only thing between  us and the void is a thin piece of metal
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  TileUV:
-    x: 0
-    y: 9
-  IsCollidable: 1
-  Thrust: 0
-  Mass: 50
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value: 75
+  TileQuads:
+  - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
+  - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}
+  - {fileID: 11400000, guid: 7fe1585e86a92514f88dadb4b88af002, type: 2}

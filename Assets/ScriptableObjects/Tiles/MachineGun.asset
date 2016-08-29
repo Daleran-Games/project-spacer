@@ -17,9 +17,12 @@ MonoBehaviour:
     flavorText: Bang Bang
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300038, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  TileUV:
-    x: 1
-    y: 3
-  IsCollidable: 1
-  Thrust: 0
-  Mass: 150
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value: 150
+  TileQuads:
+  - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
+  - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}
+  - {fileID: 11400000, guid: 69a9f0a6cd9d53d4cb0970489c58a0f2, type: 2}
+  - {fileID: 11400000, guid: c73dcccecdf06e24684af229836c116a, type: 2}

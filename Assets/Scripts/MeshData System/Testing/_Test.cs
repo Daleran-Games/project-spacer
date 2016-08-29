@@ -12,10 +12,11 @@ public class _Test : MonoBehaviour {
 
 
 	void Start () {
+        GV.atlas = TextureAtlas;
         gameObject.name = SavedTestGrid.GridInfo.name;
         gameObject.AddComponent<Grid>();
         TestGrid = gameObject.GetRequiredComponent<Grid>();
-        TestGrid.InitializeGrid(SavedTestGrid, TextureAtlas, GridController);
+        TestGrid.InitializeGrid(SavedTestGrid, GridController);
 
 
 	}
