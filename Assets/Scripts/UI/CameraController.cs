@@ -11,14 +11,16 @@ public class CameraController : MonoBehaviour {
 	public float startZoom;
 
 	public GameObject target;
+    public PlayerController player;
 
 	private Vector3 offset;
 	private Camera cam;
 
+
 	void Start () 
 	{
 
-        offset = new Vector3(0f, 0f, -16f);
+        offset = new Vector3(0f, 0f, -5f);
         cam = gameObject.GetRequiredComponent<Camera> ();
 		cam.orthographicSize = startZoom;
 
@@ -32,6 +34,7 @@ public class CameraController : MonoBehaviour {
             if (t != null)
             {
                 target = t;
+                player = target.GetRequiredComponent<PlayerController>();
             }
         }
     }
@@ -40,10 +43,20 @@ public class CameraController : MonoBehaviour {
 
 	void LateUpdate () 
 	{
-		if (target != null)
-			transform.position = target.transform.position + offset;
 
-		if (Input.GetAxis ("Mouse ScrollWheel") > 0)
+
+        if (player.removeFloor == true)
+            offset.z = 0.00001f;
+        else if (player.removeRoof == true)
+            offset.z = -0.99999f;
+        else
+            offset.z = -5f;
+
+
+        if (target != null)
+            transform.position = target.transform.position + offset;
+
+        if (Input.GetAxis ("Mouse ScrollWheel") > 0)
 			cam.orthographicSize -= ROTStep;
 		else if (Input.GetAxis ("Mouse ScrollWheel") < 0)
 			cam.orthographicSize += ROTStep;
