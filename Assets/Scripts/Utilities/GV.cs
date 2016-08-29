@@ -29,7 +29,7 @@ public static class GV {
 
     //PHYSICS//
     //Control Variables
-    public static float torqueFactor = 1.0f;
+    public static float torqueFactor = 3f;
     public static float headingDeadZone = 0.001f;
     public static float PIDTorqueTuner = 45f;
     public static float velocityDeadZone = 0.3f;

@@ -9,6 +9,8 @@ public enum TileShape {
     CORNER_DOWN,
     CORNER_UP,
     WALL,
-    WALL_CORNER
+    WALL_CORNER,
+    INVERSE_DOWN,
+    INVERSE_UP
 
 }

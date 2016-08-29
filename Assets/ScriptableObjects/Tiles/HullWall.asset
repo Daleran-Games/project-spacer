@@ -9,24 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
-  m_Name: Engine
+  m_Name: HullWall
   m_EditorClassIdentifier: 
   TileInfo:
-    name: Small Thruster
-    description: A small thruster meant for small ships or fine tuned manuvering on
-      larger ships
-    flavorText: Keeps us moving
+    name: Hull
+    description: A basic hull for any ship
+    flavorText: The only thing between  us and the void is a thin piece of metal
     textColor: {r: 1, g: 1, b: 1, a: 0}
-    icon: {fileID: 21300028, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+    icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   CollisionType: 3
   TileStats:
   - Stat: 0
-    Value: 130
-  - Stat: 1
-    Value: 10000
+    Value: 125
   TileQuads:
   - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
   - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}
-  - {fileID: 11400000, guid: ab13fefcfb6762d4bb27badc0832ac1e, type: 2}
-  - {fileID: 11400000, guid: 69a9f0a6cd9d53d4cb0970489c58a0f2, type: 2}
-  - {fileID: 11400000, guid: 6661c813c6cc0264a85d4a8c7ff5d587, type: 2}
+  - {fileID: 11400000, guid: 0230ece2a660a1b4fba30691e63c3f55, type: 2}

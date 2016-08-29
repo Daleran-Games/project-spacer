@@ -108,6 +108,18 @@ public class QuadData
                 vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
                 vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
                 break;
+            case TileShape.INVERSE_UP:
+                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
+                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
+                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                break;
+            case TileShape.INVERSE_DOWN:
+                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
+                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
+                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                break;
             default:
                 Debug.LogError("PS ERROR: " + shape.ToString() + " not a valid shape. Setting to default FLAT.");
                 vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
