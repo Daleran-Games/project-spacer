@@ -8,7 +8,9 @@ public class PlayerController : Controller {
 
     public bool drift;
 	public bool mouseLook;
-	public bool isMouseWheelAxisInUse = false;
+
+
+    public bool isMouseWheelAxisInUse = false;
 
     public bool removeRoof;
     public bool removeFloor;

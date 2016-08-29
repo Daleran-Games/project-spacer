@@ -5,7 +5,16 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-	public float ROTStep;
+
+    public enum CameraModes
+    {
+        UTILITY = 0,
+        INTERIOR = 1,
+        EXTERIOR = 2,
+        EXTERIOR_HANGER = 3
+    }
+
+    public float ROTStep;
 	public float min;
 	public float max;
 	public float startZoom;
@@ -13,10 +22,13 @@ public class CameraController : MonoBehaviour {
 	public GameObject target;
     public PlayerController player;
 
+    public CameraModes currentMode;
+
 	private Vector3 offset;
 	private Camera cam;
 
-    public float[] cameraLayerPresets;
+    public float[] cameraLayerPresets = new float[4] {0.001f, -0.5f, -2.5f, -4f};
+    private int currentLayerPreset;
 
 
 	void Start () 
@@ -66,4 +78,12 @@ public class CameraController : MonoBehaviour {
 		cam.orthographicSize = Mathf.Clamp (cam.orthographicSize, min, max);
 
 	}
+
+    public void ChangeCameraLayer (bool upORdown)
+    {
+
+    }
+
+
 }
+
