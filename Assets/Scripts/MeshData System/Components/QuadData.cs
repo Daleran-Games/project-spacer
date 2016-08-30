@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class QuadData
 {
 
-    Vector3[] vertices = new Vector3[4];
-    int[] triangles = new int[6];
-    Vector2[] uv = new Vector2[4];
+    public List<Vector3> vertices = new List<Vector3>();
+    public List<int> triangles = new List<int>();
+    public List<Vector2> uv = new List<Vector2>();
 
     float zLayer = 0f;
     bool isBuilt = false;
@@ -37,18 +37,6 @@ public class QuadData
         isBuilt = true;
     }
 
-    public void BuildQuad(Direction dir, bool fl)
-    {
-        direction = dir;
-        flipped = fl;
-
-        zLayer = GV.GetZFromMeshLayer(layer);
-        BuildVertices();
-        BuildTriangles();
-        BuildUV();
-        isBuilt = true;
-    }
-
     void BuildVertices()
     {
 
@@ -61,119 +49,153 @@ public class QuadData
         switch (shape)
         {
             case TileShape.FLAT:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.CORNER:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(0f, 0f, zLayer);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(0f, 0f, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.WALL:
-                vertices[0] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[1] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[2] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
                 break;
             case TileShape.WALL_CORNER:
-                vertices[0] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[1] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[2] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer + GV.tileSize);
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer + GV.tileSize));
                 break;
             case TileShape.CORNER_UP:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.CORNER_DOWN:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.SLOPE_UP:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.SLOPE_DOWN:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
             case TileShape.INVERSE_UP:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer - GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
                 break;
             case TileShape.INVERSE_DOWN:
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer + GV.tileSize));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
                 break;
             default:
                 Debug.LogError("PS ERROR: " + shape.ToString() + " not a valid shape. Setting to default FLAT.");
-                vertices[0] = new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer);
-                vertices[1] = new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[2] = new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer);
-                vertices[3] = new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer);
+                vertices.Add(new Vector3(-GV.halfTileSize, -GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(-GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, +GV.halfTileSize, zLayer));
+                vertices.Add(new Vector3(+GV.halfTileSize, -GV.halfTileSize, zLayer));
                 break;
         }
     }
 
     void ApplyRotationAndFlip()
     {
-        Vector3[] oldVerts = (Vector3[])vertices.Clone();
-
         switch (direction)
         {
             case Direction.UP:
                 //Tile Should already be up
                 break;
             case Direction.RIGHT:
-                vertices[0] = new Vector3(oldVerts[0].x, oldVerts[0].y + GV.tileSize, oldVerts[0].z);
-                vertices[1] = new Vector3(oldVerts[1].x + GV.tileSize, oldVerts[1].y, oldVerts[1].z);
-                vertices[2] = new Vector3(oldVerts[2].x, oldVerts[2].y - GV.tileSize, oldVerts[2].z);
-                vertices[3] = new Vector3(oldVerts[3].x - GV.tileSize, oldVerts[3].y, oldVerts[3].z);
+                vertices[0] = new Vector3(vertices[0].x, vertices[0].y + GV.tileSize, vertices[0].z);
+                vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y, vertices[1].z);
+                vertices[2] = new Vector3(vertices[2].x, vertices[2].y - GV.tileSize, vertices[2].z);
+                vertices[3] = new Vector3(vertices[3].x - GV.tileSize, vertices[3].y, vertices[3].z);
+
+                if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+                {
+                    vertices[4] = new Vector3(vertices[4].x, vertices[4].y + GV.tileSize, vertices[4].z);
+                    vertices[5] = new Vector3(vertices[5].x, vertices[5].y - GV.tileSize, vertices[5].z);
+                }
+
                 break;
             case Direction.LEFT:
-                vertices[0] = new Vector3(oldVerts[0].x + GV.tileSize, oldVerts[0].y, oldVerts[0].z);
-                vertices[1] = new Vector3(oldVerts[1].x, oldVerts[1].y - GV.tileSize, oldVerts[1].z);
-                vertices[2] = new Vector3(oldVerts[2].x - GV.tileSize, oldVerts[2].y, oldVerts[2].z);
-                vertices[3] = new Vector3(oldVerts[3].x, oldVerts[3].y + GV.tileSize, oldVerts[3].z);
+                vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y, vertices[0].z);
+                vertices[1] = new Vector3(vertices[1].x, vertices[1].y - GV.tileSize, vertices[1].z);
+                vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y, vertices[2].z);
+                vertices[3] = new Vector3(vertices[3].x, vertices[3].y + GV.tileSize, vertices[3].z);
+
+                if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+                {
+                    vertices[4] = new Vector3(vertices[4].x + GV.tileSize, vertices[4].y, vertices[4].z);
+                    vertices[5] = vertices[5] = new Vector3(vertices[5].x - GV.tileSize, vertices[5].y, vertices[5].z);
+                }
                 break;
             case Direction.DOWN:
-                vertices[0] = new Vector3(oldVerts[0].x + GV.tileSize, oldVerts[0].y + GV.tileSize, oldVerts[0].z);
-                vertices[1] = new Vector3(oldVerts[1].x + GV.tileSize, oldVerts[1].y - GV.tileSize, oldVerts[1].z);
-                vertices[2] = new Vector3(oldVerts[2].x - GV.tileSize, oldVerts[2].y - GV.tileSize, oldVerts[2].z);
-                vertices[3] = new Vector3(oldVerts[3].x - GV.tileSize, oldVerts[3].y + GV.tileSize, oldVerts[3].z);
+                vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y + GV.tileSize, vertices[0].z);
+                vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y - GV.tileSize, vertices[1].z);
+                vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y - GV.tileSize, vertices[2].z);
+                vertices[3] = new Vector3(vertices[3].x - GV.tileSize, vertices[3].y + GV.tileSize, vertices[3].z);
+
+                if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+                {
+                    vertices[4] = new Vector3(vertices[4].x + GV.tileSize, vertices[4].y + GV.tileSize, vertices[4].z);
+                    vertices[5] = new Vector3(vertices[5].x - GV.tileSize, vertices[5].y - GV.tileSize, vertices[5].z);
+                }
                 break;
             default:
                 Debug.LogError("PS ERROR: " + direction.ToString() + " not a valid direction. Setting to default UP.");
                 //Tile should already be up
                 break;
         }
+ 
 
-    }
+  }
 
     void BuildTriangles()
     {
 
-            triangles[0] = 0;
-            triangles[1] = 1;
-            triangles[2] = 2;
-            triangles[3] = 0;
-            triangles[4] = 2;
-            triangles[5] = 3;
+        if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+        {
+            triangles.Add(0);
+            triangles.Add(1);
+            triangles.Add(2);
+            triangles.Add(4);
+            triangles.Add(5);
+            triangles.Add(3);
+        }
+        else
+        {
+            triangles.Add(0);
+            triangles.Add(1);
+            triangles.Add(2);
+            triangles.Add(0);
+            triangles.Add(2);
+            triangles.Add(3);
+        }
 
     }
 
@@ -181,18 +203,30 @@ public class QuadData
     {
         if (flipped == false)
         {
-            uv[0] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError);
-            uv[1] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError);
-            uv[2] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError);
-            uv[3] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError);
-        } else if (flipped == true)
-        {
-            uv[0] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError);
-            uv[1] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError);
-            uv[2] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError);
-            uv[3] = new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError);
-        }
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
 
+            if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+            {
+                uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
+                uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            }
+        }
+        else if (flipped == true)
+        {
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
+
+            if (shape == TileShape.INVERSE_DOWN || shape == TileShape.INVERSE_UP)
+            {
+                uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvTileSize - GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvError));
+                uv.Add(new Vector2(atlasCoord.x * GV.uvTileSize + GV.uvError, atlasCoord.y * GV.uvTileSize + GV.uvTileSize - GV.uvError));
+            }
+        }
     }
 
     public List<Vector3> GetVerticies (Vector3 pos)
@@ -204,10 +238,10 @@ public class QuadData
         }
         List<Vector3> vertList = new List<Vector3>();
 
-        vertList.Add(vertices[0] + pos);
-        vertList.Add(vertices[1] + pos);
-        vertList.Add(vertices[2] + pos);
-        vertList.Add(vertices[3] + pos);
+        foreach (Vector3 v in vertices)
+        {
+            vertList.Add(v + pos);
+        }
 
         return vertList;
     }
@@ -219,14 +253,8 @@ public class QuadData
             Debug.LogError("PS ERROR: Quad not yet built. Build quad first");
             return null;
         }
-        List<Vector2> uvList = new List<Vector2>();
 
-        uvList.Add(uv[0]);
-        uvList.Add(uv[1]);
-        uvList.Add(uv[2]);
-        uvList.Add(uv[3]);
-
-        return uvList;
+        return uv;
     }
 
 }

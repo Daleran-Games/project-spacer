@@ -5,8 +5,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Grid : MonoBehaviour {
 
-    GameObject parent;
     public Controller GridController;
+    public Rigidbody2D GridRigidbody;
 
     MeshSystem GridMeshSystem;
     public CollisionSystem GridCollisionSystem;
@@ -21,21 +21,25 @@ public class Grid : MonoBehaviour {
 	public void InitializeGrid (SavedGrid savedGrid, Controller cont) {
 
         TileData = new Dictionary<Vector2Int, Tile>();
-        GridCenter = new Vector2(0f, 0f);
+        GridCenter = (Vector2)transform.position;
 
-        parent = gameObject;
+        GridRigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
+        GridRigidbody.gravityScale = 0f;
+        GridRigidbody.angularDrag = 0f;
+        GridRigidbody.drag = 0f;
+
 		Saved = savedGrid;
         GridInfo = Saved.GridInfo;
         BuildSavedGrid();
 
-        GridMeshSystem = parent.GetOrAddComponent<MeshSystem> ();
+        GridMeshSystem = gameObject.GetOrAddComponent<MeshSystem> ();
         GridMeshSystem.InitializeSystem();
         GridMeshSystem.BuildMesh(GridCenter);
 
-        GridControlSystem = parent.GetOrAddComponent<ControlSystem>();
+        GridControlSystem = gameObject.GetOrAddComponent<ControlSystem>();
         GridControlSystem.InitializeSystem();
 
-        GridCollisionSystem = parent.GetOrAddComponent<CollisionSystem>();
+        GridCollisionSystem = gameObject.GetOrAddComponent<CollisionSystem>();
         GridCollisionSystem.InitializeSystem();
 
         GridController = cont;
@@ -63,7 +67,11 @@ public class Grid : MonoBehaviour {
             for (int x = 0; x < sizeX; x++)
             {
                 if (Saved.TileRows[y].SavedElements[x].Tile != null)
+                {
                     TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, Saved.TileRows[y].SavedElements[x].Flipped));
+                    RecalculateCenter();
+                }
+                
             }
         }
 

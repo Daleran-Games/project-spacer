@@ -45,7 +45,7 @@ public class MeshSystem : MonoBehaviour {
         meshFilter.mesh.uv = meshData.uv.ToArray();
         meshFilter.mesh.RecalculateNormals();
         meshFilter.mesh.Optimize();
-        meshRenderer.material = GV.atlas;
+        meshRenderer.sharedMaterial = GV.atlas;
 
     }
 

@@ -12,8 +12,7 @@ public class CameraController : MonoBehaviour {
 	public float max;
 	public float startZoom;
 
-	public GameObject target;
-    public PlayerController player;
+    public GameObject target;
 
 
 	private Vector3 offset;
@@ -35,11 +34,10 @@ public class CameraController : MonoBehaviour {
     {
         if (target == null)
         {
-            GameObject t = GameObject.FindGameObjectWithTag("Player");
+            GameObject t = GameObject.FindObjectOfType<PlayerController>().gameObject;
             if (t != null)
             {
                 target = t;
-                player = target.GetRequiredComponent<PlayerController>();
             }
         }
     }

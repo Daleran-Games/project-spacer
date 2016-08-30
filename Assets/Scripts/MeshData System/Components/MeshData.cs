@@ -22,29 +22,22 @@ public class MeshData  {
 
     public void AddQuad (QuadData quad, Vector2 pos)
     {
+        int startingCount = vertices.Count;
+        
         vertices.AddRange(quad.GetVerticies(pos));
         uv.AddRange(quad.GetUVs());
-        addQuadTriangles();
-        //PrintUVs();
+        addQuadTriangles(quad.triangles, startingCount);
+
+
     }
 
-    public void PrintUVs()
+
+    void addQuadTriangles (List<int> tris, int initialVertCount)
     {
-        foreach(Vector2 u in uv)
+        foreach (int i in tris)
         {
-            Debug.Log(u);
+            triangles.Add(initialVertCount + i);
         }
-    }
-
-    void addQuadTriangles ()
-    {
-            triangles.Add(vertices.Count - 4);
-            triangles.Add(vertices.Count - 3);
-            triangles.Add(vertices.Count - 2);
-            triangles.Add(vertices.Count - 4);
-            triangles.Add(vertices.Count - 2);
-            triangles.Add(vertices.Count - 1);
-
     }
 
 
