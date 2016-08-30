@@ -1,11 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum CollisionLayer {
-    WORLD,
-    HANGER,
-    FLOOR,
-    WALL,
-    PROJECTILE,
-    ENTITY
+﻿namespace ProjectSpacer
+{
+    public enum CollisionLayer
+    {
+        WORLD,
+        HANGER,
+        FLOOR,
+        WALL,
+        PROJECTILE,
+        ENTITY
+    }
 }

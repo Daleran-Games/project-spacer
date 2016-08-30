@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿namespace ProjectSpacer
+{
+    public abstract class GridComp
+    {
 
-public abstract class GridComp  {
 
-
+    }
 }

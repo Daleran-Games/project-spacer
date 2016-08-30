@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿namespace ProjectSpacer
+{
 
-public enum UseState {
-	ACTIVE,
-    ENABLED,
-    DISABLED
+    public enum UseState
+    {
+        ACTIVE,
+        ENABLED,
+        DISABLED
+    }
 }

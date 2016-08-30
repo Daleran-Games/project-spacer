@@ -1,9 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿namespace ProjectSpacer
+{
 
-public enum DamageState {
-	UNDAMAGED,
-    DAMAGED,
-    BROKEN,
-    DESTORYED
+    public enum DamageState
+    {
+        UNDAMAGED,
+        DAMAGED,
+        BROKEN,
+        DESTORYED
+    }
 }

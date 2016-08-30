@@ -1,28 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+namespace ProjectSpacer
+{
 
-    HelpPanel playerControls;
-    
-    // Use this for initialization
-	void Start () {
-        playerControls = GetComponentInChildren<HelpPanel>();
-	}
-
-    void Update()
+    public class UIManager : MonoBehaviour
     {
-        if (GameManager.inputManger.help.GetToggleState())
+
+        HelpPanel playerControls;
+
+        // Use this for initialization
+        void Start()
         {
-            playerControls.gameObject.SetActive(true);
-        } else
-        {
-            playerControls.gameObject.SetActive(false);
+            playerControls = GetComponentInChildren<HelpPanel>();
         }
 
+        void Update()
+        {
+            if (GameManager.inputManger.help.GetToggleState())
+            {
+                playerControls.gameObject.SetActive(true);
+            }
+            else
+            {
+                playerControls.gameObject.SetActive(false);
+            }
 
+
+
+        }
 
     }
-
 }

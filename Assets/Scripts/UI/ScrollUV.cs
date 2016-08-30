@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ScrollUV : MonoBehaviour {
+namespace ProjectSpacer
+{
 
-	void Update () {
+    public class ScrollUV : MonoBehaviour
+    {
 
-		MeshRenderer mr = GetComponent<MeshRenderer>();
+        void Update()
+        {
 
-		Material mat = mr.material;
+            MeshRenderer mr = GetComponent<MeshRenderer>();
 
-		Vector2 offset = mat.mainTextureOffset;
+            Material mat = mr.material;
 
-		offset.x += Time.deltaTime / 10f;
+            Vector2 offset = mat.mainTextureOffset;
 
-		mat.mainTextureOffset = offset;
+            offset.x += Time.deltaTime / 10f;
 
-	}
+            mat.mainTextureOffset = offset;
 
+        }
+
+    }
 }

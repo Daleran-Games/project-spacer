@@ -1,10 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-[System.Serializable]
-public class SavedGridLine {
+namespace ProjectSpacer
+{
 
-	public List<SavedGridElement> SavedElements;
+    [System.Serializable]
+    public class SavedGridLine
+    {
 
+        public List<SavedGridElement> SavedElements;
+
+    }
 }

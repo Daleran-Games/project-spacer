@@ -1,23 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class FollowUV : MonoBehaviour {
+namespace ProjectSpacer
+{
 
-	public float parralax = 2f;
+    public class FollowUV : MonoBehaviour
+    {
 
-	void Update () {
+        public float parralax = 2f;
 
-		MeshRenderer mr = GetComponent<MeshRenderer>();
+        void Update()
+        {
 
-		Material mat = mr.material;
+            MeshRenderer mr = GetComponent<MeshRenderer>();
 
-		Vector2 offset = mat.mainTextureOffset;
+            Material mat = mr.material;
 
-		offset.x = transform.position.x / transform.localScale.x / parralax;
-		offset.y = transform.position.y / transform.localScale.y / parralax;
+            Vector2 offset = mat.mainTextureOffset;
 
-		mat.mainTextureOffset = offset;
+            offset.x = transform.position.x / transform.localScale.x / parralax;
+            offset.y = transform.position.y / transform.localScale.y / parralax;
 
-	}
+            mat.mainTextureOffset = offset;
 
+        }
+
+    }
 }

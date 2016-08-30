@@ -1,25 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class TargetController : Controller {
+namespace ProjectSpacer
+{
 
-    public GameObject target;
-
-    void Update()
+    public class TargetController : Controller
     {
-        if (target == null)
-            target = FindObjectOfType<PlayerController>().gameObject;
-    }
 
-    void FixedUpdate()
-    {
-        if (target != null)
+        public GameObject target;
+        Vector2 localVelocity;
+
+        void Update()
         {
-            directionVector = (Vector2)(target.transform.position - transform.position);
-            movementVector = Vector2.zero;
+            if (target == null)
+                target = FindObjectOfType<PlayerController>().gameObject;
         }
-            
+
+        void FixedUpdate()
+        {
+            localVelocity = transform.InverseTransformDirection(gridRigidBody.velocity).normalized;
+
+            if (target != null)
+            {
+                directionVector = (Vector2)(target.transform.position - transform.position);
+            }
+
+            movementVector = -localVelocity;
+
+        }
+
+
     }
-
-
 }

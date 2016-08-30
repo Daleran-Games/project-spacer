@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class TargetTest : MonoBehaviour
+namespace ProjectSpacer
 {
 
-    public SavedGrid SavedTestGrid;
-    Grid TestGrid;
-
-    void Start()
+    public class TargetTest : MonoBehaviour
     {
-        gameObject.name = SavedTestGrid.GridInfo.name;
-        gameObject.AddComponent<Grid>();
-        TestGrid = gameObject.GetRequiredComponent<Grid>();
-        gameObject.AddComponent<TargetController>();
-        TestGrid.InitializeGrid(SavedTestGrid, gameObject.GetRequiredComponent<TargetController>());
+
+        public SavedGrid SavedTestGrid;
+        Grid TestGrid;
+
+        void Start()
+        {
+            gameObject.name = SavedTestGrid.GridInfo.name;
+            gameObject.AddComponent<Grid>();
+            TestGrid = gameObject.GetRequiredComponent<Grid>();
+            gameObject.AddComponent<TargetController>();
+            TestGrid.InitializeGrid(SavedTestGrid, gameObject.GetRequiredComponent<TargetController>());
+        }
     }
 }

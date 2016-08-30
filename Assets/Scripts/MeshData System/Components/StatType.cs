@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿namespace ProjectSpacer
+{
 
-public enum StatType {
-    Mass,
-    Thrust
+    public enum StatType
+    {
+        Mass,
+        Thrust
 
+    }
 }
