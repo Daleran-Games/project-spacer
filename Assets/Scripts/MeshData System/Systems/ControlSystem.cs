@@ -20,7 +20,6 @@ public class ControlSystem :  MonoBehaviour {
 
     public GameObject parent;
     public Grid grid;
-    public Rigidbody2D GridRigidbody;
 
     //TEMP PUBLIC
     public Controller controller;
@@ -30,19 +29,15 @@ public class ControlSystem :  MonoBehaviour {
         parent = gameObject;
         grid = parent.GetRequiredComponent<Grid>();
 
-        GridRigidbody = parent.GetOrAddComponent<Rigidbody2D>();
-        GridRigidbody.gravityScale = 0f;
-        GridRigidbody.angularDrag = 0f;
-        GridRigidbody.drag = 0f;
-
         UpdateSystem();
 
-		maxSpeed = (thrustBlock.getTotalThrust() / GridRigidbody.mass) * GV.maxVelocityTuner;
+		maxSpeed = (thrustBlock.getTotalThrust() / grid.GridRigidbody.mass) * GV.maxVelocityTuner;
 	}
 
     void FixedUpdate()
     {
-        Move(controller.GetMovementVector(), controller.GetDriectionVector());
+        if (controller != null)
+            Move(controller.GetMovementVector(), controller.GetDriectionVector());
     }
 
     public void AssignController(Controller cont)
@@ -75,7 +70,7 @@ public class ControlSystem :  MonoBehaviour {
                 ModifyThrust(kvp.Value.direction, kvp.Key, addThrust, true);
         }
 
-        GridRigidbody.mass = newMass;
+       grid.GridRigidbody.mass = newMass;
     }
 
 	public virtual float GetMaxSpeed (){
@@ -167,7 +162,7 @@ public class ControlSystem :  MonoBehaviour {
     {
         Rotate(direction);
         thrustVector = setThrustVector(movmentVector);
-        GridRigidbody.AddRelativeForce(thrustVector);
+        grid.GridRigidbody.AddRelativeForce(thrustVector);
     }
 
     public virtual void Rotate(Vector2 direction)
@@ -176,9 +171,9 @@ public class ControlSystem :  MonoBehaviour {
 
         if (direction != Vector2.zero)
         {
-            aimAngle = Vector2.Angle(GridRigidbody.transform.up, direction) / 180f;
+            aimAngle = Vector2.Angle(grid.GridRigidbody.transform.up, direction) / 180f;
 
-            if (Vector3.Cross(GridRigidbody.transform.up, direction).z > 0)
+            if (Vector3.Cross(grid.GridRigidbody.transform.up, direction).z > 0)
                 aimAngle = aimAngle * -1f;
 
             PID = gridSteeringPID.Update(aimAngle, Time.fixedDeltaTime);
@@ -193,7 +188,7 @@ public class ControlSystem :  MonoBehaviour {
 
 
             torqueScalar = PID * steering * GV.torqueFactor;
-            GridRigidbody.AddTorque(-torqueScalar);
+            grid.GridRigidbody.AddTorque(-torqueScalar);
         }
 
     }

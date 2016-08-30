@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class CollisionSystem : MonoBehaviour {
 
-    public GameObject parent;
     public GameObject colliderObject;
     public Grid grid;
 
@@ -13,12 +12,11 @@ public class CollisionSystem : MonoBehaviour {
 
     public void InitializeSystem()
     {
-        parent = gameObject;
-        grid = parent.GetRequiredComponent<Grid>();
+        grid = gameObject.GetRequiredComponent<Grid>();
 
         colliderObject = new GameObject();
-        colliderObject.name = parent.name + " Colliders";
-        colliderObject.transform.parent = parent.transform;
+        colliderObject.name = gameObject.name + " Colliders";
+        colliderObject.transform.parent = transform;
         buildColliders();
 
     }
@@ -31,7 +29,7 @@ public class CollisionSystem : MonoBehaviour {
             {
                 BoxCollider2D newCollider = colliderObject.AddComponent<BoxCollider2D>();
                 newCollider.size = new Vector2(GV.tileSize, GV.tileSize);
-                newCollider.offset = new Vector2(kvp.Key.x - grid.GridCenter.x + GV.halfTileSize, kvp.Key.y - grid.GridCenter.y + GV.halfTileSize);
+                newCollider.offset = (Vector2)transform.position + new Vector2(kvp.Key.x - grid.GridCenter.x + GV.halfTileSize, kvp.Key.y - grid.GridCenter.y + GV.halfTileSize);
             }
         }
     }

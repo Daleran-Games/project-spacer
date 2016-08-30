@@ -11,7 +11,6 @@ public class QuadTemplate : ScriptableObject
 
     public QuadData BuildQuad (Direction dir, bool fl)
     {
-        
         return new QuadData(layer, shape,atlasCoord, dir, fl);
     }
 
