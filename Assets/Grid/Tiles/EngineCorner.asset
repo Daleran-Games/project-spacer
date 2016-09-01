@@ -23,7 +23,7 @@ MonoBehaviour:
   - Stat: 0
     Value: 100
   - Stat: 1
-    Value: 10000
+    Value: 25000
   TileQuads:
   - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
   - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}

@@ -7,6 +7,9 @@ namespace ProjectSpacer
     {
 
         HelpPanel playerControls;
+        public Texture2D cursor;
+        public Texture2D crossHair;
+        public CursorMode cursorMode = CursorMode.Auto;
 
         // Use this for initialization
         void Start()
@@ -25,6 +28,14 @@ namespace ProjectSpacer
                 playerControls.gameObject.SetActive(false);
             }
 
+            if (GameManager.inputManger.mouseLook.GetToggleState())
+            {
+                Cursor.SetCursor(cursor, Vector2.zero, cursorMode);
+            }
+            else
+            {
+                Cursor.SetCursor(crossHair, Vector2.zero, cursorMode);
+            }
 
 
         }

@@ -13,7 +13,6 @@ namespace ProjectSpacer
         public ControlAxis fire = new ControlAxis("Fire0");
         public ToggleKey mouseLook = new ToggleKey("MouseSteer", false);
         public ControlAxis mouseWheel = new ControlAxis("Zoom");
-        public EventKey layerUp = new EventKey("LayerUp");
         public EventKey layerDown = new EventKey("LayerDown");
         public EventKey exit = new EventKey("Exit");
         public ToggleKey help = new ToggleKey("Help", true);

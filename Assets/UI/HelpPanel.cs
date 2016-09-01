@@ -21,11 +21,11 @@ namespace ProjectSpacer
             GameObject mouseEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
             mouseEntry.GetRequiredComponent<Text>().text = "Toggle Mouse Steering: Space";
             GameObject rotEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
-            rotEntry.GetRequiredComponent<Text>().text = "Rotate Ship: Q and E";
+            rotEntry.GetRequiredComponent<Text>().text = "Rotate Ship without mouse steering: Q and E";
             GameObject zoomEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
             zoomEntry.GetRequiredComponent<Text>().text = "Zoom In and Out: Mouse Wheel";
             GameObject layerUpEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
-            layerUpEntry.GetRequiredComponent<Text>().text = "Change Ship View Mode: Z and X";
+            layerUpEntry.GetRequiredComponent<Text>().text = "Change Ship View Mode: R";
             GameObject helpEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
             helpEntry.GetRequiredComponent<Text>().text = "Toggle Help Panel: F1";
             GameObject exitEntry = Instantiate(EntryTemplate, this.transform) as GameObject;
