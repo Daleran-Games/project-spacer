@@ -8,7 +8,7 @@ namespace ProjectSpacer
     {
 
         public GameObject parent;
-        public Grid grid;
+        Grid grid;
 
         public MeshFilter meshFilter;
         public MeshRenderer meshRenderer;

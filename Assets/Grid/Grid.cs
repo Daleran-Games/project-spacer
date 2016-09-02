@@ -14,6 +14,7 @@ namespace ProjectSpacer
         MeshSystem GridMeshSystem;
         public CollisionSystem GridCollisionSystem;
         public ControlSystem GridControlSystem;
+        public EffectsSystem GridEffectsSystem;
 
         public SavedGrid Saved;
         public Info GridInfo;
@@ -50,6 +51,9 @@ namespace ProjectSpacer
             GridController.InitializeController();
 
             GridControlSystem.AssignController(GridController);
+
+            GridEffectsSystem = gameObject.GetOrAddComponent<EffectsSystem>();
+            GridEffectsSystem.InitializeSystem();
 
         }
 

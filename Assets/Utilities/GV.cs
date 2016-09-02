@@ -34,7 +34,6 @@ namespace ProjectSpacer
         //Control Variables
         public static float torqueFactor = 3f;
         public static float headingDeadZone = 0.001f;
-        public static float PIDTorqueTuner = 90f;
         public static float velocityDeadZone = 0.01f;
         public static float maxVelocityTuner = 3f;
         public static float directionError = 0.001f;

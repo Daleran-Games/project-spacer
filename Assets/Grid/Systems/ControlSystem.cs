@@ -16,6 +16,8 @@ namespace ProjectSpacer
 
         VectorPID gridSteeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
 
+        public Dictionary<Vector2Int, Tile> thurstTiles = new Dictionary<Vector2Int, Tile>();
+
 
         //TEMP PUBLIC
         public float steering = 0f;
@@ -23,7 +25,7 @@ namespace ProjectSpacer
         public float aimAngle;
 
         public GameObject parent;
-        public Grid grid;
+        Grid grid;
 
         //TEMP PUBLIC
         public Controller controller;
@@ -73,7 +75,11 @@ namespace ProjectSpacer
 
                 float addThrust = 0f;
                 if (kvp.Value.statCollection.TryGetValue(StatType.Thrust, out addThrust))
+                {
                     ModifyThrust(kvp.Value.direction, kvp.Key, addThrust, true);
+                    thurstTiles.Add(kvp.Key,kvp.Value);
+                }
+                    
             }
 
             grid.GridRigidbody.mass = newMass;

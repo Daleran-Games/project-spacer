@@ -8,6 +8,8 @@ namespace ProjectSpacer
 
         public Info TileInfo = GV.defaultInfo;
 
+        public UseState useState = UseState.ENABLED;
+
         public Direction direction = Direction.UP;
         public bool flipped = false;
 
@@ -32,7 +34,6 @@ namespace ProjectSpacer
             tileQuads.AddRange(tq);
 
         }
-
 
         public void RotateTile(Direction dir)
         {

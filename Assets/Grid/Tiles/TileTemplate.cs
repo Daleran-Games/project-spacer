@@ -11,7 +11,7 @@ namespace ProjectSpacer
 
         public Info TileInfo;
         public CollisionLayer CollisionType;
-
+        
         public List<StatEntry> TileStats;
         public List<QuadTemplate> TileQuads;
 
