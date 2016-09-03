@@ -10,6 +10,7 @@ namespace ProjectSpacer
         public float speed = 100f;
         public float burnOut = 1f;
         public int damage = 1;
+        public Vector2 spawnOffset = new Vector2(0f,1f);
 
 
         // Use this for initialization

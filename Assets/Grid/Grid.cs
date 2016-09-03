@@ -76,7 +76,7 @@ namespace ProjectSpacer
                 {
                     if (Saved.TileRows[y].SavedElements[x].Tile != null)
                     {
-                        TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, Saved.TileRows[y].SavedElements[x].Flipped));
+                        TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, Saved.TileRows[y].SavedElements[x].Flipped, Saved.TileRows[y].SavedElements[x].TileColor));
                         RecalculateCenter();
                     }
 

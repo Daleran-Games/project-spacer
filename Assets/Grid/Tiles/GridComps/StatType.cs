@@ -4,7 +4,12 @@
     public enum StatType
     {
         Mass,
-        Thrust
-
+        Thrust,
+        FireRate,
+        Recoil,
+        Projectile,
+        ConditionMax,
+        ConditionCurrent,
+        ConditionBreak
     }
 }

@@ -25,7 +25,7 @@ namespace ProjectSpacer
 
         public static Vector2Int up = new Vector2Int(0, 1);
 
-        public static Vector2Int zerp = new Vector2Int(0, 0);
+        public static Vector2Int zero = new Vector2Int(0, 0);
 
         public Vector2Int(int x, int y)
         {
