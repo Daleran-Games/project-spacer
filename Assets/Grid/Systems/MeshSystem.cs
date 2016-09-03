@@ -47,6 +47,7 @@ namespace ProjectSpacer
             meshFilter.mesh.vertices = meshData.vertices.ToArray();
             meshFilter.mesh.triangles = meshData.triangles.ToArray();
             meshFilter.mesh.uv = meshData.uv.ToArray();
+            meshFilter.mesh.colors32 = meshData.colors.ToArray();
             meshRenderer.sharedMaterial = GV.atlas;
             meshFilter.mesh.RecalculateNormals();
             meshFilter.mesh.RecalculateBounds();

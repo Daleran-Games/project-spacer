@@ -15,10 +15,10 @@ namespace ProjectSpacer
         public List<StatEntry> TileStats;
         public List<QuadTemplate> TileQuads;
 
-        public Tile BuildTile(Direction dir, bool flipped)
+        public Tile BuildTile(Direction tileDirection, bool flipped, Color32 tileColor)
         {
 
-            return new Tile(TileInfo, dir, flipped, CollisionType, BuildStatCollection(), BuildQuadData(dir, flipped));
+            return new Tile(TileInfo, tileDirection, flipped, CollisionType, BuildStatCollection(), BuildQuadData(tileDirection, flipped,tileColor));
 
         }
 
@@ -32,13 +32,13 @@ namespace ProjectSpacer
             return stats;
         }
 
-        List<QuadData> BuildQuadData(Direction dir, bool fl)
+        List<QuadData> BuildQuadData(Direction quadDirection, bool flipUV, Color32 quadColor)
         {
             List<QuadData> quads = new List<QuadData>();
 
             foreach (QuadTemplate qt in TileQuads)
             {
-                quads.Add(qt.BuildQuad(dir, fl));
+                quads.Add(qt.BuildQuad(quadDirection, flipUV ,quadColor));
             }
 
             return quads;

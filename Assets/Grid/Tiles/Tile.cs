@@ -8,7 +8,8 @@ namespace ProjectSpacer
 
         public Info TileInfo = GV.defaultInfo;
 
-        public UseState useState = UseState.ENABLED;
+        public bool Active = false;
+        public bool Enabled = true;
 
         public Direction direction = Direction.UP;
         public bool flipped = false;
@@ -18,10 +19,6 @@ namespace ProjectSpacer
         public Dictionary<StatType, float> statCollection = new Dictionary<StatType, float>();
         public List<QuadData> tileQuads = new List<QuadData>();
 
-        public Tile()
-        {
-
-        }
 
         public Tile(Info i, Direction dir, bool fl, CollisionLayer cl, Dictionary<StatType, float> sc, List<QuadData> tq)
         {
@@ -34,6 +31,18 @@ namespace ProjectSpacer
             tileQuads.AddRange(tq);
 
         }
+
+        public void SetActive(bool state)
+        {
+            if (Enabled == true)
+                Active = state;
+        }
+
+        public void setEnable (bool state)
+        {
+            Enabled = state;
+        }
+
 
         public void RotateTile(Direction dir)
         {

@@ -10,6 +10,7 @@ namespace ProjectSpacer
         public List<Vector3> vertices = new List<Vector3>();
         public List<int> triangles = new List<int>();
         public List<Vector2> uv = new List<Vector2>();
+        public List<Color32> colors = new List<Color32>();
 
         public MeshData()
         {
@@ -21,6 +22,7 @@ namespace ProjectSpacer
             vertices.Clear();
             triangles.Clear();
             uv.Clear();
+            colors.Clear();
         }
 
         public void AddQuad(QuadData quad, Vector2 pos)
@@ -29,8 +31,8 @@ namespace ProjectSpacer
 
             vertices.AddRange(quad.GetVerticies(pos));
             uv.AddRange(quad.GetUVs());
-            addQuadTriangles(quad.triangles, startingCount);
-
+            addQuadTriangles(quad.GetTriangles(), startingCount);
+            colors.AddRange(quad.GetColors());
 
         }
 

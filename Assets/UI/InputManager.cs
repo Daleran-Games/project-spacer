@@ -72,10 +72,7 @@ namespace ProjectSpacer
                 {
                     if (isAxisInUse == false)
                     {
-                        if (keyState == false)
-                            keyState = true;
-                        else
-                            keyState = false;
+                        keyState = !keyState;
 
                         isAxisInUse = true;
                     }

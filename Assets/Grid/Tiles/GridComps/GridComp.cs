@@ -1,6 +1,9 @@
-﻿namespace ProjectSpacer
+﻿using UnityEngine;
+using System;
+
+namespace ProjectSpacer
 {
-    public abstract class GridComp
+    public class ThrustStat 
     {
 
 

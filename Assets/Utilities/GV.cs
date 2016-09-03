@@ -29,6 +29,8 @@ namespace ProjectSpacer
         public static Material atlas;
         public static float uvTileSize = ((float)pixelResolution / (float)atlasPixelSize);
         public static float uvError = uvTileSize / (2 * (float)pixelResolution);
+        public static Color32 defaultTileColor = new Color32(255,255,255,255);
+        public static byte defaultTileAlpha = 255;
 
         //PHYSICS//
         //Control Variables
