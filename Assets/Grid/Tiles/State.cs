@@ -1,8 +1,12 @@
 ﻿namespace ProjectSpacer
 {
 
-    public enum DamageState
+    public enum State
     {
+        ACTIVE,
+        IDLE,
+        ENABLED,
+        DISABLED,
         UNDAMAGED,
         DAMAGED,
         BROKEN,

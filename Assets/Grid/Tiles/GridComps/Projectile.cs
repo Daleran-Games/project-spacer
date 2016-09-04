@@ -6,7 +6,7 @@ namespace ProjectSpacer
     public class Projectile : MonoBehaviour
     {
 
-        public string ProjectileName;
+        public Info ProjectileInfo;
         public float speed = 100f;
         public float burnOut = 1f;
         public int damage = 1;

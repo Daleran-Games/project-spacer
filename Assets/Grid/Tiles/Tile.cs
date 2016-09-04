@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine;
+using System.Collections.Generic;
 
 namespace ProjectSpacer
 {
@@ -8,8 +9,9 @@ namespace ProjectSpacer
 
         public Info TileInfo = GV.defaultInfo;
 
-        public bool Active = false;
-        public bool Enabled = true;
+        public State Active = State.IDLE;
+        public State Enabled = State.ENABLED;
+        public State DamageState = State.UNDAMAGED;
 
         public Direction direction = Direction.UP;
         public bool flipped = false;
@@ -18,29 +20,68 @@ namespace ProjectSpacer
 
         public Dictionary<StatType, float> statCollection = new Dictionary<StatType, float>();
         public List<QuadData> tileQuads = new List<QuadData>();
+        public List<GridEffect> TileEffects = new List<GridEffect>();
 
 
-        public Tile(Info i, Direction dir, bool fl, CollisionLayer cl, Dictionary<StatType, float> sc, List<QuadData> tq)
+        public Tile(Info info, Direction direct, bool flipUV, CollisionLayer colLayer, Dictionary<StatType, float> statCol, List<QuadData> quads, List<GridEffect> effects)
         {
 
-            TileInfo = i;
-            direction = dir;
-            flipped = fl;
-            collisionLayer = cl;
-            statCollection = sc;
-            tileQuads.AddRange(tq);
+            TileInfo = info;
+            direction = direct;
+            flipped = flipUV;
+            collisionLayer = colLayer;
+            statCollection = statCol;
+            tileQuads.AddRange(quads);
+            TileEffects.AddRange(effects);
 
         }
 
         public void SetActive(bool state)
         {
-            if (Enabled == true)
-                Active = state;
+            if (Enabled == State.ENABLED)
+            {
+                if (state == true)
+                    Active = State.ACTIVE;
+                else
+                    Active = State.IDLE;
+            }
+                
         }
 
-        public void setEnable (bool state)
+        public void SetEnable (bool state)
         {
-            Enabled = state;
+            if (state == true)
+            {
+                Enabled = State.ENABLED;
+            }
+            else
+            {
+                Enabled = State.DISABLED;
+                Active = State.IDLE;
+            }
+        }
+
+        public void SetDamageState (State state)
+        {
+            switch (state)
+            {
+                case State.UNDAMAGED:
+                    DamageState = State.UNDAMAGED;
+                    break;
+                case State.DAMAGED:
+                    DamageState = State.DAMAGED;
+                    break;
+                case State.BROKEN:
+                    DamageState = State.BROKEN;
+                    break;
+                case State.DESTORYED:
+                    DamageState = State.DESTORYED;
+                    break;
+                default:
+                    Debug.LogError("PS ERROR: " + state + " not a valid damage state.");
+                    break;
+
+            }
         }
 
 

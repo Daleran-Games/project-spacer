@@ -22,38 +22,74 @@ MonoBehaviour:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 430615629c8a8dc45b027940b6e923ae, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 10c51e6c20458b7448b2cf338b5e8b36, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4278221311
