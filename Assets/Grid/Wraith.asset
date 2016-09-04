@@ -22,279 +22,552 @@ MonoBehaviour:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: ab07384fbc3d4d945b979fe217b79271, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: df59ad45ac9cf6c4c80cc4f8eda97755, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: df59ad45ac9cf6c4c80cc4f8eda97755, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 25072d28712b9954f93d00b6a6dbf4e4, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 0}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 2f120218ba6f27e49b892ada0b708551, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 430615629c8a8dc45b027940b6e923ae, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 2f120218ba6f27e49b892ada0b708551, type: 2}
       Rotation: 0
       Flipped: 1
+      TileColor:
+        serializedVersion: 2
+        rgba: 4280427171
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
   - SavedElements:
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 4b6005264fb592148b540bae1146e8f7, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 2
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: e9e38ec2f7b2b75499fb78cf3bc9e1f7, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
   - SavedElements:
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 2108aad32b4baea4582a0978d1e5aa3b, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0
     - Tile: {fileID: 0}
       Rotation: 3
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 0

@@ -14,11 +14,12 @@ namespace ProjectSpacer
         
         public List<StatEntry> TileStats;
         public List<QuadTemplate> TileQuads;
+        public List<GridEffect> TileEffects;
 
         public Tile BuildTile(Direction tileDirection, bool flipped, Color32 tileColor)
         {
 
-            return new Tile(TileInfo, tileDirection, flipped, CollisionType, BuildStatCollection(), BuildQuadData(tileDirection, flipped,tileColor));
+            return new Tile(TileInfo, tileDirection, flipped, CollisionType, BuildStatCollection(), BuildQuadData(tileDirection, flipped,tileColor), TileEffects);
 
         }
 
@@ -43,6 +44,7 @@ namespace ProjectSpacer
 
             return quads;
         }
+
 
     }
 }
