@@ -68,8 +68,6 @@ namespace ProjectSpacer
 
             int sizeY = Saved.TileRows.Count;
 
-
-
             for (int y = 0; y < sizeY; y++)
             {
                 for (int x = 0; x < sizeX; x++)
@@ -84,6 +82,11 @@ namespace ProjectSpacer
             }
 
             RecalculateCenter();
+        }
+
+        public Vector2 ToLocalSpace (Vector2Int gridCoord)
+        {
+            return new Vector2(gridCoord.x - GridCenter.x + GV.halfTileSize, gridCoord.y - GridCenter.y + GV.halfTileSize);
         }
 
         public void RecalculateCenter()
@@ -140,8 +143,6 @@ namespace ProjectSpacer
             }
             return y;
         }
-
-
 
     }
 }

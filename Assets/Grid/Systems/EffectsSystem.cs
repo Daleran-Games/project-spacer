@@ -9,7 +9,7 @@ namespace ProjectSpacer
 
         GameObject effectParent;
         Grid grid;
-        List<GridEffect> watchedEffects;
+        List<GameObject> watchedEffects = new List<GameObject>();
 
         // Use this for initialization
         void Start()
@@ -21,7 +21,7 @@ namespace ProjectSpacer
         // Update is called once per frame
         void Update()
         {
-
+            
         }
 
         public void InitializeSystem()
@@ -33,10 +33,20 @@ namespace ProjectSpacer
 
             foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
             {
-                watchedEffects.AddRange(kvp.Value.TileEffects);
+                if (kvp.Value.TileEffects.Count > 0)
+                {
+                    foreach (GameObject ge in kvp.Value.TileEffects)
+                    {
+                        GameObject newEffect = Instantiate(ge, effectParent.transform) as GameObject;
+                        newEffect.transform.position = (Vector3)grid.ToLocalSpace(kvp.Key);
+                        newEffect.transform.Rotate(GV.GetRotationFromDirection(kvp.Value.direction));
+                        newEffect.SetActive(false);
+                        watchedEffects.Add(newEffect);
+                    }
+                }
             }
-
-
         }
+
+        
     }
 }

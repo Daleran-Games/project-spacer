@@ -6,14 +6,8 @@ namespace ProjectSpacer
 {
     public class GridEffect : MonoBehaviour
     {
-
-        public GameObject SubEffect;
-        public HashSet<State> EffectConditions;
-        public float Amount;
-        public Vector3 Offset;
-
-
-
+        public List<GameObject> SubEffect;
+        public List<State> EffectConditions;
     }
 }
 

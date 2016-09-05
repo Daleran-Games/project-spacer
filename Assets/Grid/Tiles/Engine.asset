@@ -30,3 +30,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab13fefcfb6762d4bb27badc0832ac1e, type: 2}
   - {fileID: 11400000, guid: 69a9f0a6cd9d53d4cb0970489c58a0f2, type: 2}
   - {fileID: 11400000, guid: 6661c813c6cc0264a85d4a8c7ff5d587, type: 2}
+  TileEffects:
+  - {fileID: 1000012317138396, guid: f1936b0873d3c314e8c66764b9792d1c, type: 2}

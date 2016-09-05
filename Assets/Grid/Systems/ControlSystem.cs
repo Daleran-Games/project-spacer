@@ -11,12 +11,10 @@ namespace ProjectSpacer
         public float maxSpeed;
         public Vector2 thrustVector;
         public float torqueScalar;
-        public ThrustBlock thrustBlock = new ThrustBlock();
+        public ThrustBlock thrustBlock;
         public float translateThrottle;
 
         VectorPID gridSteeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
-
-        public Dictionary<Vector2Int, Tile> thurstTiles = new Dictionary<Vector2Int, Tile>();
 
 
         //TEMP PUBLIC
@@ -35,6 +33,8 @@ namespace ProjectSpacer
 
             parent = gameObject;
             grid = parent.GetRequiredComponent<Grid>();
+
+            thrustBlock = new ThrustBlock(grid);
 
             UpdateSystem();
 
@@ -73,11 +73,9 @@ namespace ProjectSpacer
                 if (kvp.Value.statCollection.TryGetValue(StatType.Mass, out addMass))
                     newMass += addMass;
 
-                float addThrust = 0f;
-                if (kvp.Value.statCollection.TryGetValue(StatType.Thrust, out addThrust))
+                if (kvp.Value.statCollection.ContainsKey(StatType.Thrust))
                 {
-                    ModifyThrust(kvp.Value.direction, kvp.Key, addThrust, true);
-                    thurstTiles.Add(kvp.Key,kvp.Value);
+                    thrustBlock.AddTile(kvp.Value, kvp.Key);
                 }
                     
             }
@@ -115,66 +113,7 @@ namespace ProjectSpacer
                 return 0f;
         }
 
-        public virtual void ModifyThrust(Direction dir, Vector2Int pos, float amount, bool add)
-        {
 
-            Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GV.halfTileSize, pos.y - grid.GridCenter.y + GV.halfTileSize);
-
-            if (add == false)
-                amount = amount * -1f;
-
-            switch (dir)
-            {
-                case Direction.UP:
-
-                    thrustBlock.down -= amount;
-
-
-                    if (localPos.x > 0)
-                        thrustBlock.cw -= amount;
-                    else if (localPos.x < 0)
-                        thrustBlock.ccw += amount;
-
-                    break;
-                case Direction.DOWN:
-
-                    thrustBlock.up += amount;
-
-                    if (localPos.x > 0)
-                        thrustBlock.ccw += amount;
-                    else if (localPos.x < 0)
-                        thrustBlock.cw -= amount;
-
-                    break;
-                case Direction.RIGHT:
-
-                    thrustBlock.left -= amount;
-
-                    if (localPos.y > 0)
-                        thrustBlock.ccw += amount;
-                    else if (localPos.y < 0)
-                        thrustBlock.cw -= amount;
-
-                    break;
-                case Direction.LEFT:
-
-                    thrustBlock.right += amount;
-
-                    if (localPos.y > 0)
-                        thrustBlock.cw -= amount;
-                    else if (localPos.y < 0)
-                        thrustBlock.ccw += amount;
-
-                    break;
-
-                default:
-                    Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust direction");
-                    break;
-            }
-
-
-
-        }
 
         public virtual void Move(Vector2 movmentVector, Vector2 direction)
         {
@@ -197,14 +136,19 @@ namespace ProjectSpacer
                 PID = gridSteeringPID.Update(aimAngle, Time.fixedDeltaTime);
 
                 if (aimAngle > 0)
+                {
                     steering = thrustBlock.ccw;
+                }
                 else if (aimAngle < 0)
+                {
                     steering = -thrustBlock.cw;
+                } 
 
                 if (PID < GV.headingDeadZone && PID > -GV.headingDeadZone)
+                {
                     steering = 0f;
-
-
+                }
+                    
                 torqueScalar = PID * steering * GV.torqueFactor;
                 grid.GridRigidbody.AddTorque(-torqueScalar);
             }

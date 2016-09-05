@@ -6,9 +6,41 @@ namespace ProjectSpacer
     public class ThrustStat : Stat
     {
         public float Thrust;
+        public Direction ThrustDirection;
+        public bool CWThrust;
   
-       static Info thrustInfo;
+        static Info thrustInfo;
 
+        public ThrustStat(float thrustAmount, Tile tile, Vector2Int tilePosition)
+        {
+            Thrust = thrustAmount;
+            ThrustDirection = getThrustDirection(tile.direction);
+
+        }
+
+        Direction getThrustDirection (Direction dir)
+        {
+            switch(dir)
+            {
+                case Direction.UP:
+                    return Direction.DOWN;
+                case Direction.DOWN:
+                    return Direction.UP;
+                case Direction.RIGHT:
+                    return Direction.LEFT;
+                case Direction.LEFT:
+                    return Direction.RIGHT;
+                default:
+                    Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust direction");
+                    return Direction.UP; 
+            }
+        }
+        /*
+        bool getThrustRotation(Direction dir, Vector2Int pos)
+        {
+
+        }
+        */
         public override int CompareTo(object obj)
         {
             if (obj == null) return 1;

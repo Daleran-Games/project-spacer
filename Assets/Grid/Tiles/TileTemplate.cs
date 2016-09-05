@@ -14,7 +14,7 @@ namespace ProjectSpacer
         
         public List<StatEntry> TileStats;
         public List<QuadTemplate> TileQuads;
-        public List<GridEffect> TileEffects;
+        public List<GameObject> TileEffects;
 
         public Tile BuildTile(Direction tileDirection, bool flipped, Color32 tileColor)
         {

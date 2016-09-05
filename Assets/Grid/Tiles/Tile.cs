@@ -18,12 +18,14 @@ namespace ProjectSpacer
 
         public CollisionLayer collisionLayer = CollisionLayer.ENTITY;
 
+
+        public HashSet<Stat> tileStats = new HashSet<Stat>();
         public Dictionary<StatType, float> statCollection = new Dictionary<StatType, float>();
         public List<QuadData> tileQuads = new List<QuadData>();
-        public List<GridEffect> TileEffects = new List<GridEffect>();
+        public List<GameObject> TileEffects = new List<GameObject>();
 
 
-        public Tile(Info info, Direction direct, bool flipUV, CollisionLayer colLayer, Dictionary<StatType, float> statCol, List<QuadData> quads, List<GridEffect> effects)
+        public Tile(Info info, Direction direct, bool flipUV, CollisionLayer colLayer, Dictionary<StatType, float> statCol, List<QuadData> quads, List<GameObject> effects)
         {
 
             TileInfo = info;

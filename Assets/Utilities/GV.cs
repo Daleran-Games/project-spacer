@@ -127,5 +127,23 @@ namespace ProjectSpacer
             return z;
         }
 
+        public static Vector3 GetRotationFromDirection (Direction dir)
+        {
+            switch(dir)
+            {
+                case Direction.UP:
+                    return new Vector3(0f,0f,0f);
+                case Direction.RIGHT:
+                    return new Vector3(0f,0f,270f);
+                case Direction.LEFT:
+                    return new Vector3(0f, 0f, 90f);
+                case Direction.DOWN:
+                    return new Vector3(0f,0f,180f);
+                default:
+                    Debug.LogError("PS ERROR: " + dir + " not a valid direction.");
+                    return new Vector3(0f, 0f, 0f);
+            }
+        }
+
     }
 }
