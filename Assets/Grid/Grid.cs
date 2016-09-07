@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectSpacer
 {
 
-    [RequireComponent(typeof(Rigidbody2D))]
+
     public class Grid : MonoBehaviour
     {
 
@@ -21,6 +22,9 @@ namespace ProjectSpacer
 
         public Dictionary<Vector2Int, Tile> TileData;
         public Vector2 GridCenter;
+
+        public delegate void GridEvent(Tile tile, Vector2Int pos, Vector2 center);
+
 
         public void InitializeGrid(SavedGrid savedGrid, Controller cont)
         {
@@ -74,7 +78,7 @@ namespace ProjectSpacer
                 {
                     if (Saved.TileRows[y].SavedElements[x].Tile != null)
                     {
-                        TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, Saved.TileRows[y].SavedElements[x].Flipped, Saved.TileRows[y].SavedElements[x].TileColor));
+                        TileData.Add(new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Tile.BuildTile(Saved.TileRows[y].SavedElements[x].Rotation, new Vector2Int(x, y), Saved.TileRows[y].SavedElements[x].Flipped, Saved.TileRows[y].SavedElements[x].TileColor));
                         RecalculateCenter();
                     }
 
@@ -97,7 +101,6 @@ namespace ProjectSpacer
             float maxY = GetMaxY();
 
             GridCenter = new Vector2(((maxX - minX) / 2f) + (GV.tileSize * 0.5f), ((maxY - minY) / 2f) + (GV.tileSize * 0.5f));
-
         }
 
         public int GetMinX()

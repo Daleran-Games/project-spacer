@@ -51,9 +51,7 @@ namespace ProjectSpacer
             meshRenderer.sharedMaterial = GV.atlas;
             meshFilter.mesh.RecalculateNormals();
             meshFilter.mesh.RecalculateBounds();
-            meshFilter.mesh.MarkDynamic();
-   
-
+            meshFilter.mesh.Optimize();
         }
 
 

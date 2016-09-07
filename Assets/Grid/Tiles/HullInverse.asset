@@ -20,8 +20,13 @@ MonoBehaviour:
   CollisionType: 3
   TileStats:
   - Stat: 0
-    Value: 100
+    Value1: 90
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
   TileQuads:
   - {fileID: 11400000, guid: 2d0693de541a66a498fecb6f0110c3d0, type: 2}
   - {fileID: 11400000, guid: 69e37da65f7963744a5aece8dd7da3e0, type: 2}
   - {fileID: 11400000, guid: aa1f28059d7299c409dbcac352748626, type: 2}
+  TileEffects: []

@@ -2,12 +2,11 @@
 using System;
 using System.Collections;
 
-namespace ProjectSpacer
+namespace ProjectSpacer 
 {
     [System.Serializable]
     public abstract class Stat : IComparable, IEquatable<Stat>
     {
-
         public abstract Info GetInfo();
         public abstract void SetInfo(Info info);
 

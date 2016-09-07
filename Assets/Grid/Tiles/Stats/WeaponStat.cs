@@ -6,12 +6,21 @@ namespace ProjectSpacer
     public class WeaponStat : Stat
     {
         public float FireRate;
-        public Projectile WeaponProjectile;
         public float Recoil;
         public float ThermalDamage;
         public Vector2 Offset;
-  
-       Info WeaponInfo;
+        public GameObject WeaponProjectile;
+
+        Info WeaponInfo;
+
+        public WeaponStat(float fireRate, float recoil, float thermalDmg, Vector2 bulletOffset, GameObject projectile)
+        {
+            FireRate = fireRate;
+            Recoil = recoil;
+            ThermalDamage = thermalDmg;
+            Offset = bulletOffset;
+            WeaponProjectile = projectile;
+        }
 
         public override int CompareTo(object obj)
         {

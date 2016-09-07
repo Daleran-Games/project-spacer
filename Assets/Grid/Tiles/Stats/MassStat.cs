@@ -7,7 +7,12 @@ namespace ProjectSpacer
     {
         public float Mass;
   
-       static Info massInfo;
+        static Info massInfo;
+
+        public MassStat(float mass)
+        {
+            Mass = mass;
+        }
 
         public override int CompareTo(object obj)
         {

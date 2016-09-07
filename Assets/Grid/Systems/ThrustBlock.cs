@@ -57,15 +57,16 @@ namespace ProjectSpacer
         {
             Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GV.halfTileSize, pos.y - grid.GridCenter.y + GV.halfTileSize);
 
-            float amount = 0f;
-            if (tile.statCollection.TryGetValue(StatType.Thrust, out amount))
+            float amount = 0;
+
+            foreach(Stat t in tile.tileStats)
             {
-                if (add == false)
-                    amount = amount * -1f;
-            }
-            else
-            {
-                return;
+                if (t is ThrustStat)
+                {
+                    amount = ((ThrustStat)t).Thrust;
+                    if (add == false)
+                        amount = amount * -1f;
+                }
             }
 
             switch (tile.direction)

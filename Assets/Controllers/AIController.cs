@@ -13,9 +13,9 @@ namespace ProjectSpacer
         void FixedUpdate()
         {
 
-            Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 targetDir = MousePos - transform.position;
-            Vector2 velocity = gridRigidBody.velocity;
+            //Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Vector2 targetDir = MousePos - transform.position;
+            //Vector2 velocity = gridRigidBody.velocity;
 
             if (getRangeToTargetFloat(Target) >= 30f)
             {

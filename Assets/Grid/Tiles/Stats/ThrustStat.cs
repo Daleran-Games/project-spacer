@@ -5,17 +5,25 @@ namespace ProjectSpacer
 {
     public class ThrustStat : Stat
     {
+
+        public enum Rotation
+        {
+            CW,
+            CCW,
+            NONE
+        }
+
         public float Thrust;
         public Direction ThrustDirection;
-        public bool CWThrust;
+        public Rotation ThrustRotation;
   
         static Info thrustInfo;
 
-        public ThrustStat(float thrustAmount, Tile tile, Vector2Int tilePosition)
+        public ThrustStat(float thrustAmount, Direction tileDirection, Vector2Int tilePosition)
         {
             Thrust = thrustAmount;
-            ThrustDirection = getThrustDirection(tile.direction);
-
+            ThrustDirection = getThrustDirection(tileDirection);
+            ThrustRotation = getThrustRotation(tileDirection, tilePosition);
         }
 
         Direction getThrustDirection (Direction dir)
@@ -35,12 +43,45 @@ namespace ProjectSpacer
                     return Direction.UP; 
             }
         }
-        /*
-        bool getThrustRotation(Direction dir, Vector2Int pos)
-        {
 
+        Rotation getThrustRotation(Direction dir, Vector2Int localPos)
+        {
+            switch (dir)
+            {
+                case Direction.UP:
+                    if (localPos.x > 0)
+                        return Rotation.CW;
+                    else if (localPos.x < 0)
+                        return Rotation.CCW;
+                    else
+                        return Rotation.NONE;
+                case Direction.DOWN:
+                    if (localPos.x > 0)
+                        return Rotation.CCW;
+                    else if (localPos.x < 0)
+                        return Rotation.CW;
+                    else
+                        return Rotation.NONE;
+                case Direction.RIGHT:
+                    if (localPos.y > 0)
+                        return Rotation.CCW;
+                    else if (localPos.y < 0)
+                        return Rotation.CW;
+                    else
+                        return Rotation.NONE;
+                case Direction.LEFT:
+                    if (localPos.y > 0)
+                        return Rotation.CW;
+                    else if (localPos.y < 0)
+                        return Rotation.CCW;
+                    else
+                        return Rotation.NONE;
+                default:
+                    Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust rotation");
+                    return Rotation.NONE;
+            }
         }
-        */
+
         public override int CompareTo(object obj)
         {
             if (obj == null) return 1;

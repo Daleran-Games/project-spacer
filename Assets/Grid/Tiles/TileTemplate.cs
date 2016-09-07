@@ -16,19 +16,37 @@ namespace ProjectSpacer
         public List<QuadTemplate> TileQuads;
         public List<GameObject> TileEffects;
 
-        public Tile BuildTile(Direction tileDirection, bool flipped, Color32 tileColor)
+
+        public Tile BuildTile(Direction tileDirection, Vector2Int pos, bool flipped, Color32 tileColor)
         {
 
-            return new Tile(TileInfo, tileDirection, flipped, CollisionType, BuildStatCollection(), BuildQuadData(tileDirection, flipped,tileColor), TileEffects);
+            return new Tile(TileInfo, tileDirection, flipped, CollisionType, BuildStatCollection(tileDirection, pos), BuildQuadData(tileDirection, flipped,tileColor), TileEffects);
 
         }
 
-        Dictionary<StatType, float> BuildStatCollection()
+        List<Stat> BuildStatCollection(Direction dir, Vector2Int pos)
         {
-            Dictionary<StatType, float> stats = new Dictionary<StatType, float>();
+            List<Stat> stats = new List<Stat>();
             foreach (StatEntry se in TileStats)
             {
-                stats.Add(se.Stat, se.Value);
+                switch (se.Stat)
+                {
+                    case StatType.Mass:
+                        stats.Add(new MassStat(se.Value1));
+                        break;
+                    case StatType.Thrust:
+                        stats.Add(new ThrustStat(se.Value1, dir, pos));
+                        break;
+                    case StatType.Condition:
+                        stats.Add(new ConditionStat(se.Value1, se.Value2));
+                        break;
+                    case StatType.Weapon:
+                        stats.Add(new WeaponStat(se.Value1,se.Value2,se.Value3,se.StatVector,se.StatObject));
+                        break;
+                    default:
+                        Debug.LogError("PS ERROR: " + se.Stat.ToString()+" not a valid stat");
+                        break;
+                }
             }
             return stats;
         }

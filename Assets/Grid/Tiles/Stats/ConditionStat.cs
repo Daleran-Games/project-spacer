@@ -9,7 +9,14 @@ namespace ProjectSpacer
         public float ConditionMax;
         public float ConditionBreak;
   
-       static Info ConditionInfo;
+        static Info ConditionInfo;
+
+        public ConditionStat (float condBreak, float condMax)
+        {
+            ConditionBreak = condBreak;
+            Condition = condMax;
+            ConditionMax = condMax;
+        }
 
         public override int CompareTo(object obj)
         {

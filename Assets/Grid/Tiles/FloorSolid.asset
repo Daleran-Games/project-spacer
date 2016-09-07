@@ -17,11 +17,16 @@ MonoBehaviour:
     flavorText: Keeps me from having to walk over those ducts and wire
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
-  CollisionType: 0
+  CollisionType: 2
   TileStats:
   - Stat: 0
-    Value: 75
+    Value1: 100
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
   TileQuads:
   - {fileID: 11400000, guid: 86c5edb774903b6459530353057c97d3, type: 2}
   - {fileID: 11400000, guid: 61f2f0ffc8faec8468ec00cc9c71221a, type: 2}
   - {fileID: 11400000, guid: 9fbcfad6d65e0b14d8bb04ae2baf2e89, type: 2}
+  TileEffects: []

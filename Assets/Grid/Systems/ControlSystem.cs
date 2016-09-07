@@ -69,15 +69,18 @@ namespace ProjectSpacer
 
             foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
             {
-                float addMass = 0f;
-                if (kvp.Value.statCollection.TryGetValue(StatType.Mass, out addMass))
-                    newMass += addMass;
-
-                if (kvp.Value.statCollection.ContainsKey(StatType.Thrust))
+                foreach (Stat t in kvp.Value.tileStats)
                 {
-                    thrustBlock.AddTile(kvp.Value, kvp.Key);
+                    if (t is ThrustStat)
+                    {
+                        thrustBlock.AddTile(kvp.Value, kvp.Key);
+                    }
+
+                    if (t is MassStat)
+                    {
+                        newMass += ((MassStat)t).Mass;
+                    }
                 }
-                    
             }
 
             grid.GridRigidbody.mass = newMass;

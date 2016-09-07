@@ -5,11 +5,7 @@
     {
         Mass,
         Thrust,
-        FireRate,
-        Recoil,
-        Projectile,
-        ConditionMax,
-        ConditionCurrent,
-        ConditionBreak
+        Condition,
+        Weapon
     }
 }

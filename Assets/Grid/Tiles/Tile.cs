@@ -19,20 +19,21 @@ namespace ProjectSpacer
         public CollisionLayer collisionLayer = CollisionLayer.ENTITY;
 
 
-        public HashSet<Stat> tileStats = new HashSet<Stat>();
-        public Dictionary<StatType, float> statCollection = new Dictionary<StatType, float>();
+        public List<Stat> tileStats = new List<Stat>();
         public List<QuadData> tileQuads = new List<QuadData>();
         public List<GameObject> TileEffects = new List<GameObject>();
 
+        public delegate void TileStateEvent(Tile tile, State newState);
+        public delegate void TileStatEvent(Tile tile, Stat newStat);
 
-        public Tile(Info info, Direction direct, bool flipUV, CollisionLayer colLayer, Dictionary<StatType, float> statCol, List<QuadData> quads, List<GameObject> effects)
+        public Tile(Info info, Direction direct, bool flipUV, CollisionLayer colLayer, List<Stat> stats, List<QuadData> quads, List<GameObject> effects)
         {
 
             TileInfo = info;
             direction = direct;
             flipped = flipUV;
             collisionLayer = colLayer;
-            statCollection = statCol;
+            tileStats = stats;
             tileQuads.AddRange(quads);
             TileEffects.AddRange(effects);
 
@@ -75,9 +76,13 @@ namespace ProjectSpacer
                     break;
                 case State.BROKEN:
                     DamageState = State.BROKEN;
+                    Enabled = State.DISABLED;
+                    Active = State.IDLE;
                     break;
                 case State.DESTORYED:
                     DamageState = State.DESTORYED;
+                    Enabled = State.DISABLED;
+                    Active = State.IDLE;
                     break;
                 default:
                     Debug.LogError("PS ERROR: " + state + " not a valid damage state.");
