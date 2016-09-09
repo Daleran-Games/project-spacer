@@ -8,22 +8,17 @@ namespace ProjectSpacer
     public class ControlSystem : MonoBehaviour
     {
 
-        public float maxSpeed;
         public Vector2 thrustVector;
-        public float torqueScalar;
-        public ThrustBlock thrustBlock;
-        public float translateThrottle;
 
-        VectorPID gridSteeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
+        List<Tile> _thrustTiles = new List<Tile>();
 
-
-        //TEMP PUBLIC
-        public float steering = 0f;
-        public float PID;
-        public float aimAngle;
+        VectorPID _steeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
+        float _steering = 0f;
+        float _PID;
+        float _aimAngle;
 
         public GameObject parent;
-        Grid grid;
+        Grid _grid;
 
         //TEMP PUBLIC
         public Controller controller;
@@ -32,22 +27,30 @@ namespace ProjectSpacer
         {
 
             parent = gameObject;
-            grid = parent.GetRequiredComponent<Grid>();
+            _grid = parent.GetRequiredComponent<Grid>();
 
-            thrustBlock = new ThrustBlock(grid);
+            _grid.ControllerAssigned += OnControllerAssigned;
+            _grid.ControllerUnassigned += OnControllerUnassigned;
 
             UpdateSystem();
 
-            maxSpeed = (thrustBlock.getTotalThrust() / grid.GridRigidbody.mass) * GV.maxVelocityTuner;
         }
 
-        void FixedUpdate()
+        void FixedUpdate ()
         {
+
             if (controller != null)
-                Move(controller.GetMovementVector(), controller.GetDriectionVector());
+            {
+                thrustVector = setThrustVector(controller.GetTranslateVector());
+                _grid.GridRigidbody.AddRelativeForce(thrustVector);
+                Rotate(controller.GetDirectionVector());
+            }
+
         }
 
-        public void AssignController(Controller cont)
+        
+
+        void OnControllerAssigned(Controller cont)
         {
             controller = cont;
 
@@ -55,112 +58,71 @@ namespace ProjectSpacer
             {
                 parent.tag = "Player";
             }
+
         }
 
-        public ThrustBlock GetThrustBlock()
+        void OnControllerUnassigned (Controller cont)
         {
-            return thrustBlock;
+            if (controller is PlayerController)
+            {
+                parent.tag = "Untagged";
+            }
+            controller = null;
         }
 
-        public void UpdateSystem()
+        void UpdateSystem()
         {
             float newMass = 0f;
-            thrustBlock.Clear();
 
-            foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
+            foreach (KeyValuePair<Vector2Int, Tile> kvp in _grid.TileData)
             {
-                foreach (Stat t in kvp.Value.tileStats)
-                {
-                    if (t is ThrustStat)
-                    {
-                        thrustBlock.AddTile(kvp.Value, kvp.Key);
-                    }
 
-                    if (t is MassStat)
-                    {
-                        newMass += ((MassStat)t).Mass;
-                    }
-                }
+                if (kvp.Value.tileStats.ContainsStat<ThrustStat>())
+                    _thrustTiles.Add(kvp.Value);
+
+                if (kvp.Value.tileStats.ContainsStat<MassStat>())
+                    newMass += kvp.Value.tileStats.GetStat<MassStat>().Mass;
             }
 
-            grid.GridRigidbody.mass = newMass;
+            _grid.GridRigidbody.mass = newMass;
         }
 
-        public virtual float GetMaxSpeed()
+        public void Rotate(Vector2 direction)
         {
-            return maxSpeed;
-        }
-
-        public virtual Vector2 GetThrustVector()
-        {
-            return thrustVector;
-        }
-
-        public virtual float GetTorqueScalar()
-        {
-            return torqueScalar;
-        }
-
-        public virtual float GetTranslationFractional()
-        {
-            return translateThrottle;
-        }
-
-        public virtual float GetTorqueFractional()
-        {
-            if (torqueScalar > 0f)
-                return torqueScalar / thrustBlock.ccw;
-            else if (torqueScalar < 0f)
-                return torqueScalar / thrustBlock.cw;
-            else
-                return 0f;
-        }
-
-
-
-        public virtual void Move(Vector2 movmentVector, Vector2 direction)
-        {
-            Rotate(direction);
-            thrustVector = setThrustVector(movmentVector);
-            grid.GridRigidbody.AddRelativeForce(thrustVector);
-        }
-
-        public virtual void Rotate(Vector2 direction)
-        {
-
 
             if (direction != Vector2.zero)
             {
-                aimAngle = Vector2.Angle(grid.GridRigidbody.transform.up, direction) / 180f;
+                _aimAngle = Vector2.Angle(_grid.GridRigidbody.transform.up, direction) / 180f;
 
-                if (Vector3.Cross(grid.GridRigidbody.transform.up, direction).z > 0)
-                    aimAngle = aimAngle * -1f;
+                if (Vector3.Cross(_grid.GridRigidbody.transform.up, direction).z > 0)
+                    _aimAngle = _aimAngle * -1f;
 
-                PID = gridSteeringPID.Update(aimAngle, Time.fixedDeltaTime);
+                _PID = _steeringPID.Update(_aimAngle, Time.fixedDeltaTime);
 
-                if (aimAngle > 0)
+                if (_aimAngle > 0)
                 {
-                    steering = thrustBlock.ccw;
+                    _steering = 0f;
+
                 }
-                else if (aimAngle < 0)
+                else if (_aimAngle < 0)
                 {
-                    steering = -thrustBlock.cw;
-                } 
-
-                if (PID < GV.headingDeadZone && PID > -GV.headingDeadZone)
-                {
-                    steering = 0f;
+                    _steering = 0f;
                 }
-                    
-                torqueScalar = PID * steering * GV.torqueFactor;
-                grid.GridRigidbody.AddTorque(-torqueScalar);
+
+                if (_PID < GV.headingDeadZone && _PID > -GV.headingDeadZone)
+                {
+                    _steering = 0f;
+                }
+                _grid.GridRigidbody.AddTorque(-_PID * _steering * GV.torqueFactor);
             }
 
         }
+
 
         Vector2 setThrustVector(Vector2 dir)
         {
 
+            /*
             translateThrottle = dir.magnitude;
             thrustVector = Vector2.zero;
             float slope = dir.y / dir.x;
@@ -246,10 +208,13 @@ namespace ProjectSpacer
             }
 
             Debug.Log("Thrust Block Error: getThrustVector");
-            return thrustVector;
+            */
+
+            //return thrustVector;
+            return Vector2.zero;
         }
 
-
+   
 
     }
 }

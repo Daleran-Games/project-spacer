@@ -23,8 +23,17 @@ namespace ProjectSpacer
         public Dictionary<Vector2Int, Tile> TileData;
         public Vector2 GridCenter;
 
-        public delegate void GridEvent(Tile tile, Vector2Int pos, Vector2 center);
+        public delegate void ControllerEvent(Controller cont);
+        public ControllerEvent ControllerAssigned;
+        public ControllerEvent ControllerUnassigned;
 
+        public delegate void GridTileEvent(Tile tile, Vector2Int pos);
+        public GridTileEvent TileAdded;
+        public GridTileEvent TileRemoved;
+
+        public delegate void GridSystemEvent(int priority);
+        public GridSystemEvent InitializeSystem;
+        public GridSystemEvent DeinitializeSystem;
 
         public void InitializeGrid(SavedGrid savedGrid, Controller cont)
         {
@@ -54,7 +63,7 @@ namespace ProjectSpacer
             GridController = cont;
             GridController.InitializeController();
 
-            GridControlSystem.AssignController(GridController);
+            ControllerAssigned(GridController);
 
             GridEffectsSystem = gameObject.GetOrAddComponent<EffectsSystem>();
             GridEffectsSystem.InitializeSystem();

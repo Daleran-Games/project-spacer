@@ -9,13 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
-  m_Name: EngineCorner
+  m_Name: EngineColdGas
   m_EditorClassIdentifier: 
   TileInfo:
-    name: Small Thruster
-    description: A small thruster meant for small ships or fine tuned manuvering on
-      larger ships
-    flavorText: Keeps us moving
+    name: Cold Gas Thruster
+    description: Small thruster that exhausts cold gas to apply thrust.
+    flavorText: Cheap, light, and good for controlling orientation.
     textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   CollisionType: 3
@@ -26,17 +25,18 @@ MonoBehaviour:
     Value3: 0
     StatVector: {x: 0, y: 0}
     StatObject: {fileID: 0}
+    ThrustMode: 1
   - Stat: 1
-    Value1: 15000
+    Value1: 750
     Value2: 0
     Value3: 0
     StatVector: {x: 0, y: 0}
     StatObject: {fileID: 0}
+    ThrustMode: 0
   TileQuads:
   - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
   - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}
-  - {fileID: 11400000, guid: ab13fefcfb6762d4bb27badc0832ac1e, type: 2}
+  - {fileID: 11400000, guid: 71bc228d78762d546b981aeaba1286c5, type: 2}
   - {fileID: 11400000, guid: 7fe1585e86a92514f88dadb4b88af002, type: 2}
-  - {fileID: 11400000, guid: 6661c813c6cc0264a85d4a8c7ff5d587, type: 2}
   TileEffects:
   - {fileID: 1000012317138396, guid: f1936b0873d3c314e8c66764b9792d1c, type: 2}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
+  m_Name: EngineVernier
+  m_EditorClassIdentifier: 
+  TileInfo:
+    name: Small Thruster
+    description: A small thruster meant for small ships or fine tuned manuvering on
+      larger ships
+    flavorText: Keeps us moving
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    icon: {fileID: 21300028, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value1: 150
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
+    ThrustMode: 1
+  - Stat: 1
+    Value1: 15000
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
+    ThrustMode: 1
+  TileQuads:
+  - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
+  - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}
+  - {fileID: 11400000, guid: 6661c813c6cc0264a85d4a8c7ff5d587, type: 2}
+  - {fileID: 11400000, guid: cb7d6a70ada91af41bc1dfbdae6ad56e, type: 2}
+  TileEffects:
+  - {fileID: 1000012317138396, guid: f1936b0873d3c314e8c66764b9792d1c, type: 2}

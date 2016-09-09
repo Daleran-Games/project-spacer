@@ -24,24 +24,24 @@ namespace ProjectSpacer
 
         }
 
-        List<Stat> BuildStatCollection(Direction dir, Vector2Int pos)
+        StatCollection BuildStatCollection(Direction dir, Vector2Int pos)
         {
-            List<Stat> stats = new List<Stat>();
+            StatCollection stats = new StatCollection();
             foreach (StatEntry se in TileStats)
             {
                 switch (se.Stat)
                 {
                     case StatType.Mass:
-                        stats.Add(new MassStat(se.Value1));
+                        stats.AddStat<MassStat>(new MassStat(se.Value1));
                         break;
                     case StatType.Thrust:
-                        stats.Add(new ThrustStat(se.Value1, dir, pos));
+                        stats.AddStat<ThrustStat>(new ThrustStat(se.Value1, dir, pos, se.ThrustMode));
                         break;
                     case StatType.Condition:
-                        stats.Add(new ConditionStat(se.Value1, se.Value2));
+                        stats.AddStat<ConditionStat>(new ConditionStat(se.Value1, se.Value2));
                         break;
                     case StatType.Weapon:
-                        stats.Add(new WeaponStat(se.Value1,se.Value2,se.Value3,se.StatVector,se.StatObject));
+                        stats.AddStat<WeaponStat>(new WeaponStat(se.Value1,se.Value2,se.Value3,se.StatVector,se.StatObject));
                         break;
                     default:
                         Debug.LogError("PS ERROR: " + se.Stat.ToString()+" not a valid stat");

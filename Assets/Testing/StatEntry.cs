@@ -19,5 +19,7 @@ namespace ProjectSpacer
         public Vector2 StatVector;
         [SerializeField]
         public GameObject StatObject;
+        [SerializeField]
+        public ThrustStat.ThrusterMode ThrustMode;
     }
 }

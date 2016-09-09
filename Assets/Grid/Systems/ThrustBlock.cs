@@ -7,142 +7,94 @@ namespace ProjectSpacer
     [System.Serializable]
     public class ThrustBlock
     {
+        public float Up = 0f;
+        public float Down = 0f;
+        public float Right = 0f;
+        public float Left = 0f;
+        public float CCW = 0f;
+        public float CW = 0f;
 
-        public float up=0f, down = 0f, right = 0f, left = 0f, cw = 0f, ccw=0f;
+        private Grid _grid;
 
-        public List<Tile> UpTiles = new List<Tile>();
-        public List<Tile> DownTiles = new List<Tile>();
-        public List<Tile> LeftTiles = new List<Tile>();
-        public List<Tile> RightTiles = new List<Tile>();
-        public List<Tile> CWTiles = new List<Tile>();
-        public List<Tile> CCWTiles = new List<Tile>();
 
-        Grid grid;
 
-        public ThrustBlock(Grid g)
+        public ThrustBlock(Grid grid)
         {
-            this.Clear();
-            grid = g;
-    
+            _grid = grid;
+
         }
 
-
-        public float getTotalThrust()
+        public void Clear ()
         {
-
-            return up - down - left + right;
+            Up = 0f;
+            Down = 0f;
+            Right = 0f;
+            Left = 0f;
+            CCW = 0f;
+            CW = 0f;
         }
 
-        public void Clear()
+        public void AddTile (Tile tile)
         {
-            up = 0f;
-            down = 0f;
-            right = 0f;
-            left = 0f;
-            cw = 0f;
-            ccw = 0f;
-        }
-
-        public void AddTile (Tile tile, Vector2Int pos)
-        {
-            ModifyThrust(tile, pos, true);
-        }
-
-        public void RemoveTile(Tile tile, Vector2Int pos)
-        {
-            ModifyThrust(tile, pos, false);
-        }
-
-        void ModifyThrust(Tile tile, Vector2Int pos, bool add)
-        {
-            Vector2 localPos = new Vector2(pos.x - grid.GridCenter.x + GV.halfTileSize, pos.y - grid.GridCenter.y + GV.halfTileSize);
-
-            float amount = 0;
-
-            foreach(Stat t in tile.tileStats)
+            tile.TileEnabled += OnEnableDisable;
+            if (tile.Enabled == State.ENABLED)
             {
-                if (t is ThrustStat)
-                {
-                    amount = ((ThrustStat)t).Thrust;
-                    if (add == false)
-                        amount = amount * -1f;
-                }
-            }
 
-            switch (tile.direction)
+            }
+        }
+
+        public void RemoveTile(Tile tile)
+        {
+            tile.TileEnabled -= OnEnableDisable;
+        }
+
+        void OnEnableDisable (Tile tile, State state)
+        {
+
+        }
+
+        void ModifyThrust (Direction dir, float amount, bool add)
+        {
+            if (add == false)
+                amount = amount * -1f;
+
+            switch (dir)
             {
                 case Direction.UP:
-
-                    down -= amount;
-                    UpTiles.Add(tile);
-
-                    if (localPos.x > 0)
-                    {
-                        cw -= amount;
-                        CWTiles.Add(tile);
-                    }
-                    else if (localPos.x < 0)
-                    {
-                        ccw += amount;
-                        CCWTiles.Add(tile);
-                    }
+                    Up += amount;
                     break;
                 case Direction.DOWN:
-
-                    up += amount;
-                    DownTiles.Add(tile);
-
-                    if (localPos.x > 0)
-                    {
-                        ccw += amount;
-                        CCWTiles.Add(tile);
-                    }
-                    else if (localPos.x < 0)
-                    {
-                        cw -= amount;
-                        CWTiles.Add(tile);
-                    }
-
-
+                    Down += amount;
                     break;
                 case Direction.RIGHT:
-
-                    left -= amount;
-                    RightTiles.Add(tile);
-
-                    if (localPos.y > 0)
-                    {
-                        ccw += amount;
-                        CCWTiles.Add(tile);
-                    }
-                    else if (localPos.y < 0)
-                    {
-                        cw -= amount;
-                        CWTiles.Add(tile);
-                    }
-
-
+                    Right += amount;
                     break;
                 case Direction.LEFT:
-
-                    right += amount;
-                    LeftTiles.Add(tile);
-
-                    if (localPos.y > 0)
-                    {
-                        cw -= amount;
-                        CWTiles.Add(tile);
-                    }
-                    else if (localPos.y < 0)
-                    {
-                        ccw += amount;
-                        CCWTiles.Add(tile);
-                    }
-
+                    Left += amount;
                     break;
-
                 default:
-                    Debug.LogError("PS ERROR: " + tile.direction.ToString() + " not a valid orientation for thrust direction");
+                    Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust direction");
+                    break;
+            }
+        }
+
+        void ModifyThrust(Rotation rot, float amount, bool add)
+        {
+            if (add == false)
+                amount = amount * -1f;
+
+            switch (rot)
+            {
+                case Rotation.CCW:
+                    CCW += amount;
+                    break;
+                case Rotation.CW:
+                    CW += amount;
+                    break;
+                case Rotation.NONE:
+                    break;
+                default:
+                    Debug.LogError("PS ERROR: " + rot.ToString() + " not a valid orientation for thrust rotation");
                     break;
             }
         }

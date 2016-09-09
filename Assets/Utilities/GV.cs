@@ -97,7 +97,7 @@ namespace ProjectSpacer
                     z = -0.2f;
                     break;
                 case MeshLayer.GRID_MODULE_HIGH:
-                    z = -0.8f;
+                    z = -0.5f;
                     break;
                 case MeshLayer.GRID_WALL:
                     z = -1f;

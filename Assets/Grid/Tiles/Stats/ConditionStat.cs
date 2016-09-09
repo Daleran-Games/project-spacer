@@ -1,15 +1,35 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 namespace ProjectSpacer
 {
-    public class ConditionStat : Stat
+    public class ConditionStat : IStat
     {
-        public float Condition;
-        public float ConditionMax;
-        public float ConditionBreak;
-  
-        static Info ConditionInfo;
+
+        public float Condition=0f;
+        public float ConditionMax=0f;
+        public float ConditionBreak=0f;
+        private static Info _conditionInfo = new Info("Condition");
+
+        public Type Type
+        {
+            get { return typeof(ConditionStat); }
+        }
+
+        public Info StatInfo
+        {
+            get
+            {
+                return _conditionInfo;
+            }
+        }
+
+
+        public ConditionStat()
+        {
+
+        }
 
         public ConditionStat (float condBreak, float condMax)
         {
@@ -17,52 +37,5 @@ namespace ProjectSpacer
             Condition = condMax;
             ConditionMax = condMax;
         }
-
-        public override int CompareTo(object obj)
-        {
-            if (obj == null) return 1;
-
-            ConditionStat testStat = obj as ConditionStat;
-            if (testStat != null)
-                return this.Condition.CompareTo(testStat.Condition);
-            else
-                throw new ArgumentException("Object is not a Condition");
-        }
-
-        public bool Equals(ConditionStat other)
-        {
-            if (other == null)
-                return false;
-
-            if (this.Condition == other.Condition)
-                return true;
-            else
-                return false;
-        }
-
-        public override bool Equals(Stat other)
-        {
-            if (other == null)
-                return false;
-
-            ConditionStat conditionStat = other as ConditionStat;
-            if (conditionStat == null)
-                return false;
-            else
-                return Equals(conditionStat);
-        }
-
-        public override Info GetInfo()
-        {
-            return ConditionInfo;
-        }
-
-        public override void SetInfo(Info info)
-        {
-            ConditionInfo = info;
-        }
-
-
-
     }
 }

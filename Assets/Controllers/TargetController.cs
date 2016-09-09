@@ -7,7 +7,9 @@ namespace ProjectSpacer
     {
 
         public GameObject target;
-        Vector2 localVelocity;
+        Vector2 _localVelocity;
+        Vector2 _translateVector = Vector2.zero;
+        Vector2 _directionVector = Vector2.zero;
 
         void Update()
         {
@@ -17,17 +19,25 @@ namespace ProjectSpacer
 
         void FixedUpdate()
         {
-            localVelocity = transform.InverseTransformDirection(gridRigidBody.velocity).normalized;
+            _localVelocity = transform.InverseTransformDirection(_grid.GridRigidbody.velocity);
 
             if (target != null)
             {
-                directionVector = (Vector2)(target.transform.position - transform.position);
+                _directionVector = (Vector2)(target.transform.position - transform.position);
             }
 
-            movementVector = -localVelocity;
-
+            _translateVector = -_localVelocity;
         }
 
+        public override Vector2 GetTranslateVector()
+        {
+            return _translateVector;
+        }
+
+        public override Vector2 GetDirectionVector()
+        {
+            return _directionVector;
+        }
 
     }
 }

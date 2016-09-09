@@ -7,57 +7,49 @@ namespace ProjectSpacer
     public class PlayerController : Controller
     {
 
-        Vector2 localVelocity;
+        Vector2 _localVelocity;
 
-        public bool isMouseWheelAxisInUse = false;
-
-        void Update()
-        {
-
-
-        }
+        Vector2 _translateVector = Vector2.zero;
+        Vector2 _directionVector = Vector2.zero;
 
         void FixedUpdate()
         {
 
-
-            aimPoint = getMouseVector();
-
             if (GameManager.inputManger.mouseLook.GetToggleState())
             {
-                directionVector = getRotateVector();
+                _directionVector = getRotateVector();
             }
             else
             {
-                directionVector = aimPoint.normalized;
+                _directionVector = getMouseVector().normalized;
             }
 
             Vector2 inputVector = getTranslateInputVector();
 
             if (GameManager.inputManger.drift.GetToggleState())
             {
-                movementVector = inputVector.normalized;
+                _translateVector = inputVector.normalized;
             }
             else
             {
-                localVelocity = transform.InverseTransformDirection(gridRigidBody.velocity).normalized;
-                if (inputVector == Vector2.zero && gridRigidBody.velocity.magnitude > GV.velocityDeadZone)
+                _localVelocity = transform.InverseTransformDirection(_grid.GridRigidbody.velocity.normalized);
+                if (inputVector == Vector2.zero && _grid.GridRigidbody.velocity.magnitude > GV.velocityDeadZone)
                 {
-                    movementVector = -localVelocity;
+                    _translateVector =  -_localVelocity;
                 }
                 else
                 {
                     if (inputVector.x != 0 & inputVector.y == 0)
                     {
-                        movementVector = new Vector2(inputVector.x, -localVelocity.y).normalized;
+                        _translateVector = new Vector2(inputVector.x, -_localVelocity.y);
                     }
                     else if (inputVector.x == 0 & inputVector.y != 0)
                     {
-                        movementVector = new Vector2(-localVelocity.x, inputVector.y).normalized;
+                        _translateVector = new Vector2(-_localVelocity.x, inputVector.y);
                     }
                     else
                     {
-                        movementVector = inputVector.normalized;
+                        _translateVector = inputVector;
                     }
 
                 }
@@ -75,23 +67,27 @@ namespace ProjectSpacer
         {
             Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             return MousePos - (Vector2)transform.position;
-
         }
 
         Vector2 getRotateVector()
         {
-
-            float angle;
             if (GameManager.inputManger.rotateKeys.GetAxisValue() > 0)
-                angle = -GV.playerRotateRadian;
+                return Vector2.right;
             else if (GameManager.inputManger.rotateKeys.GetAxisValue() < 0)
-                angle = GV.playerRotateRadian;
+                return Vector2.left;
             else
-                angle = 0f;
-
-            return new Vector2(directionVector.x * Mathf.Cos(angle) - directionVector.y * Mathf.Sin(angle), directionVector.y * Mathf.Cos(angle) + directionVector.x * Mathf.Sin(angle));
+                return Vector2.up;
         }
 
+        public override Vector2 GetTranslateVector()
+        {
+            return _translateVector;
+        }
+
+        public override Vector2 GetDirectionVector()
+        {
+            return _directionVector;
+        }
 
     }
 }

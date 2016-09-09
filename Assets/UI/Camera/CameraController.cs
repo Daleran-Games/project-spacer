@@ -19,7 +19,7 @@ namespace ProjectSpacer
         private Vector3 offset;
         private Camera cam;
 
-        public float[] layerPresets = new float[3] { 0.001f, -0.5f, -2.5f };
+        public float[] layerPresets = new float[3] { 0.001f, -0.8f, -2.5f };
         private int currentLayer = 2;
 
 
