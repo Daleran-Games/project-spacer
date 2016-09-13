@@ -6,8 +6,9 @@ namespace ProjectSpacer
 {
     public class GridEffect : MonoBehaviour
     {
-        public List<GameObject> SubEffect;
+        public List<string> SubEffect;
         public List<State> EffectConditions;
+
     }
 }
 

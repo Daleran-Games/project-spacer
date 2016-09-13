@@ -45,6 +45,19 @@ namespace ProjectSpacer
             }
         }
 
+        public static MeshData operator + (MeshData left, MeshData right)
+        {
+            MeshData _combinedData = new MeshData();
+            int startingCount = left.vertices.Count;
+            left.vertices.AddRange(right.vertices);
+            left.uv.AddRange(right.uv);
+            left.addQuadTriangles(right.triangles, startingCount);
+            left.colors.AddRange(right.colors);
+
+            return _combinedData;
+
+        }
+
 
     }
 }

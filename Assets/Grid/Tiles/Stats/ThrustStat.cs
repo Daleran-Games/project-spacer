@@ -71,11 +71,20 @@ namespace ProjectSpacer
             {
                 case Direction.UP:
                     if (localPos.x > 0)
+                    {
+                        Torque = 0f;
                         return Rotation.CW;
+                    }
                     else if (localPos.x < 0)
+                    {
+                        Torque = 0f;
                         return Rotation.CCW;
+                    }
                     else
+                    {
+                        Torque = 0f;
                         return Rotation.NONE;
+                    }
                 case Direction.DOWN:
                     if (localPos.x > 0)
                         return Rotation.CCW;

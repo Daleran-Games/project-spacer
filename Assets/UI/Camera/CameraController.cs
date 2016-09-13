@@ -46,14 +46,14 @@ namespace ProjectSpacer
         void LateUpdate()
         {
 
-            if (GameManager.inputManger.layerDown.IsPressedOnce())
+            if (GameManager.inputManager.layerDown.IsPressedOnce())
                 MoveLayerDown();
 
             TrackTarget();
 
-            if (GameManager.inputManger.mouseWheel.GetAxisValue() > 0)
+            if (GameManager.inputManager.mouseWheel.GetAxisValue() > 0)
                 ZoomCameraIn();
-            else if (GameManager.inputManger.mouseWheel.GetAxisValue() < 0)
+            else if (GameManager.inputManager.mouseWheel.GetAxisValue() < 0)
                 ZoomCameraOut();
 
         }

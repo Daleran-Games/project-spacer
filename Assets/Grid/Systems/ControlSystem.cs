@@ -10,7 +10,7 @@ namespace ProjectSpacer
 
         public Vector2 thrustVector;
 
-        List<Tile> _thrustTiles = new List<Tile>();
+        List<SubTile> _thrustTiles = new List<SubTile>();
 
         VectorPID _steeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
         float _steering = 0f;
@@ -77,11 +77,11 @@ namespace ProjectSpacer
             foreach (KeyValuePair<Vector2Int, Tile> kvp in _grid.TileData)
             {
 
-                if (kvp.Value.tileStats.ContainsStat<ThrustStat>())
-                    _thrustTiles.Add(kvp.Value);
+                if (kvp.Value.ContainsStat<ThrustStat>())
+                    _thrustTiles.Add(kvp.Value.GetSubTileWithStat<ThrustStat>());
 
-                if (kvp.Value.tileStats.ContainsStat<MassStat>())
-                    newMass += kvp.Value.tileStats.GetStat<MassStat>().Mass;
+                if (kvp.Value.ContainsStat<MassStat>())
+                    newMass += kvp.Value.GetTotalStat<MassStat>().Mass;
             }
 
             _grid.GridRigidbody.mass = newMass;

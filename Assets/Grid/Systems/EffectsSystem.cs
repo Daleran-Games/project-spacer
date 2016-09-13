@@ -20,8 +20,9 @@ namespace ProjectSpacer
 
             foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
             {
-                if (kvp.Value.TileEffects.Count > 0)
+                if (kvp.Value.ContainsEffects())
                 {
+                    /*
                     foreach (GameObject ge in kvp.Value.TileEffects)
                     {
                         GameObject newEffect = Instantiate(ge, effectParent.transform) as GameObject;
@@ -30,6 +31,7 @@ namespace ProjectSpacer
                         newEffect.SetActive(false);
                         watchedEffects.Add(newEffect);
                     }
+                    */
                 }
             }
         }

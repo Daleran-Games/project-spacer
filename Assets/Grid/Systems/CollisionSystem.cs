@@ -30,7 +30,7 @@ namespace ProjectSpacer
         {
             foreach (KeyValuePair<Vector2Int, Tile> kvp in grid.TileData)
             {
-                switch (kvp.Value.collisionLayer)
+                switch (kvp.Value.GetMaxCollisionLayer())
                 {
                     case CollisionLayer.WORLD:
                         if (WorldCollisionObject == null)
@@ -69,7 +69,7 @@ namespace ProjectSpacer
                         BuildNewCollider(WallCollisionObject, kvp);
                         break;
                     default:
-                        Debug.LogError("PS ERROR: " + kvp.Value.collisionLayer.ToString() + " not a valid Grid collision layer");
+                        Debug.LogError("PS ERROR: " + kvp.Value.GetMaxCollisionLayer().ToString() + " not a valid Grid collision layer");
                         break;
                 }
 

@@ -8,17 +8,12 @@ namespace ProjectSpacer
 
         //INFO//
         // ID Variables
-        public static uint nextID = 0;
         public static Info defaultInfo = new Info();
         public static string defaultName = "NO NAME";
         public static string defaultDesc = "NO DESCRIPTION";
         public static string defaultFlav = "NO FLAVOR TEXT";
         public static Color defaultInfoColor = new Color(0f, 0f, 0f);
         public static Sprite defaultInfoIcon;
-
-        //AUDIO//
-        public static float sfxVolume = 1.0f;
-        public static float musicVolume = 1.0f;
 
         //GRAPHICS//
         //Tile Atlas Variables
@@ -37,10 +32,8 @@ namespace ProjectSpacer
         public static float torqueFactor = 3f;
         public static float headingDeadZone = 0.001f;
         public static float velocityDeadZone = 0.01f;
-        public static float maxVelocityTuner = 3f;
         public static float directionError = 0.001f;
         public static float playerRotateRadian = 0.05f;
-        public static float throttleCutOff = 0.05f;
 
         //Collision Variables
         public static float collisionDamageModifer = 0.01f;
@@ -54,11 +47,6 @@ namespace ProjectSpacer
                 return true;
             else
                 return false;
-        }
-
-        public static void AdvanceID()
-        {
-            nextID++;
         }
 
         public static float GetZFromMeshLayer(MeshLayer ml)

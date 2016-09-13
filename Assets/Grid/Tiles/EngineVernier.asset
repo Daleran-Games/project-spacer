@@ -28,7 +28,7 @@ MonoBehaviour:
     StatObject: {fileID: 0}
     ThrustMode: 1
   - Stat: 1
-    Value1: 15000
+    Value1: 94000
     Value2: 0
     Value3: 0
     StatVector: {x: 0, y: 0}

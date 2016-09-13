@@ -5,8 +5,9 @@
         WORLD,
         HANGER,
         FLOOR,
+        ENTITY,
         WALL,
-        PROJECTILE,
-        ENTITY
+        PROJECTILE
+        
     }
 }

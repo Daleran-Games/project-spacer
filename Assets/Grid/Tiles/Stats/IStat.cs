@@ -5,10 +5,11 @@ using System.Collections;
 
 namespace ProjectSpacer
 {
-    public interface IStat
+    public interface IStat 
     {
         Info StatInfo { get; }
         Type Type { get; }
+
     }
 }
 

@@ -19,7 +19,7 @@ namespace ProjectSpacer
 
         void Update()
         {
-            if (GameManager.inputManger.help.GetToggleState())
+            if (GameManager.inputManager.help.GetToggleState())
             {
                 playerControls.gameObject.SetActive(true);
             }
@@ -28,7 +28,7 @@ namespace ProjectSpacer
                 playerControls.gameObject.SetActive(false);
             }
 
-            if (GameManager.inputManger.mouseLook.GetToggleState())
+            if (GameManager.inputManager.mouseLook.GetToggleState())
             {
                 Cursor.SetCursor(cursor, Vector2.zero, cursorMode);
             }

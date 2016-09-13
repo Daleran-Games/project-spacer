@@ -34,9 +34,9 @@ MonoBehaviour:
     StatObject: {fileID: 0}
     ThrustMode: 0
   TileQuads:
-  - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
-  - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}
-  - {fileID: 11400000, guid: 71bc228d78762d546b981aeaba1286c5, type: 2}
-  - {fileID: 11400000, guid: 7fe1585e86a92514f88dadb4b88af002, type: 2}
+  - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
+  - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}
+  - {fileID: 11400000, guid: ab13fefcfb6762d4bb27badc0832ac1e, type: 2}
+  - {fileID: 11400000, guid: 69a9f0a6cd9d53d4cb0970489c58a0f2, type: 2}
   TileEffects:
   - {fileID: 1000012317138396, guid: f1936b0873d3c314e8c66764b9792d1c, type: 2}

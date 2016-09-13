@@ -34,7 +34,7 @@ namespace ProjectSpacer
             CW = 0f;
         }
 
-        public void AddTile (Tile tile)
+        public void AddSubTile (SubTile tile)
         {
             tile.TileEnabled += OnEnableDisable;
             if (tile.Enabled == State.ENABLED)
@@ -43,12 +43,12 @@ namespace ProjectSpacer
             }
         }
 
-        public void RemoveTile(Tile tile)
+        public void RemoveSubTile(SubTile tile)
         {
             tile.TileEnabled -= OnEnableDisable;
         }
 
-        void OnEnableDisable (Tile tile, State state)
+        void OnEnableDisable (SubTile tile, State state)
         {
 
         }

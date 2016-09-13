@@ -36,11 +36,7 @@ namespace ProjectSpacer
             {
                 //Debug.Log("Building Tile: " + kvp.Value.TileInfo.name + " at " + kvp.Key.ToString());
                 Vector3 offset = new Vector3(kvp.Key.x - center.x + GV.halfTileSize, kvp.Key.y - center.y + GV.halfTileSize, 0f);
-                foreach (QuadData qd in kvp.Value.tileQuads)
-                {
-                    //Debug.Log("Building Quad: " + qd.atlasCoord.ToString()+ " Directions: " + qd.direction + " Flipped: " + qd.flipped);
-                    meshData.AddQuad(qd, offset);
-                }
+                meshData += kvp.Value.GetMeshData(kvp.Key);
             }
 
             meshFilter.mesh.Clear();

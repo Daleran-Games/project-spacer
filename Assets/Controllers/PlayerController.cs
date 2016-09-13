@@ -15,7 +15,7 @@ namespace ProjectSpacer
         void FixedUpdate()
         {
 
-            if (GameManager.inputManger.mouseLook.GetToggleState())
+            if (GameManager.inputManager.mouseLook.GetToggleState())
             {
                 _directionVector = getRotateVector();
             }
@@ -26,7 +26,7 @@ namespace ProjectSpacer
 
             Vector2 inputVector = getTranslateInputVector();
 
-            if (GameManager.inputManger.drift.GetToggleState())
+            if (GameManager.inputManager.drift.GetToggleState())
             {
                 _translateVector = inputVector.normalized;
             }
@@ -59,7 +59,7 @@ namespace ProjectSpacer
 
         Vector2 getTranslateInputVector()
         {
-            return new Vector2(GameManager.inputManger.strafe.GetAxisValue(), GameManager.inputManger.accelerate.GetAxisValue());
+            return new Vector2(GameManager.inputManager.strafe.GetAxisValue(), GameManager.inputManager.accelerate.GetAxisValue());
         }
 
 
@@ -71,9 +71,9 @@ namespace ProjectSpacer
 
         Vector2 getRotateVector()
         {
-            if (GameManager.inputManger.rotateKeys.GetAxisValue() > 0)
+            if (GameManager.inputManager.rotateKeys.GetAxisValue() > 0)
                 return Vector2.right;
-            else if (GameManager.inputManger.rotateKeys.GetAxisValue() < 0)
+            else if (GameManager.inputManager.rotateKeys.GetAxisValue() < 0)
                 return Vector2.left;
             else
                 return Vector2.up;
