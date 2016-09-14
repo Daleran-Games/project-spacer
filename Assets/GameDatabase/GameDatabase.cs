@@ -3,10 +3,20 @@ using System.Collections.Generic;
 
 namespace ProjectSpacer
 {
-    public class GameDatabase : MonoBehaviour
+    public class GameDatabase 
     {
-        public Dictionary<string, GridEffect> Effects = new Dictionary<string, GridEffect>();
-        
+        Dictionary<string, EffectBlueprint> _effects;
+        Dictionary<string, HullBlueprint> _hulls;
+        Dictionary<string, ArmorBlueprint> _armors;
+        Dictionary<string, ModuleBlueprint> _modules;
+
+        public GameDatabase ()
+        {
+            _effects = new Dictionary<string, EffectBlueprint>();
+            _hulls = new Dictionary<string, HullBlueprint>();
+            _armors = new Dictionary<string, ArmorBlueprint>();
+            _modules = new Dictionary<string, ModuleBlueprint>();
+        }
 
         void SetStatInfo ()
         {
@@ -17,6 +27,17 @@ namespace ProjectSpacer
 
         void BuildHullTiles()
         {
+            Type4Set<CollisionLayer> slopeCols = new Type4Set<CollisionLayer>(CollisionLayer.WALL, CollisionLayer.WALL, CollisionLayer.WALL, CollisionLayer.FLOOR);
+            StatBlueprint[] slopeStats = new StatBlueprint[1] { new MassStatBlueprint(100f) };
+            QuadBlueprint[] slopeCornerQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.CORNER_DOWN, new UVBlueprint(new Vector2Int(0,15)),MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.CORNER_UP, new UVBlueprint(new Vector2Int(0, 15)), MeshLayer.GRID_BASE) };
+            QuadBlueprint[] slopeEdgeQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.SLOPE_DOWN, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.SLOPE_UP, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_BASE) };
+            QuadBlueprint[] slopeInverseQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.INVERSE_DOWN, new UVBlueprint(new Vector2Int(1, 15)), MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.INVERSE_UP, new UVBlueprint(new Vector2Int(1, 15)), MeshLayer.GRID_BASE) };
+            QuadBlueprint[] slopeInteriorQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_BASE) };
+
+            Type4Set<QuadBlueprint[]> slopeQuads = new Type4Set<QuadBlueprint[]>(slopeCornerQuad,slopeEdgeQuad,slopeInverseQuad,slopeInteriorQuad);
+            _hulls.Add("sloped", new HullBlueprint("Slope Hull","","UI/Graphics/Icons/Tiles/Slope.png",slopeCols,slopeStats, slopeQuads ));
+
+            Debug.Log(JsonUtility.ToJson(new HullBlueprint("Slope Hull", "", "UI/Graphics/Icons/Tiles/Slope.png", slopeCols, slopeStats, slopeQuads)));
 
         }
 

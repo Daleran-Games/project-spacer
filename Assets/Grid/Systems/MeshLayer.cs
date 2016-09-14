@@ -16,7 +16,6 @@
         ENTITY,
         GRID_MODULE_LOW,
         GRID_MODULE_HIGH,
-        GRID_WALL,
         GRID_CEILING,
         GRID_TOP,
         HANGER_CEILING,

@@ -27,7 +27,7 @@ namespace ProjectSpacer
 
             GV.atlas = TextureAtlas;
             inputManager = gameObject.GetOrAddComponent<InputManager>();
-            database = gameObject.GetOrAddComponent<GameDatabase>();
+            database = new GameDatabase();
 
         }
 
