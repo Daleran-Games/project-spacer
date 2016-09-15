@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class ModuleBlueprint 
     {
         string _name;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class UVBlueprint
     {
         Vector2Int _uv = Vector2Int.zero;

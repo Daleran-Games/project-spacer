@@ -4,6 +4,7 @@ using System.Collections;
 namespace ProjectSpacer
 {
     //Blueprints are immutable data structures that hold information on how to create the mutable more robust versions of themselves.
+    [System.Serializable]
     public class QuadBlueprint
     {
         QuadShape _quadShape = QuadShape.FLAT;

@@ -2,6 +2,7 @@
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class TileBlueprint
     {
         string _hull;

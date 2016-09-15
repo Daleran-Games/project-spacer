@@ -3,12 +3,22 @@ using System;
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class ThrustStatBlueprint : StatBlueprint
     {
         float _thrust;
-        static string _name;
-        static string _description;
-        static string _iconPath;
+
+        static InfoBlueprint _statInfo;
+        public override InfoBlueprint StatInfo
+        {
+            get { return _statInfo; }
+            protected set { _statInfo = value; }
+        }
+        public static void SetInfo(InfoBlueprint info)
+        {
+            _statInfo = info;
+        }
+
         static Type _statType { get { return typeof(ThrustStatBlueprint); } }
 
 
@@ -25,13 +35,6 @@ namespace ProjectSpacer
         public override float GetPrimaryValue()
         {
             return _thrust;
-        }
-
-        public static void SetInfo(string name, string description, string icon)
-        {
-            _name = name;
-            _description = description;
-            _iconPath = icon;
         }
 
     }

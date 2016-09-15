@@ -1,6 +1,7 @@
 ﻿
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class HullBlueprint 
     {
         string _name;

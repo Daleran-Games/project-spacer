@@ -35,10 +35,9 @@ namespace ProjectSpacer
         {
             if (target == null)
             {
-                GameObject t = GameObject.FindObjectOfType<PlayerController>().gameObject;
-                if (t != null)
+                if (FindObjectOfType<PlayerController>() != null)
                 {
-                    target = t;
+                    target = FindObjectOfType<PlayerController>().gameObject;
                 }
             }
         }

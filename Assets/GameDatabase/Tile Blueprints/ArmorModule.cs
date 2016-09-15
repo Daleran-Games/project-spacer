@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class ArmorBlueprint 
     {
 

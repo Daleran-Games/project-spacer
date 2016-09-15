@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class GameDatabase 
     {
         Dictionary<string, EffectBlueprint> _effects;
@@ -16,13 +17,23 @@ namespace ProjectSpacer
             _hulls = new Dictionary<string, HullBlueprint>();
             _armors = new Dictionary<string, ArmorBlueprint>();
             _modules = new Dictionary<string, ModuleBlueprint>();
+
+
         }
 
-        void SetStatInfo ()
+        void SetStatInfo (string filename)
         {
-            ThrustStatBlueprint.SetInfo("Thrust","Provides thrust in a the direction of the engine.", "UI/Graphics/Icons/Stats/thrust.png");
-            MassStatBlueprint.SetInfo("Mass","Adds to the overall mass which requires more energy to move.", "UI/Graphics/Icons/Stats/mass.png");
-            ConditionStatBlueprint.SetInfo("Condition", "The amound of damge this can recieve before breaking and becoming destroyed..", "UI/Graphics/Icons/Stats/condition.png");
+
+            
+
+            ThrustStatBlueprint.SetInfo(new InfoBlueprint("Thrust","Provides thrust in a the direction of the engine.", "UI/Graphics/Icons/Stats/thrust.png"));
+            MassStatBlueprint.SetInfo(new InfoBlueprint("Mass","Adds to the overall mass which requires more energy to move.", "UI/Graphics/Icons/Stats/mass.png"));
+            ConditionStatBlueprint.SetInfo(new InfoBlueprint("Condition", "The amound of damge this can recieve before breaking and becoming destroyed..", "UI/Graphics/Icons/Stats/condition.png"));
+        }
+
+        void BuildStatInfoFile (string filename)
+        {
+            InfoBlueprint[] infoArray = new InfoBlueprint[3];
         }
 
         void BuildHullTiles()
@@ -35,9 +46,9 @@ namespace ProjectSpacer
             QuadBlueprint[] slopeInteriorQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_BASE) };
 
             Type4Set<QuadBlueprint[]> slopeQuads = new Type4Set<QuadBlueprint[]>(slopeCornerQuad,slopeEdgeQuad,slopeInverseQuad,slopeInteriorQuad);
-            _hulls.Add("sloped", new HullBlueprint("Slope Hull","","UI/Graphics/Icons/Tiles/Slope.png",slopeCols,slopeStats, slopeQuads ));
+            _hulls.Add("Slope Hull", new HullBlueprint("Slope Hull","","UI/Graphics/Icons/Tiles/Slope.png",slopeCols,slopeStats, slopeQuads ));
 
-            Debug.Log(JsonUtility.ToJson(new HullBlueprint("Slope Hull", "", "UI/Graphics/Icons/Tiles/Slope.png", slopeCols, slopeStats, slopeQuads)));
+          
 
         }
 

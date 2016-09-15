@@ -3,13 +3,23 @@ using UnityEngine;
 
 namespace ProjectSpacer
 {
+    [System.Serializable]
     public class ConditionStatBlueprint : StatBlueprint
     {
         float _conditionMax;
         float _conditionBreak;
-        static string _name;
-        static string _description;
-        static string _iconPath;
+
+        static InfoBlueprint _statInfo;
+        public override InfoBlueprint StatInfo
+        {
+            get { return _statInfo; }
+            protected set { _statInfo = value; }
+        }
+        public static void SetInfo(InfoBlueprint info)
+        {
+            _statInfo = info;
+        }
+
         static Type _statType { get { return typeof(ConditionStatBlueprint); } }
 
         public ConditionStatBlueprint(float max, float condBreak)
@@ -26,13 +36,6 @@ namespace ProjectSpacer
         public override float GetPrimaryValue()
         {
             return _conditionMax;
-        }
-
-        public static void SetInfo(string name, string description, string icon)
-        {
-            _name = name;
-            _description = description;
-            _iconPath = icon;
         }
 
     }
