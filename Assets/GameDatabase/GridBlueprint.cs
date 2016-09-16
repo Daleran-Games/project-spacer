@@ -3,7 +3,7 @@
 namespace ProjectSpacer
 {
     [System.Serializable]
-    public class GridBlueprint
+    public class GridBlueprint 
     {
 
     }

@@ -46,9 +46,7 @@ namespace ProjectSpacer
             QuadBlueprint[] slopeInteriorQuad = new QuadBlueprint[2] { new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_CEILING), new QuadBlueprint(QuadShape.FLAT, new UVBlueprint(new Vector2Int(2, 15)), MeshLayer.GRID_BASE) };
 
             Type4Set<QuadBlueprint[]> slopeQuads = new Type4Set<QuadBlueprint[]>(slopeCornerQuad,slopeEdgeQuad,slopeInverseQuad,slopeInteriorQuad);
-            _hulls.Add("Slope Hull", new HullBlueprint("Slope Hull","","UI/Graphics/Icons/Tiles/Slope.png",slopeCols,slopeStats, slopeQuads ));
-
-          
+            _hulls.Add("Slope Hull", new HullBlueprint(new InfoBlueprint("Slope Hull", "", "UI/Graphics/Icons/Tiles/Slope.png"),slopeCols,slopeStats, slopeQuads ));
 
         }
 

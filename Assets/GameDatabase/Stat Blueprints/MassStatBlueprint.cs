@@ -14,6 +14,7 @@ namespace ProjectSpacer
             get { return _statInfo; }
             protected set { _statInfo = value; }
         }
+
         public static void SetInfo(InfoBlueprint info)
         {
             _statInfo = info;

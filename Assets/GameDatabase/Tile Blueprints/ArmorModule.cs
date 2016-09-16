@@ -8,19 +8,20 @@ namespace ProjectSpacer
     public class ArmorBlueprint 
     {
 
-        string _name;
-        string _description;
-        string _iconPath;
+        InfoBlueprint _armorInfo;
+        public InfoBlueprint ArmorInfo
+        {
+            get { return _armorInfo; }
+            set { _armorInfo = value; }
+        }
 
         Type4Set<QuadBlueprint[]> _quads;
         StatBlueprint[] _armorStats;
 
 
-        public ArmorBlueprint(string name, string desc, string icon, StatBlueprint[] stats, Type4Set<QuadBlueprint[]> quads)
+        public ArmorBlueprint(InfoBlueprint armorInfo, StatBlueprint[] stats, Type4Set<QuadBlueprint[]> quads)
         {
-            _name = name;
-            _description = desc;
-            _iconPath = icon;
+            ArmorInfo = armorInfo;
 
             _quads = quads;
             _armorStats = stats;

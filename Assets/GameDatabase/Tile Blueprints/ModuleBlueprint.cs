@@ -6,9 +6,12 @@ namespace ProjectSpacer
     [System.Serializable]
     public class ModuleBlueprint 
     {
-        string _name;
-        string _description;
-        string _iconPath;
+        InfoBlueprint _moduleInfo;
+        public InfoBlueprint ModuleInfo
+        {
+            get { return _moduleInfo; }
+            set { _moduleInfo = value; }
+        }
 
         bool _overrideHullShape = false;
 
@@ -17,11 +20,9 @@ namespace ProjectSpacer
         StatBlueprint[] _moduleStats;
         EffectBlueprint[] _effects;
 
-        public ModuleBlueprint(string name, string desc, string icon, bool overrideShape, CollisionLayer col, QuadBlueprint[] quads, StatBlueprint[] stats)
+        public ModuleBlueprint(InfoBlueprint moduleInfo, bool overrideShape, CollisionLayer col, QuadBlueprint[] quads, StatBlueprint[] stats)
         {
-            _name = name;
-            _description = desc;
-            _iconPath = icon;
+            ModuleInfo = moduleInfo;
             _overrideHullShape = overrideShape;
 
             _moduleCollision = col;
@@ -29,11 +30,9 @@ namespace ProjectSpacer
             _moduleStats = stats;
         }
 
-        public ModuleBlueprint(string name, string desc, string icon, bool overrideShape, CollisionLayer col, QuadBlueprint[] quads, StatBlueprint[] stats, EffectBlueprint[] effects)
+        public ModuleBlueprint(InfoBlueprint moduleInfo, bool overrideShape, CollisionLayer col, QuadBlueprint[] quads, StatBlueprint[] stats, EffectBlueprint[] effects)
         {
-            _name = name;
-            _description = desc;
-            _iconPath = icon;
+            ModuleInfo = moduleInfo;
             _overrideHullShape = overrideShape;
 
             _moduleCollision = col;
