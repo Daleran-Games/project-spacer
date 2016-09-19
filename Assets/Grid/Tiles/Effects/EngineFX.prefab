@@ -53,7 +53,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012228637250}
-  - 114: {fileID: 114000013658905422}
   m_Layer: 0
   m_Name: EngineFX
   m_TagString: Untagged
@@ -250,21 +249,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000013658905422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012317138396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403ba69bf39cd584683500e6820711a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SubEffect:
-  - {fileID: 1000012240843812}
-  - {fileID: 1000011807623450}
-  EffectConditions: 00000000
 --- !u!198 &198000013247239256
 ParticleSystem:
   m_ObjectHideFlags: 1

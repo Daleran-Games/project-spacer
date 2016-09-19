@@ -22,78 +22,78 @@ MonoBehaviour:
     Interior: 2
   Quads:
     Corner:
-    - Shape: 0
+    - Shape: 5
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 4
       QuadUV:
         UV:
           x: 0
-          y: 0
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
-    - Shape: 0
+    - Shape: 4
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 11
       QuadUV:
         UV:
           x: 0
-          y: 0
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
     Edge:
-    - Shape: 0
+    - Shape: 2
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 4
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 2
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
-    - Shape: 0
+    - Shape: 1
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 11
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 2
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
     Inverse:
-    - Shape: 0
+    - Shape: 9
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 4
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 1
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
-    - Shape: 0
+    - Shape: 8
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 11
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 1
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
     Interior:
     - Shape: 0
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 4
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 2
+          y: 15
         Colorable: 0
         FlipAcrossX: 0
     - Shape: 0
       QuadDirection: 0
-      QuadMeshLayer: 0
+      QuadMeshLayer: 11
       QuadUV:
         UV:
-          x: 0
-          y: 0
+          x: 2
+          y: 15
         Colorable: 0
         FlipAcrossX: 0

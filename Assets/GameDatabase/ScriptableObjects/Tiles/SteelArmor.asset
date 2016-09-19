@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: SteelArmor
   m_EditorClassIdentifier: 
   ArmorInfo:
-    Icon: {fileID: 21300000, guid: f24842f0d438aa94e885e52e0f354a17, type: 3}
+    Icon: {fileID: 21300024, guid: 22ffd68a1ca543d4a97469cd235da262, type: 3}
     Name: Steel Armor
     Description: Simple steel armor is a perfect comprimise between weight, strength,
       and cost.

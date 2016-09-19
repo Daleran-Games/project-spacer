@@ -8,7 +8,8 @@ namespace ProjectSpacer
         EDGE,
         CORNER,
         INVERSE,
-        INTERIOR
+        INTERIOR,
+        Null
 
     }
 }

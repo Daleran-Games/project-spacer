@@ -9,12 +9,11 @@ namespace ProjectSpacer
 
         SerializedProperty x, y;
         string name;
-        bool cache = false;
+
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            if (!cache)
-            {
+   
                 //get the name before it's gone
                 name = property.displayName;
 
@@ -24,8 +23,6 @@ namespace ProjectSpacer
                 property.Next(true);
                 y = property.Copy();
 
-                cache = true;
-            }
 
             Rect contentPosition = EditorGUI.PrefixLabel(position, new GUIContent(name));
 

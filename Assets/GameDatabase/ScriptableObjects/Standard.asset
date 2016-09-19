@@ -15,5 +15,5 @@ MonoBehaviour:
   HullTiles: []
   ArmorTiles: []
   ModuleTiles: []
-  Effects: []
   GridTemplates: []
+  TileAtlas: {fileID: 2100000, guid: af33732793096f7479d3eaeea1e19d1f, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3129923b19d5454aadcffc852bdf069, type: 3}
+  m_Name: VernierThruster
+  m_EditorClassIdentifier: 
+  ModuleInfo:
+    Icon: {fileID: 21300038, guid: 22ffd68a1ca543d4a97469cd235da262, type: 3}
+    Name: Vernier Thruster
+    Description: Manuvering thruster designed to enable ships to rotate and make percise
+      manuevers. Can be used as a main drive on smaller ships.
+  OverrideHullShape: 1
+  ModuleCollision: 4
+  AllowableSites: 00000000
+  Quads:
+  - Shape: 1
+    QuadDirection: 0
+    QuadMeshLayer: 11
+    QuadUV:
+      UV:
+        x: 15
+        y: 13
+      Colorable: 1
+      FlipAcrossX: 0
+  - Shape: 1
+    QuadDirection: 0
+    QuadMeshLayer: 11
+    QuadUV:
+      UV:
+        x: 15
+        y: 12
+      Colorable: 0
+      FlipAcrossX: 0
+  - Shape: 0
+    QuadDirection: 0
+    QuadMeshLayer: 10
+    QuadUV:
+      UV:
+        x: 15
+        y: 11
+      Colorable: 0
+      FlipAcrossX: 1
+  Effects:
+  - Offset: {x: 0, y: 0}
+    ActiveStates: 
+    Effects: []

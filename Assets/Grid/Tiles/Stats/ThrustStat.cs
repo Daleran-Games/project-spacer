@@ -8,16 +8,16 @@ namespace ProjectSpacer
 
         public enum ThrusterMode
         {
-            CONTROL,
-            MANUEVER,
-            TRAVEL
+            Rotational,
+            Translate,
+            Travel
         }
 
         public float Thrust =0f;
         public Direction ThrustDirection;
         public Rotation ThrustRotation;
         public float Torque = 0f;
-        public ThrusterMode ThrustMode = ThrusterMode.MANUEVER;
+        public ThrusterMode ThrustMode = ThrusterMode.Translate;
         private static Info _thrustInfo = new Info("Thrust");
 
         public Type Type

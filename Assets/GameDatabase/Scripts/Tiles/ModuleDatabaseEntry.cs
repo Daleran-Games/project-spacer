@@ -11,6 +11,7 @@ namespace ProjectSpacer.Database
         public InfoDatabaseEntry ModuleInfo;
         public bool OverrideHullShape = false;
         public CollisionLayer ModuleCollision;
+        public Type4[] AllowableSites;
 
         public QuadDatabaseEntry[] Quads;
         public StatBaseDatabaseEntry[] ModuleStats;

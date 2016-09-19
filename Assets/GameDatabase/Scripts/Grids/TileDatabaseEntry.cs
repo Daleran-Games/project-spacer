@@ -5,17 +5,10 @@ namespace ProjectSpacer.Database
     [System.Serializable]
     public class TileDatabaseEntry
     {
-        string _hull;
-        string _armor;
-        string _module;
- 
-        public TileDatabaseEntry (string hull, string armor, string module)
-        {
-            _hull = hull;
-            _armor = armor;
-            _module = module;
-        }
-
-
+        public ArmorDatabaseEntry Armor;
+        public HullDatabaseEntry Hull;
+        public ModuleDatabaseEntry Module;
+        public Type4 TileType4;
+        public Direction TileDirection;
     }
 }

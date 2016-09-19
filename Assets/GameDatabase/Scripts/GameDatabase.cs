@@ -11,8 +11,8 @@ namespace ProjectSpacer.Database
         public List<HullDatabaseEntry> HullTiles;
         public List<ArmorDatabaseEntry> ArmorTiles;
         public List<ModuleDatabaseEntry> ModuleTiles;
-        public List<EffectDatabaseEntry> Effects;
         public List<GridDatabaseEntry> GridTemplates;
+        public Material TileAtlas;
 
         public void InitializeDatabase()
         {
