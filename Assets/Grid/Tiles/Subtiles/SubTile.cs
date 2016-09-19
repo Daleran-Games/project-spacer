@@ -9,7 +9,7 @@ namespace ProjectSpacer
     public abstract class SubTile
     {
         public Direction SubTileDirection = Direction.UP;
-        public Quad4Type SubTileType = Quad4Type.INTERIOR;
+        public Type4 SubTileType = Type4.INTERIOR;
         public bool Flipped = false;
         public CollisionLayer SubTileCollision = CollisionLayer.ENTITY;
         public StatCollection SubTileStats = new StatCollection();

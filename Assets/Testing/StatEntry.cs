@@ -8,7 +8,7 @@ namespace ProjectSpacer
     {
 
         [SerializeField]
-        public StatType Stat;
+        public StatTypeEnum Stat;
         [SerializeField]
         public float Value1;
         [SerializeField]

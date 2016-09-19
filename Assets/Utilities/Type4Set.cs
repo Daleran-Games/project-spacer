@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 
 namespace ProjectSpacer
 {
-    [System.Serializable]
-    public class Type4Set<T>
+    public class Type4Set<T> 
     {
 
         T _corner;
@@ -18,6 +18,7 @@ namespace ProjectSpacer
         T _interior;
         public T Interior { get { return _interior; } }
 
+
         public Type4Set (T corner, T edge, T inverse, T interior)
         {
             _corner = corner;
@@ -26,5 +27,5 @@ namespace ProjectSpacer
             _interior = interior;
         }
 
-     }
+    }
 }

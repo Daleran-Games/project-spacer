@@ -7,14 +7,14 @@ namespace ProjectSpacer
     public class Quad4Set
     {
 
-        Dictionary<Quad4Type, QuadSet> _quadSets;
+        Dictionary<Type4, QuadSet> _quadSets;
 
         public Quad4Set ()
         {
-            _quadSets = new Dictionary<Quad4Type, QuadSet>();
+            _quadSets = new Dictionary<Type4, QuadSet>();
         }
 
-        public bool TryAddQuad(Quad4Type type, QuadSet quadSet)
+        public bool TryAddQuad(Type4 type, QuadSet quadSet)
         {
             if (_quadSets.ContainsKey(type))
             {
@@ -27,7 +27,7 @@ namespace ProjectSpacer
             }
         }
 
-        public bool TryGetQuad(Quad4Type type, out QuadSet quadSet)
+        public bool TryGetQuad(Type4 type, out QuadSet quadSet)
         {
             if (_quadSets.ContainsKey(type))
             {

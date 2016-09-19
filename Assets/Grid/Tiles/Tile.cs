@@ -10,7 +10,7 @@ namespace ProjectSpacer
 
         public Info TileInfo = GV.defaultInfo;
 
-        public Quad4Type TileQuad4Type = Quad4Type.INTERIOR;
+        public Type4 TileQuad4Type = Type4.INTERIOR;
         public Direction TileDirection = Direction.UP;
 
         public HullSubTile TileHull;

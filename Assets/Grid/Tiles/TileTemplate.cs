@@ -31,16 +31,16 @@ namespace ProjectSpacer
             {
                 switch (se.Stat)
                 {
-                    case StatType.Mass:
+                    case StatTypeEnum.Mass:
                         stats.AddStat<MassStat>(new MassStat(se.Value1));
                         break;
-                    case StatType.Thrust:
+                    case StatTypeEnum.Thrust:
                         stats.AddStat<ThrustStat>(new ThrustStat(se.Value1, dir, pos, se.ThrustMode));
                         break;
-                    case StatType.Condition:
+                    case StatTypeEnum.Condition:
                         stats.AddStat<ConditionStat>(new ConditionStat(se.Value1, se.Value2));
                         break;
-                    case StatType.Weapon:
+                    case StatTypeEnum.Weapon:
                         stats.AddStat<WeaponStat>(new WeaponStat(se.Value1,se.Value2,se.Value3,se.StatVector,se.StatObject));
                         break;
                     default:

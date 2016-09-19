@@ -1,7 +1,7 @@
 ﻿namespace ProjectSpacer
 {
 
-    public enum StatType
+    public enum StatTypeEnum
     {
         Mass,
         Thrust,

@@ -9,7 +9,6 @@ namespace ProjectSpacer
     {
         Info StatInfo { get; }
         Type Type { get; }
-
     }
 }
 

@@ -14,7 +14,12 @@ namespace ProjectSpacer
         void Update()
         {
             if (target == null)
-                target = FindObjectOfType<PlayerController>().gameObject;
+            {
+                if (FindObjectOfType<PlayerController>() != null)
+                {
+                    target = FindObjectOfType<PlayerController>().gameObject;
+                }
+            }
         }
 
         void FixedUpdate()
