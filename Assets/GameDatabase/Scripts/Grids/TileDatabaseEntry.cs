@@ -9,6 +9,7 @@ namespace ProjectSpacer.Database
         public HullDatabaseEntry Hull;
         public ModuleDatabaseEntry Module;
         public Type4 TileType4;
-        public Direction TileDirection;
+        public Direction ModuleDirection;
+        public Color32 TileColor;
     }
 }

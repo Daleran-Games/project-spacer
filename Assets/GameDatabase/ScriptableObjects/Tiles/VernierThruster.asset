@@ -48,6 +48,8 @@ MonoBehaviour:
       Colorable: 0
       FlipAcrossX: 1
   Effects:
-  - Offset: {x: 0, y: 0}
-    ActiveStates: 
-    Effects: []
+  - Offset: {x: 0, y: 0.4}
+    ActiveStates: 00000000
+    Effects:
+    - {fileID: 147286, guid: ade9181bf561afc43afdbcb36b5f62b9, type: 2}
+    - {fileID: 1000011838431924, guid: 7fa9991116f62694c8b8027ec73da46a, type: 2}

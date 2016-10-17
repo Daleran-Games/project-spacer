@@ -30,4 +30,9 @@ MonoBehaviour:
         y: 10
       Colorable: 0
       FlipAcrossX: 1
-  Effects: []
+  Effects:
+  - Offset: {x: 0, y: 0.4}
+    ActiveStates: 00000000
+    Effects:
+    - {fileID: 159240, guid: 84d7754ace5f1dc4da1e6a31a0b4f9b1, type: 2}
+    - {fileID: 1000011838431924, guid: 7fa9991116f62694c8b8027ec73da46a, type: 2}

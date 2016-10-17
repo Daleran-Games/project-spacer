@@ -4,7 +4,7 @@ using System;
 
 namespace ProjectSpacer.Database
 {
-    [System.Serializable]
+    [Serializable]
 
     public class MassStatDatabaseEntry : StatBaseDatabaseEntry
     {

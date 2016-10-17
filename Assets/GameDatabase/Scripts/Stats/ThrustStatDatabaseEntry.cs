@@ -9,7 +9,6 @@ namespace ProjectSpacer.Database
     {
         float _thrust;
 
-        [SerializeField]
         static InfoDatabaseEntry _statInfo;
         public override InfoDatabaseEntry StatInfo
         {
