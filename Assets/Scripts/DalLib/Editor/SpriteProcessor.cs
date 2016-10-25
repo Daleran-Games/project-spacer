@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-namespace ProjectSpacer
+namespace DalLib.Unity
 {
     public class SpriteProcessor : AssetPostprocessor
     {

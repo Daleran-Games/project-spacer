@@ -14,38 +14,62 @@ MonoBehaviour:
   GridInfo:
     name: The Test Ship
     description: The first ship to be built
-    flavorText: From here we slippled the surley bonds of gravity and were let loose
-      upon the stars
-    textColor: {r: 0.88235295, g: 0.09083043, b: 0.09083043, a: 0}
     icon: {fileID: 0}
   TileRows:
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 7
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 1
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
   - SavedElements:
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6e9db94ab512b114ba9142eb6e8cfe7e, type: 2}
       Rotation: 0
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295
     - Tile: {fileID: 11400000, guid: 6791821d684a04941b0a7df9454b0b76, type: 2}
       Rotation: 6
       Flipped: 0
+      TileColor:
+        serializedVersion: 2
+        rgba: 4294967295

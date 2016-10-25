@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace ProjectSpacer
+namespace DalLib.Math
 {
    [CustomPropertyDrawer(typeof(Vector2Int))]
     public class Vector2IntDrawer : PropertyDrawer

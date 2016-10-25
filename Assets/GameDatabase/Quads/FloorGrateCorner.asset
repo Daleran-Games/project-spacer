@@ -16,3 +16,4 @@ MonoBehaviour:
   atlasCoord:
     x: 0
     y: 3
+  colorable: 0

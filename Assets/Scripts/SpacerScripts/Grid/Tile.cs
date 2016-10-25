@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using DalLib.Math;
 
 namespace ProjectSpacer
 {
-
-
     public class Tile
     {
-
         public Info TileInfo = GV.defaultInfo;
 
         public Type4 TileQuad4Type = Type4.INTERIOR;

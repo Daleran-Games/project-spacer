@@ -15,8 +15,6 @@ MonoBehaviour:
     name: Small Thruster
     description: A small thruster meant for small ships or fine tuned manuvering on
       larger ships
-    flavorText: Keeps us moving
-    textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300028, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   CollisionType: 3
   TileStats:
@@ -40,4 +38,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6661c813c6cc0264a85d4a8c7ff5d587, type: 2}
   - {fileID: 11400000, guid: cb7d6a70ada91af41bc1dfbdae6ad56e, type: 2}
   TileEffects:
-  - {fileID: 1000012317138396, guid: f1936b0873d3c314e8c66764b9792d1c, type: 2}
+  - {fileID: 0}

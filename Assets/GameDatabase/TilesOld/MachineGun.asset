@@ -14,8 +14,6 @@ MonoBehaviour:
   TileInfo:
     name: 13mm MG
     description: A smaller caliber vulcan cannon ideal for small ships
-    flavorText: Bang Bang
-    textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300038, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   CollisionType: 3
   TileStats:
@@ -25,6 +23,7 @@ MonoBehaviour:
     Value3: 0
     StatVector: {x: 0, y: 1}
     StatObject: {fileID: 0}
+    ThrustMode: 0
   - Stat: 3
     Value1: 10
     Value2: 10
@@ -32,6 +31,7 @@ MonoBehaviour:
     StatVector: {x: 0, y: 1}
     StatObject: {fileID: 1000010307642142, guid: 9eaed398a93eefd4881b22620fe623d6,
       type: 2}
+    ThrustMode: 0
   TileQuads:
   - {fileID: 11400000, guid: 41f87ea58bb57d34ab1a925309c0c39b, type: 2}
   - {fileID: 11400000, guid: b6fb4d2a2cfb6784fa34bf5236deb09d, type: 2}

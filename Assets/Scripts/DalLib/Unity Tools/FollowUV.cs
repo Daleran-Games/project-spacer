@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectSpacer
+namespace DalLib.Unity
 {
 
     public class FollowUV : MonoBehaviour

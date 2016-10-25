@@ -14,8 +14,6 @@ MonoBehaviour:
   TileInfo:
     name: Hull
     description: A basic hull for any ship
-    flavorText: The only thing between  us and the void is a thin piece of metal
-    textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   CollisionType: 3
   TileStats:
@@ -25,6 +23,7 @@ MonoBehaviour:
     Value3: 0
     StatVector: {x: 0, y: 0}
     StatObject: {fileID: 0}
+    ThrustMode: 0
   TileQuads:
   - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
   - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}

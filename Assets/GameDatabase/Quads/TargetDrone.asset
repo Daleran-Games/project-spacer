@@ -14,8 +14,6 @@ MonoBehaviour:
   GridInfo:
     name: Target Drone
     description: Simple drone for target practiace
-    flavorText: Good for training, not good for much else.
-    textColor: {r: 1, g: 0.5586207, b: 0, a: 1}
     icon: {fileID: 0}
   TileRows:
   - SavedElements:

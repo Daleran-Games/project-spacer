@@ -136,8 +136,6 @@ MonoBehaviour:
   ProjectileInfo:
     name: NO NAME
     description: NO DESCRIPTION
-    flavorText: NO FLAVOR TEXT
-    textColor: {r: 0, g: 0, b: 0, a: 1}
     icon: {fileID: 0}
   speed: 100
   burnOut: 1

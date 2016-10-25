@@ -14,8 +14,6 @@ MonoBehaviour:
   GridInfo:
     name: Wraith
     description: Tiny fighter meant for patrolling around space stations
-    flavorText: The viper is an old workhorse of station securities everywhere
-    textColor: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300010, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
   TileRows:
   - SavedElements:
