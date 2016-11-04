@@ -10,7 +10,7 @@ namespace ProjectSpacer.Database
     { 
 
         public QuadShape Shape = QuadShape.FLAT;
-        public Direction QuadDirection = Direction.UP;
+        public Direction QuadDirection = Direction.Up;
         public MeshLayer QuadMeshLayer = MeshLayer.GRID_FLOOR;
         public UVDatabaseEntry QuadUV = new UVDatabaseEntry(Vector2Int.zero);
 
@@ -19,7 +19,7 @@ namespace ProjectSpacer.Database
         public QuadDatabaseEntry(QuadShape qShape, UVDatabaseEntry uv, MeshLayer layer)
         {
             Shape = qShape;
-            QuadDirection = Direction.UP;
+            QuadDirection = Direction.Up;
             QuadUV = uv;
             QuadMeshLayer = layer;
         }

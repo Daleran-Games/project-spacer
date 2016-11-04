@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public class ThrustModule : MonoBehaviour {
+namespace ProjectSpacer
+{
+    public class ThrustModule : MonoBehaviour
+    {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        public float UpThrust = 0f;
+        public float LeftThrust = 0f;
+        public float RightThrust = 0f;
+        public float DownThrust = 0f;
+
+    }
 }

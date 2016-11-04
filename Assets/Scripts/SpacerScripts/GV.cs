@@ -116,13 +116,13 @@ namespace ProjectSpacer
         {
             switch(dir)
             {
-                case Direction.UP:
+                case Direction.Up:
                     return new Vector3(0f,0f,0f);
-                case Direction.RIGHT:
+                case Direction.Right:
                     return new Vector3(0f,0f,270f);
-                case Direction.LEFT:
+                case Direction.Left:
                     return new Vector3(0f, 0f, 90f);
-                case Direction.DOWN:
+                case Direction.Down:
                     return new Vector3(0f,0f,180f);
                 default:
                     Debug.LogError("PS ERROR: " + dir + " not a valid direction.");

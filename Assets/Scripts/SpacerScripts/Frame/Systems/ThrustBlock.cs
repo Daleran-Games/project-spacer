@@ -60,16 +60,16 @@ namespace ProjectSpacer
 
             switch (dir)
             {
-                case Direction.UP:
+                case Direction.Up:
                     Up += amount;
                     break;
-                case Direction.DOWN:
+                case Direction.Down:
                     Down += amount;
                     break;
-                case Direction.RIGHT:
+                case Direction.Right:
                     Right += amount;
                     break;
-                case Direction.LEFT:
+                case Direction.Left:
                     Left += amount;
                     break;
                 default:

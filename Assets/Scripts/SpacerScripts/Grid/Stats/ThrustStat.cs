@@ -36,8 +36,8 @@ namespace ProjectSpacer
 
         public ThrustStat()
         {
-            ThrustDirection = getThrustDirection(Direction.UP);
-            ThrustRotation = getThrustRotation(Direction.UP, Vector2Int.zero);
+            ThrustDirection = getThrustDirection(Direction.Up);
+            ThrustRotation = getThrustRotation(Direction.Up, Vector2Int.zero);
         }
 
         public ThrustStat(float thrustAmount, Direction tileDirection, Vector2Int tilePosition, ThrusterMode thrustMode)
@@ -52,17 +52,17 @@ namespace ProjectSpacer
         {
             switch(dir)
             {
-                case Direction.UP:
-                    return Direction.DOWN;
-                case Direction.DOWN:
-                    return Direction.UP;
-                case Direction.RIGHT:
-                    return Direction.LEFT;
-                case Direction.LEFT:
-                    return Direction.RIGHT;
+                case Direction.Up:
+                    return Direction.Down;
+                case Direction.Down:
+                    return Direction.Up;
+                case Direction.Right:
+                    return Direction.Left;
+                case Direction.Left:
+                    return Direction.Right;
                 default:
                     Debug.LogError("PS ERROR: " + dir.ToString() + " not a valid orientation for thrust direction");
-                    return Direction.UP; 
+                    return Direction.Up; 
             }
         }
 
@@ -70,7 +70,7 @@ namespace ProjectSpacer
         {
             switch (dir)
             {
-                case Direction.UP:
+                case Direction.Up:
                     if (localPos.x > 0)
                     {
                         Torque = 0f;
@@ -86,21 +86,21 @@ namespace ProjectSpacer
                         Torque = 0f;
                         return Rotation.NONE;
                     }
-                case Direction.DOWN:
+                case Direction.Down:
                     if (localPos.x > 0)
                         return Rotation.CCW;
                     else if (localPos.x < 0)
                         return Rotation.CW;
                     else
                         return Rotation.NONE;
-                case Direction.RIGHT:
+                case Direction.Right:
                     if (localPos.y > 0)
                         return Rotation.CCW;
                     else if (localPos.y < 0)
                         return Rotation.CW;
                     else
                         return Rotation.NONE;
-                case Direction.LEFT:
+                case Direction.Left:
                     if (localPos.y > 0)
                         return Rotation.CW;
                     else if (localPos.y < 0)

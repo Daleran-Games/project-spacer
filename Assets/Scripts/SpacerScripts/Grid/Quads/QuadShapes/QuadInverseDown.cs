@@ -66,10 +66,10 @@ namespace ProjectSpacer
         {
             switch (dir)
             {
-                case Direction.UP:
+                case Direction.Up:
 
                     break;
-                case Direction.RIGHT:
+                case Direction.Right:
                     vertices[0] = new Vector3(vertices[0].x, vertices[0].y + GV.tileSize, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x, vertices[2].y - GV.tileSize, vertices[2].z);
@@ -77,7 +77,7 @@ namespace ProjectSpacer
                     vertices[4] = new Vector3(vertices[4].x, vertices[4].y + GV.tileSize, vertices[4].z);
                     vertices[5] = new Vector3(vertices[5].x, vertices[5].y - GV.tileSize, vertices[5].z);
                     break;
-                case Direction.LEFT:
+                case Direction.Left:
                     vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x, vertices[1].y - GV.tileSize, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y, vertices[2].z);
@@ -85,7 +85,7 @@ namespace ProjectSpacer
                     vertices[4] = new Vector3(vertices[4].x + GV.tileSize, vertices[4].y, vertices[4].z);
                     vertices[5] = vertices[5] = new Vector3(vertices[5].x - GV.tileSize, vertices[5].y, vertices[5].z);
                     break;
-                case Direction.DOWN:
+                case Direction.Down:
                     vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y + GV.tileSize, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y - GV.tileSize, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y - GV.tileSize, vertices[2].z);

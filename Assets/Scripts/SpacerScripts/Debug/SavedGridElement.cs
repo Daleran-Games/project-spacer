@@ -10,7 +10,7 @@ namespace ProjectSpacer
         [SerializeField]
         public TileTemplate Tile;
         [SerializeField]
-        public Direction Rotation = Direction.UP;
+        public Direction Rotation = Direction.Up;
         [SerializeField]
         public bool Flipped = false;
         [SerializeField]

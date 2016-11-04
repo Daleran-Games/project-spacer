@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UniverseBase
+    uniqueID: 3171803241
+    locked: 0
+  - name: HangerBase
+    uniqueID: 1874708733
+    locked: 0
+  - name: ShipInterior
+    uniqueID: 188194495
+    locked: 0
+  - name: Entities
+    uniqueID: 2755386045
+    locked: 0
+  - name: ShipExterior
+    uniqueID: 1012399437
+    locked: 0
+  - name: StationExterior
+    uniqueID: 86782099
+    locked: 0
+  - name: UniverseTop
+    uniqueID: 816151927
+    locked: 0

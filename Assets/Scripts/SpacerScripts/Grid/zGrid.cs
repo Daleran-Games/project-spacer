@@ -55,7 +55,7 @@ namespace ProjectSpacer
         public virtual void OnCollisionEnter2D(Collision2D collision)
         {
 
-
+            /*
             GameObject incomingObject = collision.contacts[0].collider.gameObject;
             GameObject partHit = collision.contacts[0].otherCollider.gameObject;
 
@@ -78,7 +78,7 @@ namespace ProjectSpacer
                     partHit.GetComponent<DamageModule>().Damage(incomingObject.GetComponent<Projectile>().damage);
                 }
             }
-
+            */
 
         }
 

@@ -9,11 +9,13 @@ namespace ProjectSpacer
         public Info TileInfo = GV.defaultInfo;
 
         public Type4 TileQuad4Type = Type4.INTERIOR;
-        public Direction TileDirection = Direction.UP;
+        public Direction TileDirection = Direction.Up;
 
+        /*
         public HullSubTile TileHull;
         public ArmorSubTile TileArmor;
         public ModuleSubTile TileModule;
+        */
 
         public Vector2Int GridCoordinate = Vector2Int.zero;
 

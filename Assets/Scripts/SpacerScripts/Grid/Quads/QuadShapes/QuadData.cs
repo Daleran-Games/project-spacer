@@ -17,7 +17,7 @@ namespace ProjectSpacer
         protected bool isBuilt = false;
 
         protected MeshLayer layer = MeshLayer.ENTITY;
-        protected Direction direction = Direction.UP;
+        protected Direction direction = Direction.Up;
         protected QuadShape shape = QuadShape.FLAT;
         protected bool flipped = false;
         protected bool colorable = false;
@@ -100,29 +100,29 @@ namespace ProjectSpacer
 
             switch (direction)
             {
-                case Direction.UP:
+                case Direction.Up:
                     if (right == true)
-                        direction = Direction.RIGHT;
+                        direction = Direction.Right;
                     else
-                        direction = Direction.LEFT;
+                        direction = Direction.Left;
                     break;
-                case Direction.RIGHT:
+                case Direction.Right:
                     if (right == true)
-                        direction = Direction.DOWN;
+                        direction = Direction.Down;
                     else
-                        direction = Direction.UP;
+                        direction = Direction.Up;
                     break;
-                case Direction.LEFT:
+                case Direction.Left:
                     if (right == true)
-                        direction = Direction.UP;
+                        direction = Direction.Up;
                     else
-                        direction = Direction.DOWN;
+                        direction = Direction.Down;
                     break;
-                case Direction.DOWN:
+                case Direction.Down:
                     if (right == true)
-                        direction = Direction.LEFT;
+                        direction = Direction.Left;
                     else
-                        direction = Direction.RIGHT;
+                        direction = Direction.Right;
                     break;
                 default:
                     Debug.LogError("PS ERROR: " + direction.ToString() + " not a valid direction.");
@@ -135,22 +135,22 @@ namespace ProjectSpacer
 
             switch (dir)
             {
-                case Direction.UP:
+                case Direction.Up:
 
                     break;
-                case Direction.RIGHT:
+                case Direction.Right:
                     vertices[0] = new Vector3(vertices[0].x, vertices[0].y + GV.tileSize, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x, vertices[2].y - GV.tileSize, vertices[2].z);
                     vertices[3] = new Vector3(vertices[3].x - GV.tileSize, vertices[3].y, vertices[3].z);
                     break;
-                case Direction.LEFT:
+                case Direction.Left:
                     vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x, vertices[1].y - GV.tileSize, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y, vertices[2].z);
                     vertices[3] = new Vector3(vertices[3].x, vertices[3].y + GV.tileSize, vertices[3].z);
                     break;
-                case Direction.DOWN:
+                case Direction.Down:
                     vertices[0] = new Vector3(vertices[0].x + GV.tileSize, vertices[0].y + GV.tileSize, vertices[0].z);
                     vertices[1] = new Vector3(vertices[1].x + GV.tileSize, vertices[1].y - GV.tileSize, vertices[1].z);
                     vertices[2] = new Vector3(vertices[2].x - GV.tileSize, vertices[2].y - GV.tileSize, vertices[2].z);
