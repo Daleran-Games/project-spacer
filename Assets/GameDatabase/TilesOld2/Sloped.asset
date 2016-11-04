@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9227a56694adb4f85f2065f7d73894, type: 3}
+  m_Name: Sloped
+  m_EditorClassIdentifier: 
+  HullInfo:
+    Icon: {fileID: 21300000, guid: 3a3947a071bda3d44936c4fceefb258c, type: 3}
+    Name: Slope
+    Description: Uses angles to offer greater protection but at reduced space.
+  HullCollision:
+    Corner: 4
+    Edge: 4
+    Inverse: 4
+    Interior: 2
+  Quads:
+    Corner:
+    - Shape: 5
+      QuadDirection: 0
+      QuadMeshLayer: 4
+      QuadUV:
+        UV:
+          x: 0
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    - Shape: 4
+      QuadDirection: 0
+      QuadMeshLayer: 11
+      QuadUV:
+        UV:
+          x: 0
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    Edge:
+    - Shape: 2
+      QuadDirection: 0
+      QuadMeshLayer: 4
+      QuadUV:
+        UV:
+          x: 2
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    - Shape: 1
+      QuadDirection: 0
+      QuadMeshLayer: 11
+      QuadUV:
+        UV:
+          x: 2
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    Inverse:
+    - Shape: 9
+      QuadDirection: 0
+      QuadMeshLayer: 4
+      QuadUV:
+        UV:
+          x: 1
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    - Shape: 8
+      QuadDirection: 0
+      QuadMeshLayer: 11
+      QuadUV:
+        UV:
+          x: 1
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    Interior:
+    - Shape: 0
+      QuadDirection: 0
+      QuadMeshLayer: 4
+      QuadUV:
+        UV:
+          x: 2
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0
+    - Shape: 0
+      QuadDirection: 0
+      QuadMeshLayer: 11
+      QuadUV:
+        UV:
+          x: 2
+          y: 15
+        Colorable: 0
+        FlipAcrossX: 0

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3129923b19d5454aadcffc852bdf069, type: 3}
+  m_Name: ColdGasThruster
+  m_EditorClassIdentifier: 
+  ModuleInfo:
+    Icon: {fileID: 21300048, guid: 22ffd68a1ca543d4a97469cd235da262, type: 3}
+    Name: Cold Gas Thruster
+    Description: Cold gas thruster propel pressurized gas to perform percise movements
+      in space. Great for small ships as a manuvering thruster. Will use any pressurized
+      gas on board.
+  OverrideHullShape: 0
+  ModuleCollision: 4
+  AllowableSites: 0000000001000000
+  Quads:
+  - Shape: 0
+    QuadDirection: 0
+    QuadMeshLayer: 10
+    QuadUV:
+      UV:
+        x: 15
+        y: 10
+      Colorable: 0
+      FlipAcrossX: 1
+  Effects:
+  - Offset: {x: 0, y: 0.4}
+    ActiveStates: 00000000
+    Effects:
+    - {fileID: 159240, guid: 84d7754ace5f1dc4da1e6a31a0b4f9b1, type: 2}
+    - {fileID: 1000011838431924, guid: 7fa9991116f62694c8b8027ec73da46a, type: 2}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
+  m_Name: AmmoContainer
+  m_EditorClassIdentifier: 
+  TileInfo:
+    name: Ammo Container
+    description: Container capable of holding rounds and feeding them into a weapon
+      system.
+    icon: {fileID: 21300020, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value1: 75
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
+    ThrustMode: 0
+  TileQuads:
+  - {fileID: 11400000, guid: 86c5edb774903b6459530353057c97d3, type: 2}
+  - {fileID: 11400000, guid: 61f2f0ffc8faec8468ec00cc9c71221a, type: 2}
+  - {fileID: 11400000, guid: 3c4ff1cca18504b4d9e767f98d2f5047, type: 2}
+  - {fileID: 11400000, guid: 9fbcfad6d65e0b14d8bb04ae2baf2e89, type: 2}
+  TileEffects: []

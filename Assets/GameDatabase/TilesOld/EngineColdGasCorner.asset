@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f057ef3177bb342b2c803b0c280c25, type: 3}
+  m_Name: EngineColdGasCorner
+  m_EditorClassIdentifier: 
+  TileInfo:
+    name: Cold Gas Thruster
+    description: Small thruster that exhausts cold gas to apply thrust.
+    icon: {fileID: 21300030, guid: 6488e00f7bf68244a8a1cb819ec2423e, type: 3}
+  CollisionType: 3
+  TileStats:
+  - Stat: 0
+    Value1: 120
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
+    ThrustMode: 1
+  - Stat: 1
+    Value1: 750
+    Value2: 0
+    Value3: 0
+    StatVector: {x: 0, y: 0}
+    StatObject: {fileID: 0}
+    ThrustMode: 0
+  TileQuads:
+  - {fileID: 11400000, guid: 294c86f78ba20bb448c7c2eead941702, type: 2}
+  - {fileID: 11400000, guid: 5db67dd49e3e51840b5b96f656ff5f35, type: 2}
+  - {fileID: 11400000, guid: 71bc228d78762d546b981aeaba1286c5, type: 2}
+  - {fileID: 11400000, guid: 7fe1585e86a92514f88dadb4b88af002, type: 2}
+  TileEffects:
+  - {fileID: 0}

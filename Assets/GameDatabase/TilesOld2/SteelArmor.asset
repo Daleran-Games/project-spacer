@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a8cbec7b186bb4e8af93f9ca7faa8f, type: 3}
+  m_Name: SteelArmor
+  m_EditorClassIdentifier: 
+  ArmorInfo:
+    Icon: {fileID: 21300024, guid: 22ffd68a1ca543d4a97469cd235da262, type: 3}
+    Name: Steel Armor
+    Description: Simple steel armor is a perfect comprimise between weight, strength,
+      and cost.
+  UVs:
+    Corner:
+    - UV:
+        x: 0
+        y: 14
+      Colorable: 0
+      FlipAcrossX: 0
+      UVLayer: 4
+    - UV:
+        x: 0
+        y: 13
+      Colorable: 1
+      FlipAcrossX: 0
+      UVLayer: 11
+    Edge:
+    - UV:
+        x: 2
+        y: 14
+      Colorable: 0
+      FlipAcrossX: 0
+      UVLayer: 4
+    - UV:
+        x: 2
+        y: 13
+      Colorable: 1
+      FlipAcrossX: 0
+      UVLayer: 11
+    Inverse:
+    - UV:
+        x: 1
+        y: 14
+      Colorable: 0
+      FlipAcrossX: 0
+      UVLayer: 4
+    - UV:
+        x: 1
+        y: 13
+      Colorable: 1
+      FlipAcrossX: 0
+      UVLayer: 11
+    Interior:
+    - UV:
+        x: 2
+        y: 14
+      Colorable: 0
+      FlipAcrossX: 0
+      UVLayer: 4
+    - UV:
+        x: 2
+        y: 13
+      Colorable: 1
+      FlipAcrossX: 0
+      UVLayer: 11

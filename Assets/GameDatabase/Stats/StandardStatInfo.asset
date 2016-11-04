@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b539147f3b414897ade81c348916c, type: 3}
+  m_Name: StandardStatInfo
+  m_EditorClassIdentifier: 
+  ConditionInfo:
+    Icon: {fileID: 21300000, guid: bac6dcd3458a6804698d858d638b8d68, type: 3}
+    Name: Condition
+    Description: The amount of damage the object can recieve before breaking and eventually
+      being destroyed.
+  MassInfo:
+    Icon: {fileID: 21300000, guid: 550fada8ec40de74db5cb7580bf631f7, type: 3}
+    Name: Mass
+    Description: More mass requires more enrgy to move.
+  ThrustInfo:
+    Icon: {fileID: 21300000, guid: d32a677ed80a8b84892d5956877d7633, type: 3}
+    Name: Thrust
+    Description: Provides thrust opposite the direction the engine is pointing.
