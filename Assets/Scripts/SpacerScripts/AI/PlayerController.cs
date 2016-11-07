@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ProjectSpacer
 {
@@ -6,50 +7,56 @@ namespace ProjectSpacer
 
     public class PlayerController : Controller
     {
+        [SerializeField]
+        Vector2 localVelocity;
+        [SerializeField]
+        Vector2 translateVector = Vector2.zero;
+        [SerializeField]
+        Vector2 directionVector = Vector2.zero;
 
-        Vector2 _localVelocity;
+        public override void InitializeControllerExtension()
+        {
 
-        Vector2 _translateVector = Vector2.zero;
-        Vector2 _directionVector = Vector2.zero;
+        }
 
         void FixedUpdate()
         {
 
             if (GameManager.inputManager.mouseLook.GetToggleState())
             {
-                _directionVector = getRotateVector();
+                directionVector = getRotateVector();
             }
             else
             {
-                _directionVector = getMouseVector().normalized;
+                directionVector = getMouseVector().normalized;
             }
 
             Vector2 inputVector = getTranslateInputVector();
 
             if (GameManager.inputManager.drift.GetToggleState())
             {
-                _translateVector = inputVector.normalized;
+                translateVector = inputVector.normalized;
             }
             else
             {
-                _localVelocity = transform.InverseTransformDirection(_grid.GridRigidbody.velocity.normalized);
-                if (inputVector == Vector2.zero && _grid.GridRigidbody.velocity.magnitude > GV.velocityDeadZone)
+                localVelocity = transform.InverseTransformDirection(frame.FrameRigidbody.velocity.normalized);
+                if (inputVector == Vector2.zero && frame.FrameRigidbody.velocity.magnitude > GV.velocityDeadZone)
                 {
-                    _translateVector =  -_localVelocity;
+                    translateVector =  -localVelocity;
                 }
                 else
                 {
                     if (inputVector.x != 0 & inputVector.y == 0)
                     {
-                        _translateVector = new Vector2(inputVector.x, -_localVelocity.y);
+                        translateVector = new Vector2(inputVector.x, -localVelocity.y);
                     }
                     else if (inputVector.x == 0 & inputVector.y != 0)
                     {
-                        _translateVector = new Vector2(-_localVelocity.x, inputVector.y);
+                        translateVector = new Vector2(-localVelocity.x, inputVector.y);
                     }
                     else
                     {
-                        _translateVector = inputVector;
+                        translateVector = inputVector;
                     }
 
                 }
@@ -81,13 +88,14 @@ namespace ProjectSpacer
 
         public override Vector2 GetTranslateVector()
         {
-            return _translateVector;
+            return translateVector;
         }
 
         public override Vector2 GetDirectionVector()
         {
-            return _directionVector;
+            return directionVector;
         }
+
 
     }
 }

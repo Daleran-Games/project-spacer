@@ -55,7 +55,7 @@ namespace ProjectSpacer
             GridMeshSystem.BuildMesh(GridCenter);
 
             GridControlSystem = gameObject.GetOrAddComponent<ControlSystem>();
-            GridControlSystem.InitializeSystem();
+            GridControlSystem.InitializeSystemExtension();
 
             GridCollisionSystem = gameObject.GetOrAddComponent<CollisionSystem>();
             GridCollisionSystem.InitializeSystem();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ProjectSpacer
 {
@@ -7,9 +8,14 @@ namespace ProjectSpacer
     {
 
         public GameObject target;
-        Vector2 _localVelocity;
-        Vector2 _translateVector = Vector2.zero;
-        Vector2 _directionVector = Vector2.zero;
+        Vector2 localVelocity;
+        Vector2 translateVector = Vector2.zero;
+        Vector2 directionVector = Vector2.zero;
+
+        public override void InitializeControllerExtension()
+        {
+
+        }
 
         void Update()
         {
@@ -24,25 +30,26 @@ namespace ProjectSpacer
 
         void FixedUpdate()
         {
-            _localVelocity = transform.InverseTransformDirection(_grid.GridRigidbody.velocity);
+            localVelocity = transform.InverseTransformDirection(frame.FrameRigidbody.velocity);
 
             if (target != null)
             {
-                _directionVector = (Vector2)(target.transform.position - transform.position);
+                directionVector = (Vector2)(target.transform.position - transform.position);
             }
 
-            _translateVector = -_localVelocity;
+            translateVector = -localVelocity;
         }
 
         public override Vector2 GetTranslateVector()
         {
-            return _translateVector;
+            return translateVector;
         }
 
         public override Vector2 GetDirectionVector()
         {
-            return _directionVector;
+            return directionVector;
         }
+
 
     }
 }

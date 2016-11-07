@@ -6,32 +6,33 @@ using DalLib.Unity;
 namespace ProjectSpacer
 {
 
-    public class ControlSystem : MonoBehaviour
+    public class ControlSystem : FrameSystem
     {
 
         public Vector2 thrustVector;
 
-        List<SubTile> _thrustTiles = new List<SubTile>();
+        VectorPID steeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
+        [SerializeField]
+        float steering = 0f;
+        [SerializeField]
+        float PID;
+        [SerializeField]
+        float aimAngle;
 
-        VectorPID _steeringPID = new VectorPID(0.5f, 0.01f, 1.5f);
-        float _steering = 0f;
-        float _PID;
-        float _aimAngle;
-
+        [SerializeField]
         public GameObject parent;
-        Grid _grid;
+
 
         //TEMP PUBLIC
         public Controller controller;
 
-        public virtual void InitializeSystem()
+        public override void InitializeSystemExtension()
         {
 
             parent = gameObject;
-            _grid = parent.GetRequiredComponent<Grid>();
 
-            _grid.ControllerAssigned += OnControllerAssigned;
-            _grid.ControllerUnassigned += OnControllerUnassigned;
+            frame.ControllerAssigned += OnControllerAssigned;
+            frame.ControllerUnassigned += OnControllerUnassigned;
 
             UpdateSystem();
 
@@ -43,7 +44,7 @@ namespace ProjectSpacer
             if (controller != null)
             {
                 thrustVector = setThrustVector(controller.GetTranslateVector());
-                _grid.GridRigidbody.AddRelativeForce(thrustVector);
+                frame.FrameRigidbody.AddRelativeForce(thrustVector);
                 Rotate(controller.GetDirectionVector());
             }
 
@@ -73,19 +74,7 @@ namespace ProjectSpacer
 
         void UpdateSystem()
         {
-            float newMass = 0f;
 
-            foreach (KeyValuePair<Vector2Int, Tile> kvp in _grid.TileData)
-            {
-
-                if (kvp.Value.ContainsStat<ThrustStat>())
-                    _thrustTiles.Add(kvp.Value.GetSubTileWithStat<ThrustStat>());
-
-                if (kvp.Value.ContainsStat<MassStat>())
-                    newMass += kvp.Value.GetTotalStat<MassStat>().Mass;
-            }
-
-            _grid.GridRigidbody.mass = newMass;
         }
 
         public void Rotate(Vector2 direction)
@@ -93,28 +82,28 @@ namespace ProjectSpacer
 
             if (direction != Vector2.zero)
             {
-                _aimAngle = Vector2.Angle(_grid.GridRigidbody.transform.up, direction) / 180f;
+                aimAngle = Vector2.Angle(frame.FrameRigidbody.transform.up, direction) / 180f;
 
-                if (Vector3.Cross(_grid.GridRigidbody.transform.up, direction).z > 0)
-                    _aimAngle = _aimAngle * -1f;
+                if (Vector3.Cross(frame.FrameRigidbody.transform.up, direction).z > 0)
+                    aimAngle = aimAngle * -1f;
 
-                _PID = _steeringPID.Update(_aimAngle, Time.fixedDeltaTime);
+                PID = steeringPID.Update(aimAngle, Time.fixedDeltaTime);
 
-                if (_aimAngle > 0)
+                if (aimAngle > 0)
                 {
-                    _steering = 0f;
+                    steering = 0f;
 
                 }
-                else if (_aimAngle < 0)
+                else if (aimAngle < 0)
                 {
-                    _steering = 0f;
+                    steering = 0f;
                 }
 
-                if (_PID < GV.headingDeadZone && _PID > -GV.headingDeadZone)
+                if (PID < GV.headingDeadZone && PID > -GV.headingDeadZone)
                 {
-                    _steering = 0f;
+                    steering = 0f;
                 }
-                _grid.GridRigidbody.AddTorque(-_PID * _steering * GV.torqueFactor);
+                frame.FrameRigidbody.AddTorque(-PID * steering * GV.torqueFactor);
             }
 
         }

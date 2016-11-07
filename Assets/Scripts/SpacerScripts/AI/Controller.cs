@@ -7,13 +7,15 @@ namespace ProjectSpacer
     public abstract class Controller : MonoBehaviour
     {
 
-        protected Grid _grid;
+        protected Frame frame;
 
-        public virtual void InitializeController()
+        public void InitializeController()
         {
-            _grid = gameObject.GetRequiredComponent<Grid>();
+            frame = gameObject.GetRequiredComponent<Frame>();
 
         }
+
+        public abstract void InitializeControllerExtension();
 
         public abstract Vector2 GetTranslateVector();
         public abstract Vector2 GetDirectionVector();
